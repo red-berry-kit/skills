@@ -10,7 +10,7 @@ description: Use when implementing features, changing architecture, evaluating d
 ## 理解任务
 
 1. 阅读目标项目的 `AGENTS.md`（如有）和相关实现，明确目标、变更边界及验收条件。已有结论仍适用时直接复用。
-2. 以目标项目文档为准，按变更范围阅读专题。红梅源码仓库的规范入口是[开发约定](../../docs/conventions.md)；涉及架构和流程时阅读[设计与架构](../../docs/design.md)。不要将红梅源码仓库的目录位置当作所有业务项目的安装约定。
+2. 以目标项目文档为准，按变更范围阅读专题。红梅源码仓库的规范入口是[开发约定](references/conventions.md)；涉及架构和流程时阅读[设计与架构](references/design.md)。不要将红梅源码仓库的目录位置当作所有业务项目的安装约定。
 3. 仅询问会影响结果且无法自行查明的问题。任务已明确时继续推进，不为例行步骤反复请求确认。
 
 ## 选择能力

@@ -5,7 +5,7 @@ description: Use when reviewing Red Plum code changes for requirement compliance
 
 # 红梅代码审查
 
-以需求、已定方案、项目规范和实际行为为依据审查变更。目标项目规则优先；红梅源码仓库的流程见[代码审查流程](../../docs/design.md#代码审查流程)，规则入口见[开发约定](../../docs/conventions.md)。
+以需求、已定方案、项目规范和实际行为为依据审查变更。目标项目规则优先；红梅源码仓库的流程见[代码审查流程](references/design.md#代码审查流程)，规则入口见[开发约定](references/conventions.md)。
 
 ## 工作步骤
 

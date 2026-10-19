@@ -5,7 +5,7 @@ description: Use when designing or changing architecture, module boundaries, pub
 
 # 红梅设计
 
-以实际需求和现有架构为起点，形成可实施、可验证的方案。遵循目标项目规范；红梅源码仓库的流程见[设计流程](../../docs/design.md#设计流程)，涉及模块协作时阅读[模块与依赖](../../docs/modules.md)。
+以实际需求和现有架构为起点，形成可实施、可验证的方案。遵循目标项目规范；红梅源码仓库的流程见[设计流程](references/design.md#设计流程)，涉及模块协作时阅读[模块与依赖](references/modules.md)。
 
 ## 工作步骤
 

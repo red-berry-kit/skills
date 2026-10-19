@@ -5,7 +5,7 @@ description: Use when a Red Plum project has errors, unexpected behavior, failin
 
 # 红梅排障
 
-从问题证据定位根因，再做针对性修复。遵循目标项目约定；红梅源码仓库的流程见[排障流程](../../docs/design.md#排障流程)。
+从问题证据定位根因，再做针对性修复。遵循目标项目约定；红梅源码仓库的流程见[排障流程](references/design.md#排障流程)。
 
 ## 工作步骤
 

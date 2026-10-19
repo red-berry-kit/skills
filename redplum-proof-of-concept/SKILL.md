@@ -5,7 +5,7 @@ description: Use when an initial design or technology choice in a Red Plum proje
 
 # 红梅 POC
 
-对已有初步方案开展实战验证，依据验收结果定案。遵循目标项目约定；红梅源码仓库的完整流程见[POC 流程](../../docs/design.md#poc-流程)。
+对已有初步方案开展实战验证，依据验收结果定案。遵循目标项目约定；红梅源码仓库的完整流程见[POC 流程](references/design.md#poc-流程)。
 
 ## 工作步骤
 

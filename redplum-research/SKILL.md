@@ -5,7 +5,7 @@ description: Use when a Red Plum task needs investigation of requirements, exist
 
 # 红梅调研
 
-为当前决策提供有来源的结论。遵循目标项目的调研约定；红梅源码仓库的流程见[调研流程](../../docs/design.md#调研流程)。
+为当前决策提供有来源的结论。遵循目标项目的调研约定；红梅源码仓库的流程见[调研流程](references/design.md#调研流程)。
 
 ## 工作步骤
 
