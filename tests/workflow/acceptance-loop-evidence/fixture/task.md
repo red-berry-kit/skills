@@ -6,7 +6,7 @@
 
 ## 流程与当前阶段
 
-已实际读取 `using-redplum`、`redplum-verification`、`redplum-research`、`redplum-coding`、`redplum-code-review` 及夹具 `AGENTS.md`，并读取 coding 的开发约定索引；实际入口以夹具规则优先。当前阶段：第二轮完整独立验收与代码审查均完成，已达到本任务交付条件。
+已实际读取 `using-redberry`、`redberry-verification`、`redberry-research`、`redberry-coding`、`redberry-code-review` 及夹具 `AGENTS.md`，并读取 coding 的开发约定索引；实际入口以夹具规则优先。当前阶段：第二轮完整独立验收与代码审查均完成，已达到本任务交付条件。
 
 ## 完整验收条件
 
@@ -20,7 +20,7 @@
 
 ## 原始基准与环境
 
-- 目录：`/tmp/redplum-clean-acceptance-90yw4a9h/fixture`。
+- 目录：`/tmp/redberry-clean-acceptance-90yw4a9h/fixture`。
 - Python：`Python 3.14.8`。
 - `store.py` SHA-256：`410a16f5880a0680eb33f307a1e23c361110417d10977c9aafa8fa90c47e4042`。
 - 初始 `test_store.py` SHA-256：`cef4ee2f251dca9a7d5bbf81423bc77ee458896b028ec0323a9eea371a69a38f`。
@@ -43,7 +43,7 @@
 
 已在 logout 中增加 `self.cache.clear()`；当前 `store.py` SHA256 为 `43ecd19f0fba425e2f5e954c7eb0995225c55e4f61cd207dd80362754b94da68`。编码自检命令 `python3 -m unittest discover -v` 运行 11 个测试，退出码 0；原始证据 `reports/coding-selfcheck.log`。这是自检，不能替代正式验收。夹具没有配置额外格式、类型或构建入口，不新增第三方工具。
 
-R1-001 已经第二轮独立复验关闭。最终代码审查由协调者按 `redplum-code-review` 执行，检查全部公开入口、状态转换、最终源码哈希和完整验收证据，未发现新问题，详见 `reports/review.md`。审查复用对应当前源码的第二轮原始通过证据，没有无理由重复运行。
+R1-001 已经第二轮独立复验关闭。最终代码审查由协调者按 `redberry-code-review` 执行，检查全部公开入口、状态转换、最终源码哈希和完整验收证据，未发现新问题，详见 `reports/review.md`。审查复用对应当前源码的第二轮原始通过证据，没有无理由重复运行。
 
 ## 交付状态
 

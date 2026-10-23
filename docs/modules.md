@@ -1,6 +1,6 @@
 # 模块与依赖
 
-用户业务与基础功能都作为独立模块维护。`redplum create mod` 使用模块模板创建完整的前后端基础文件；配置定义与迁移按需添加。自有源码放项目内的模块目录，外部源码由 CLI 管理于 `.redplum/modules/`。
+用户业务与基础功能都作为独立模块维护。`redberry create mod` 使用模块模板创建完整的前后端基础文件；配置定义与迁移按需添加。自有源码放项目内的模块目录，外部源码由 CLI 管理于 `.redberry/modules/`。
 
 ## 公开入口
 
@@ -25,7 +25,7 @@
 
 验收至少有一条独立消费链：新建应用 → 真实 CLI 添加模块 → 必要配置 → 启动 → 模块核心操作；检查生成客户端、路由、配置、迁移及适用的卸载／恢复行为。记录所有人工改动，出现模块专属接线即判定默认接入未完成。已有 examples 的业务测试只能补充这条证据。未发布模块可使用 CLI 支持的本地来源或隔离的版本仓库夹具，注明所覆盖的安装路径，不能以复制源码或手改生成产物替代安装。
 
-前端模块可在 `frontend/index.ts` 具名导出 `createProvider(context)`，返回 Provider 组件。CLI 生成 `.redplum/frontend/providers.tsx`，按依赖在外、消费方在内组合；应用入口在 render 外调用 `createModuleProviders(queryClient)`，在 UI 与 Query Provider 内统一挂载返回的 `ModuleProviders`。上下文提供生成 `api`、有限 `ui`、应用 `scope` 、`queryClient` 和可卸载请求扩展 `http`；模块用最小结构类型声明所需能力，生成调用负责静态兼容检查。无工厂的模块直接透传 children。工厂只定义组件，不获取资源；组件挂载／卸载管理资源，不在 render 中创建订阅或会话。应用主题可通过有限 UI 入口定制，旧应用升级需一次接入通用容器，不为每个模块增加专属装配。
+前端模块可在 `frontend/index.ts` 具名导出 `createProvider(context)`，返回 Provider 组件。CLI 生成 `.redberry/frontend/providers.tsx`，按依赖在外、消费方在内组合；应用入口在 render 外调用 `createModuleProviders(queryClient)`，在 UI 与 Query Provider 内统一挂载返回的 `ModuleProviders`。上下文提供生成 `api`、有限 `ui`、应用 `scope` 、`queryClient` 和可卸载请求扩展 `http`；模块用最小结构类型声明所需能力，生成调用负责静态兼容检查。无工厂的模块直接透传 children。工厂只定义组件，不获取资源；组件挂载／卸载管理资源，不在 render 中创建订阅或会话。应用主题可通过有限 UI 入口定制，旧应用升级需一次接入通用容器，不为每个模块增加专属装配。
 
 前端页面在路由 `staticData` 中声明 `layout`（省略时为 `workspace`，全屏需显式设为 `fullscreen`）及可选 `menu`（必填标题 `title`、可选顺序 `order`，省略顺序为 0，同序沿用路由装配顺序）。模块模板为普通页面生成菜单声明；未声明 `menu` 的页面不进入菜单，全屏页面也不进入工作台菜单。登录等全屏页不嵌套工作台。布局、菜单可见性与访问控制分别设计和验收，不把全屏或隐藏菜单当成权限声明。
 
@@ -41,12 +41,12 @@
 
 ## 模块描述
 
-`redplum.yaml` 只负责模块 ID、版本、依赖和替代声明。入口及迁移资源按约定路径发现，不增加对应配置字段。依赖字段使用 `deps`，替代声明使用 `replaces`。
+`redberry.yaml` 只负责模块 ID、版本、依赖和替代声明。入口及迁移资源按约定路径发现，不增加对应配置字段。依赖字段使用 `deps`，替代声明使用 `replaces`。
 
 身份字段写法：
 
 ```yaml
-id: github.com/redplum/user
+id: github.com/redberry/user
 version: 1.2.0
 ```
 
@@ -58,14 +58,14 @@ version: 1.2.0
 ### 模块依赖
 
 ```yaml
-id: github.com/redplum/rbac
+id: github.com/redberry/rbac
 version: 1.0.0
 
 deps:
-  github.com/redplum/user: ^1.2.0
+  github.com/redberry/user: ^1.2.0
 ```
 
-`deps` 按“模块 ID → 版本约束”声明 Red Plum 模块依赖，支持精确版本与标准 `^` 写法，版本统一不带 `v`。`^1.2.0` 表示 `>=1.2.0 <2.0.0`；零主版本按兼容范围收窄，`^0.2.3` 表示 `>=0.2.3 <0.3.0`，`^0.0.3` 表示 `>=0.0.3 <0.0.4`。Go 依赖由各自模块根层的 `go.mod` 管理，前端包依赖由 `frontend/package.json` 管理，不重复放入 `deps`。
+`deps` 按“模块 ID → 版本约束”声明 Red Berry 模块依赖，支持精确版本与标准 `^` 写法，版本统一不带 `v`。`^1.2.0` 表示 `>=1.2.0 <2.0.0`；零主版本按兼容范围收窄，`^0.2.3` 表示 `>=0.2.3 <0.3.0`，`^0.0.3` 表示 `>=0.0.3 <0.0.4`。Go 依赖由各自模块根层的 `go.mod` 管理，前端包依赖由 `frontend/package.json` 管理，不重复放入 `deps`。
 
 锁文件固定实际选中的实现及源码提交，以便重现解析结果。
 
@@ -76,7 +76,7 @@ id: github.com/acme/user
 version: 2.0.0
 
 replaces:
-  github.com/redplum/user: 1
+  github.com/redberry/user: 1
 ```
 
 `replaces` 按“目标模块 ID → 大版本”声明替代关系，不填写目标的次版本、补丁版本或 `^` 范围。上例声明可以替代目标模块的 `1.x` 版本线；替代模块自身版本独立维护，不要求与目标版本一致。
@@ -95,11 +95,11 @@ replaces:
 
 ```yaml
 deps:
-  github.com/redplum/rbac: ^1.0.0
+  github.com/redberry/rbac: ^1.0.0
   github.com/acme/user: ^2.0.0
 ```
 
-如果 `github.com/acme/user` 声明 `replaces: {github.com/redplum/user: 1}`，解析器就用该实现满足 RBAC 对原用户模块的大版本 1 的依赖，不再安装原实现。替代模块自身版本通过其 `deps` 约束选择；替代目标按 `replaces` 中的大版本匹配。
+如果 `github.com/acme/user` 声明 `replaces: {github.com/redberry/user: 1}`，解析器就用该实现满足 RBAC 对原用户模块的大版本 1 的依赖，不再安装原实现。替代模块自身版本通过其 `deps` 约束选择；替代目标按 `replaces` 中的大版本匹配。
 
 发现多个候选实现则报冲突，不按声明顺序或版本高低自动挑选。锁文件记录最终解析结果。
 
@@ -107,7 +107,7 @@ deps:
 
 依赖源码与生成目录由 Git 忽略；项目提交依赖清单和锁文件。锁文件固定实际选中的实现、版本与源码提交，CLI 维护安装结果、工作区和装配输入。
 
-有锁按锁恢复，无锁解析并生成；`--locked` 拒绝缺锁或与清单不一致，不等同于离线。添加、安装、移除、升级和状态查询的完整行为见[CLI 约定](cli.md#依赖维护redplum)。
+有锁按锁恢复，无锁解析并生成；`--locked` 拒绝缺锁或与清单不一致，不等同于离线。添加、安装、移除、升级和状态查询的完整行为见[CLI 约定](cli.md#依赖维护redberry)。
 
 外部依赖目录不保存业务自定义；需要特殊行为时通过模块公开扩展接口，或选择声明替代关系的独立实现。
 

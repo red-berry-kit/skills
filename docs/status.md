@@ -1,11 +1,11 @@
 # 规范与实现归属
 
-本仓库维护十个 Red Plum Skills、配套技术规范及流程行为测试。`docs/` 是规范唯一源；七个需要参考资料的 Skill 通过同步脚本获得 `references/` 副本，需求、计划、验收三个 Skill 自包含。Skills 由开发者独立安装与更新，CLI 不管理。
+本仓库维护十个 Red Berry Skills、配套技术规范及流程行为测试。`docs/` 是规范唯一源；七个需要参考资料的 Skill 通过同步脚本获得 `references/` 副本，需求、计划、验收三个 Skill 自包含。Skills 由开发者独立安装与更新，CLI 不管理。
 
 ## 工程边界
 
-- `red-plum-kit/skills`：阶段入口、交接与验收闭环、随包技术规范。
-- `red-plum-kit/cli`：CLI、应用及模块模板、工作区与生成装配、工程任务编排。
+- `red-berry-kit/skills`：阶段入口、交接与验收闭环、随包技术规范。
+- `red-berry-kit/cli`：CLI、应用及模块模板、工作区与生成装配、工程任务编排。
 - `go-admin-template`：公共运行时 `app`、`config`、`migrate` 与运行库自身检查。
 - 消费项目：业务、配置、模块接入、部署和实际验收证据。
 

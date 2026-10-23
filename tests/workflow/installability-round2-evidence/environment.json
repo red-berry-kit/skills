@@ -2,24 +2,24 @@
   "head": "257cee67469fafc7ff04001fc8a1298502fac3e0",
   "python": "Python 3.14.8",
   "skills": [
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-code-review/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-coding/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-debugging/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-design/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-planning/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-proof-of-concept/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-requirements/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-research/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-verification/SKILL.md",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/using-redplum/SKILL.md"
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-code-review/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-coding/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-debugging/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-design/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-planning/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-proof-of-concept/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-requirements/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-research/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-verification/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/using-redberry/SKILL.md"
   ],
   "references": [
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-code-review/references",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-coding/references",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-debugging/references",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-design/references",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-proof-of-concept/references",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-research/references",
-    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/using-redplum/references"
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-code-review/references",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-coding/references",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-debugging/references",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-design/references",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-proof-of-concept/references",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-research/references",
+    "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/using-redberry/references"
   ]
 }

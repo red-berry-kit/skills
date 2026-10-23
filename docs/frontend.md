@@ -112,7 +112,7 @@ Mantine 日期控件语言与公开 label 配置、数字和日期时间展示�
 
 ## API 客户端
 
-采用 Orval + 原生 Fetch + TanStack Query。Huma 导出统一 OpenAPI，Orval 生成 `.redplum/frontend/api.ts`，包含类型、调用函数、query key、Query options 与 hooks。
+采用 Orval + 原生 Fetch + TanStack Query。Huma 导出统一 OpenAPI，Orval 生成 `.redberry/frontend/api.ts`，包含类型、调用函数、query key、Query options 与 hooks。
 
 业务基于 operationId 和类型化参数调用，统一使用 `/api` 同源路径。生成代码直接引用的 React 与 Query 运行依赖由根 `package.json` 显式声明。生成文件不手工修改。
 

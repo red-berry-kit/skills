@@ -16,7 +16,7 @@ test_account_switch (test_store.StoreTests.test_account_switch) ... ok
 FAIL: test_D_logout_clears_all_cache (test_acceptance_round1.AcceptanceRound1.test_D_logout_clears_all_cache)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/tmp/redplum-clean-acceptance-90yw4a9h/fixture/test_acceptance_round1.py", line 65, in test_D_logout_clears_all_cache
+  File "/tmp/redberry-clean-acceptance-90yw4a9h/fixture/test_acceptance_round1.py", line 65, in test_D_logout_clears_all_cache
     self.assertEqual(store.cache, {})
     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
 AssertionError: {'first': 'private', 'second': 0} != {}
@@ -27,7 +27,7 @@ AssertionError: {'first': 'private', 'second': 0} != {}
 FAIL: test_D_repeat_logout_keeps_exited_state (test_acceptance_round1.AcceptanceRound1.test_D_repeat_logout_keeps_exited_state) (populated=True)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/tmp/redplum-clean-acceptance-90yw4a9h/fixture/test_acceptance_round1.py", line 79, in test_D_repeat_logout_keeps_exited_state
+  File "/tmp/redberry-clean-acceptance-90yw4a9h/fixture/test_acceptance_round1.py", line 79, in test_D_repeat_logout_keeps_exited_state
     self.assertEqual(store.cache, {})
     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
 AssertionError: {'record': 'private'} != {}

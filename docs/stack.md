@@ -39,7 +39,7 @@ Bun 指 Go ORM。前端使用 Node 与 pnpm。
 
 ## 项目任务
 
-项目根 `package.json` 的脚本提供 `dev`、`gen`、`check`、`test`、`build`、`build:split`。脚本只做转发，模块解析、安装、生成与任务编排由 Red Plum CLI 承担。
+项目根 `package.json` 的脚本提供 `dev`、`gen`、`check`、`test`、`build`、`build:split`。脚本只做转发，模块解析、安装、生成与任务编排由 Red Berry CLI 承担。
 
 ## TypeScript
 

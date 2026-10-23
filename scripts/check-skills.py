@@ -41,7 +41,7 @@ def check(root):
             errors.append(f"{entry}: description 应为英文触发条件")
         if len(description) > 1024:
             errors.append(f"{entry}: description 过长")
-        for name in re.findall(r"`((?:redplum-[a-z-]+)|using-redplum)`", text):
+        for name in re.findall(r"`((?:redberry-[a-z-]+)|using-redberry)`", text):
             if name not in names:
                 errors.append(f"{entry}: 未提供被引用的 Skill {name}")
         for document in entry.parent.rglob("*.md"):

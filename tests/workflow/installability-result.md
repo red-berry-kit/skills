@@ -14,8 +14,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| `using-redplum/SKILL.md` | `a542d0864efe30c993cc4e0235c71507c65964183dae7f719f15a28fd7a552d3` |
-| `redplum-verification/SKILL.md` | `497ec65afaefa001ec25fc6f6460e6fc6a046feacf34ba9335ed65b5fc18bca9` |
+| `using-redberry/SKILL.md` | `a542d0864efe30c993cc4e0235c71507c65964183dae7f719f15a28fd7a552d3` |
+| `redberry-verification/SKILL.md` | `497ec65afaefa001ec25fc6f6460e6fc6a046feacf34ba9335ed65b5fc18bca9` |
 | `docs/modules.md` | `f330d41fa599e1e5f21bc907790389f7d0ee711c9e0edeb89cf010970b88ae95` |
 | `docs/status.md` | `6e5a937bce6f0733e58370c9c6501378f441e40bb4bec801078d724094a9fb1c` |
 
@@ -24,10 +24,10 @@
 | 判据 | 场景与检查方法 | 判断 | 依据 |
 | --- | --- | --- | --- |
 | 必要配置不包含模块专属装配 | 检查要求复制的 `XProvider` 与 API/UI 映射 | 场景条件下失败；尚未对 X 源码复现 | [模块契约](../../docs/modules.md#添加即用的交付契约)第 22—26 行明确排除 API 映射、Provider、路由注册和基础设施接线 |
-| 存在干净消费应用真实 CLI 添加链路 | 检查是否完成新建、添加、配置、启动、核心操作 | 未执行，必需证据缺失 | 同上第 26 行；[验收 Skill](../../redplum-verification/SKILL.md)执行第 3 项 |
+| 存在干净消费应用真实 CLI 添加链路 | 检查是否完成新建、添加、配置、启动、核心操作 | 未执行，必需证据缺失 | 同上第 26 行；[验收 Skill](../../redberry-verification/SKILL.md)执行第 3 项 |
 | 既有测试证据对应当前源码与场景 | 核对测试原始日志、环境和源码基准 | 未核实；“全绿”摘要不足 | 验收执行第 2 项 |
 | 普通页面、全屏页与权限分别覆盖 | 检查工作台菜单、全屏显示、直接访问和权限行为 | 未执行，按 X 实际范围安排 | 模块契约第 30 行，不把布局或菜单隐藏等同权限 |
-| 正式完成条件完整 | 核对安装验收、必修问题、代码审查与最终源码 | 不满足 | [入口](../../using-redplum/SKILL.md)第 50—54 行 |
+| 正式完成条件完整 | 核对安装验收、必修问题、代码审查与最终源码 | 不满足 | [入口](../../using-redberry/SKILL.md)第 50—54 行 |
 
 场景问题编号：`X-01` 为专属装配被包装成配置，`X-02` 为缺少独立安装证据，`X-03` 为自评摘要尚未核实。前两项足以阻止通过；第三项是证据缺口，不据此推断已有测试实际失败。
 
@@ -40,7 +40,7 @@
 规范给出的前端装配契约为：
 
 1. 模块可在 `frontend/index.ts` 具名导出 `createProvider(context)`，返回 Provider 组件。
-2. CLI 生成 `.redplum/frontend/providers.tsx`，按依赖在外、消费方在内组合。
+2. CLI 生成 `.redberry/frontend/providers.tsx`，按依赖在外、消费方在内组合。
 3. 应用通用入口在 render 外调用 `createModuleProviders(queryClient)`，在 UI 和 Query Provider 内挂载返回的 `ModuleProviders`。
 4. context 提供生成 `api`、有限 `ui`、应用 `scope` 和 `queryClient`；模块声明所需最小结构类型，生成调用检查静态兼容性。
 5. 无工厂模块透传 children；工厂只定义组件，资源由组件挂载和卸载管理，不在 render 中创建订阅或会话。
@@ -59,14 +59,14 @@
 
 | 阶段 | 本场景的动作与交付 |
 | --- | --- |
-| 入口 `using-redplum` | 将当前阶段记为验收，保留范围、判据、源码基准、`X-01/X-02/X-03`、证据和下一步；不接受开发者要求立即通过的预设结论 |
+| 入口 `using-redberry` | 将当前阶段记为验收，保留范围、判据、源码基准、`X-01/X-02/X-03`、证据和下一步；不接受开发者要求立即通过的预设结论 |
 | 需求 | 复用可复用模块的既定目标；若原验收清单遗漏安装性，补入“干净应用 CLI 添加后，仅配置即可运行默认核心能力”，列清配置、业务策略和装配边界，不反向按现有测试缩减范围 |
 | 排障 | 如尚不清楚专属接线的真实原因，沿模块公开入口、模板与生成结果定位；如果已有可信根因证据直接复用，不重做无关诊断 |
 | 调研 | 关联问题编号和不可降低的判据，查证可用模块／生成能力，比较根因修复和合理替代，记录选定理由；本地规范和源码足够时可简短完成，依赖外部库行为才查对应权威文档 |
 | 设计 | 明确模块默认装配、生成器连接职责、应用配置和可选扩展；落实 Provider/context、生命周期、路由及布局契约，不能让默认路径依赖应用手写扩展 |
 | POC | 仅在关键适配不确定时实测，固定候选与判据；结果回设计定案，不能以 POC 通过替代正式安装验收 |
 | 计划 | 将模块源码、生成器／模板缺口、生成与同步、干净消费应用安装、核心操作、失败与必要回归、独立验收和审查列入同一计划；不得只安排已接线 examples |
-| 编码 | 修改真实源码及生成输入，执行现有生成入口，不手改 `.redplum/` 或同步副本；提供局部检查及独立类型检查等原始证据，更新最终使用文档 |
+| 编码 | 修改真实源码及生成输入，执行现有生成入口，不手改 `.redberry/` 或同步副本；提供局部检查及独立类型检查等原始证据，更新最终使用文档 |
 | 验收 | 新的干净验收者独立确认完整判据，运行真实 CLI 消费链并记录全部人工改动；检查客户端、路由、配置、迁移以及适用的卸载／恢复行为，未涉及部分给出有理由的不适用 |
 | 审查 | 检查默认装配、模块边界、最终源码与干净安装证据；专属接线藏在 examples 或 README 仍应报告；审查不能替代行为验收 |
 | 交付 | 全部必需验收通过、必修问题关闭、审查完成且证据匹配最终源码后才能完成；否则报告部分完成或受阻及恢复条件 |
@@ -90,11 +90,11 @@
 实际命令及结果：
 
 ```text
-python3 /home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/scripts/check-skills.py
+python3 /home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/scripts/check-skills.py
 检查 10 个 Skills，0 个问题
 退出码：0
 
-python3 /home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/scripts/sync-references.py --check
+python3 /home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/scripts/sync-references.py --check
 发现漂移：0 个文件
 退出码：0
 ```

@@ -1,6 +1,6 @@
 # 最终代码审查
 
-审查者：`/root/clean_loop_trial`（协调与实现者进行代码审查；正式行为验收由两位独立干净子 agent 完成）。已实际读取 `redplum-code-review/SKILL.md`。结论：当前约定范围内没有发现剩余必修问题，R1-001 已关闭。
+审查者：`/root/clean_loop_trial`（协调与实现者进行代码审查；正式行为验收由两位独立干净子 agent 完成）。已实际读取 `redberry-code-review/SKILL.md`。结论：当前约定范围内没有发现剩余必修问题，R1-001 已关闭。
 
 ## 固定范围与证据
 

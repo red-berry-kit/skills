@@ -1,6 +1,6 @@
 [
   {
-    "cwd": "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills",
+    "cwd": "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills",
     "command": [
       "python3",
       "scripts/check-skills.py"
@@ -10,7 +10,7 @@
     "stderr": ""
   },
   {
-    "cwd": "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills",
+    "cwd": "/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills",
     "command": [
       "python3",
       "scripts/sync-references.py",

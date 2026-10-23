@@ -5,8 +5,8 @@
 ## 身份、范围与源码基准
 
 - 验收者：`/root/clean_loop_trial/acceptance_round1`，本轮新建的独立验收上下文，未参与实现或修复，未递归派发。
-- 工作目录：`/tmp/redplum-clean-acceptance-90yw4a9h/fixture`。
-- 已实际读取：夹具 `AGENTS.md`、`requirements.md`、`store.py`、`test_store.py`；安装路径 `/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/` 下的 `redplum-verification/SKILL.md` 和 `using-redplum/SKILL.md`。
+- 工作目录：`/tmp/redberry-clean-acceptance-90yw4a9h/fixture`。
+- 已实际读取：夹具 `AGENTS.md`、`requirements.md`、`store.py`、`test_store.py`；安装路径 `/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/` 下的 `redberry-verification/SKILL.md` 和 `using-redberry/SKILL.md`。
 - 未读取：任务过程记录、Skills 测试及其他历史材料。没有复用历史检查结论。
 - 范围：当前内存会话缓存，完整 A—E；不增加持久化或依赖。
 - 业务源码：`store.py`，SHA256 为 `410a16f5880a0680eb33f307a1e23c361110417d10977c9aafa8fa90c47e4042`。测试前、测试后及复现后均核对一致；未修改业务源码、需求或 Skills。

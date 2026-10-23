@@ -5,25 +5,25 @@
 ## 基准与边界
 
 - 日期：2026-10-20；验收者：独立干净子 agent `skills_i18n_acceptance`，本轮未参与实现，未递归派发。
-- 目录：`/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills`；HEAD：`257cee67469fafc7ff04001fc8a1298502fac3e0`。工作区已有大量修改及未跟踪文件，HEAD 不能单独代表被测内容，以下哈希固定实际文本。
-- 已读 `using-redplum/SKILL.md`、`redplum-verification/SKILL.md`、`/home/mapleafgo/.agents/skills/writing-for-agents/SKILL.md`；核对两份规范源文件、五个阶段入口及模块公开入口／添加即用契约。目标与祖先目录未发现额外 `AGENTS.md`，沿用交接提供的项目规则。
+- 目录：`/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills`；HEAD：`257cee67469fafc7ff04001fc8a1298502fac3e0`。工作区已有大量修改及未跟踪文件，HEAD 不能单独代表被测内容，以下哈希固定实际文本。
+- 已读 `using-redberry/SKILL.md`、`redberry-verification/SKILL.md`、`/home/mapleafgo/.agents/skills/writing-for-agents/SKILL.md`；核对两份规范源文件、五个阶段入口及模块公开入口／添加即用契约。目标与祖先目录未发现额外 `AGENTS.md`，沿用交接提供的项目规则。
 - 仅新增本报告；未修改规范、同步副本、auth、CLI 或应用实现，未运行真实应用。
 
 | 文件 | SHA-256 |
 | --- | --- |
 | `docs/frontend.md` | `2eac0158ab224d9ddd2a2c4445f57fa63438a4958551b8a67830f543da799a80` |
 | `docs/conventions.md` | `39369636ef51bb9c2fab46d5be20164c8b655d9448bf6fe32a9f4608429668ee` |
-| `redplum-requirements/SKILL.md` | `50396e1e945a97f26dd581020721ca8ec08e68b8f346a0f8a86089cebcdbbe6d` |
-| `redplum-design/SKILL.md` | `5a672d2866021ec744ed33ef40833f8042f9c0d05c44fd57a54d881cbacbc829` |
-| `redplum-coding/SKILL.md` | `f25ff1a853da81fbe3fd7aff9e54c8cf4a0e2ac9ee4faec5d9a3bb409c708050` |
-| `redplum-verification/SKILL.md` | `6ab8275509f347ff9b1e40bfe08f35a1ebcb903c35979d061b79181650e2a510` |
-| `redplum-code-review/SKILL.md` | `02256e95494c65df6bee80db39b063a4060f54c224d4c47e4f399e7674366452` |
+| `redberry-requirements/SKILL.md` | `50396e1e945a97f26dd581020721ca8ec08e68b8f346a0f8a86089cebcdbbe6d` |
+| `redberry-design/SKILL.md` | `5a672d2866021ec744ed33ef40833f8042f9c0d05c44fd57a54d881cbacbc829` |
+| `redberry-coding/SKILL.md` | `f25ff1a853da81fbe3fd7aff9e54c8cf4a0e2ac9ee4faec5d9a3bb409c708050` |
+| `redberry-verification/SKILL.md` | `6ab8275509f347ff9b1e40bfe08f35a1ebcb903c35979d061b79181650e2a510` |
+| `redberry-code-review/SKILL.md` | `02256e95494c65df6bee80db39b063a4060f54c224d4c47e4f399e7674366452` |
 
 ## 逐项核对
 
 | 判据／实际入口 | 方法与结果 | 证据 |
 | --- | --- | --- |
-| 规则可发现，阶段串联 | 文本核对通过：需求核对范围并形成验收条件；设计明确状态、归属和装配；编码落实；验收要求交接语言约定；审查核对遗漏及证据 | `docs/conventions.md` 前端业务索引；五阶段 `SKILL.md`；`using-redplum` 的规范入口与交接规则 |
+| 规则可发现，阶段串联 | 文本核对通过：需求核对范围并形成验收条件；设计明确状态、归属和装配；编码落实；验收要求交接语言约定；审查核对遗漏及证据 | `docs/conventions.md` 前端业务索引；五阶段 `SKILL.md`；`using-redberry` 的规范入口与交接规则 |
 | 不预设语言范围或翻译框架 | 文本核对通过：先复用已有约定，缺少约定记为决策缺口；没有强制中英双语或指定新 i18n 库 | `docs/frontend.md` 国际化首段；需求阶段第 1、4 步；验收阶段第 1 步 |
 | 资源和装配符合模块边界 | 文本核对通过：应用管理当前语言和回退，模块随包提供命名空间／资源，经公开契约接入；CLI 自动装配，只填必要配置；与模块公开入口及禁止宿主私有依赖的既有规则一致 | 国际化第 2 段；`docs/modules.md` 公开入口、添加即用的交付契约 |
 | Mantine 原生外观与 locale | 文本核对通过：日期控件语言和公开 label 随应用语言，通过公开接口设置且不覆盖样式；没有引入新 UI 体系 | 国际化第 4 段；既有 UI 与样式、日期控件小节 |

@@ -1,7 +1,7 @@
 ### README.md
-1: # Red Plum Skills
+1: # Red Berry Skills
 2: 
-3: 统一入口：[using-redplum](using-redplum/SKILL.md)。它负责选择阶段、恢复任务与组织交付；各专业 Skill 定义阶段的输入、执行、出口和下一步。阶段路径与发现问题后的调研、修复循环只在入口维护；正式验收的干净子 agent、交接材料和证据规则由 [redplum-verification](redplum-verification/SKILL.md) 定义。
+3: 统一入口：[using-redberry](using-redberry/SKILL.md)。它负责选择阶段、恢复任务与组织交付；各专业 Skill 定义阶段的输入、执行、出口和下一步。阶段路径与发现问题后的调研、修复循环只在入口维护；正式验收的干净子 agent、交接材料和证据规则由 [redberry-verification](redberry-verification/SKILL.md) 定义。
 4: 
 5: ## 在项目中使用
 6: 
@@ -9,9 +9,9 @@
 8: 
 9: 项目 `AGENTS.md` 保留以下入口即可，其余位置继续维护项目特有规则：
 10: 
-11: > Red Plum 的需求、调研、设计、实现、排障、验收与审查使用已安装的 `using-redplum`；按入口实际读取所需专业 Skill，并维护当前阶段、产出、证据与下一步。复用已有授权及有效结论。
+11: > Red Berry 的需求、调研、设计、实现、排障、验收与审查使用已安装的 `using-redberry`；按入口实际读取所需专业 Skill，并维护当前阶段、产出、证据与下一步。复用已有授权及有效结论。
 12: 
-13: 安装方式依客户端而定，安装后核对实际文件路径与发现结果；源码更新不保证当前会话重新加载目录。Skills 由开发者安装和更新，Red Plum CLI 不管理 Skills。
+13: 安装方式依客户端而定，安装后核对实际文件路径与发现结果；源码更新不保证当前会话重新加载目录。Skills 由开发者安装和更新，Red Berry CLI 不管理 Skills。
 14: 
 15: ## 维护
 16: 
@@ -31,13 +31,13 @@
 30: 流程变更应先看实际失败或对照行为，再逐项修改并运行独立场景验收。静态检查验证元数据、名称引用及包内 Markdown 链接；它不证明执行者会持续遵守流程。每次测试区分推演、真实执行及未验证内容，记录实际限制。
 
 
-### using-redplum/SKILL.md
+### using-redberry/SKILL.md
 1: ---
-2: name: using-redplum
-3: description: Use when starting or continuing requirements, research, design, implementation, debugging, verification, or code review in a Red Plum project.
+2: name: using-redberry
+3: description: Use when starting or continuing requirements, research, design, implementation, debugging, verification, or code review in a Red Berry project.
 4: ---
 5: 
-6: # 红梅开发入口
+6: # 红莓开发入口
 7: 
 8: 负责选择阶段、检查交接和汇总交付。先读取目标项目的 `AGENTS.md`、相关实现和本任务已有记录；项目规则优先，配套规范按需从[开发约定](references/conventions.md)进入。
 9: 
@@ -51,15 +51,15 @@
 17: 
 18: | 触发条件 | 阶段与 Skill | 进入下一阶段的依据 |
 19: | --- | --- | --- |
-20: | 新需求、范围变化、验收语义不清 | 需求：`redplum-requirements` | 可观察的验收条件，决策缺口已明确 |
-21: | 影响决策的技术事实未知，或验收／审查发现问题需要选择修复方案 | 调研：`redplum-research` | 来源、方案比较、适用条件及待实测问题 |
-22: | 职责、接口、状态或依赖关系需要决定 | 设计：`redplum-design` | 行为与边界方案能对应验收条件 |
-23: | 关键可行性必须实测才能定案 | 风险验证：`redplum-proof-of-concept` | 候选的实测结果返回设计定案 |
-24: | 方案可实施，需要拆解或重排任务 | 计划：`redplum-planning` | 任务、依赖、验收及验证对应 |
-25: | 实施已明确的变更 | 编码：`redplum-coding` | 实现、生成结果和局部检查证据 |
-26: | 实现完成或用户要求验收 | 验收：`redplum-verification` | 干净子 agent 对当前实现的逐项结果及缺项 |
-27: | 用户要求审查或实现准备交付 | 审查：`redplum-code-review` | 范围明确的审查结论及问题处置 |
-28: | 出现异常、失败或回归 | 排障：`redplum-debugging` | 根因证据和修复边界，交回实施 |
+20: | 新需求、范围变化、验收语义不清 | 需求：`redberry-requirements` | 可观察的验收条件，决策缺口已明确 |
+21: | 影响决策的技术事实未知，或验收／审查发现问题需要选择修复方案 | 调研：`redberry-research` | 来源、方案比较、适用条件及待实测问题 |
+22: | 职责、接口、状态或依赖关系需要决定 | 设计：`redberry-design` | 行为与边界方案能对应验收条件 |
+23: | 关键可行性必须实测才能定案 | 风险验证：`redberry-proof-of-concept` | 候选的实测结果返回设计定案 |
+24: | 方案可实施，需要拆解或重排任务 | 计划：`redberry-planning` | 任务、依赖、验收及验证对应 |
+25: | 实施已明确的变更 | 编码：`redberry-coding` | 实现、生成结果和局部检查证据 |
+26: | 实现完成或用户要求验收 | 验收：`redberry-verification` | 干净子 agent 对当前实现的逐项结果及缺项 |
+27: | 用户要求审查或实现准备交付 | 审查：`redberry-code-review` | 范围明确的审查结论及问题处置 |
+28: | 出现异常、失败或回归 | 排障：`redberry-debugging` | 根因证据和修复边界，交回实施 |
 29: 
 30: 实现任务通常按“需求 → 必要调研／设计／POC → 计划 → 编码 → 验收 → 审查 → 交付”推进。阶段是否展开由上表的条件决定：
 31: 
@@ -72,13 +72,13 @@
 38: 
 39: ## 独立验收与修复闭环
 40: 
-41: 正式实现验收必须由新的干净上下文子 agent 执行；每次修复后另启一位，不复用实现者或上一轮验收者。派发方式、材料边界和证据要求以 `redplum-verification` 为准。主 agent 组织交接与修复，编码自检不能替代独立验收。
+41: 正式实现验收必须由新的干净上下文子 agent 执行；每次修复后另启一位，不复用实现者或上一轮验收者。派发方式、材料边界和证据要求以 `redberry-verification` 为准。主 agent 组织交接与修复，编码自检不能替代独立验收。
 42: 
 43: 验收或审查发现问题后，在已有修复授权内持续执行：
 44: 
-45: 1. 记录问题编号、对应判据、触发与证据；根因不清时交 `redplum-debugging`，已确认的根因直接复用。
-46: 2. 交 `redplum-research` 查证并比较适合当前约束的修复方案。已有有效依据可复用，但仍记录选择理由；修法看似明确也不能省掉这项判断。
-47: 3. 按需回需求、设计或 POC，更新计划，由 `redplum-coding` 修复并自检。
+45: 1. 记录问题编号、对应判据、触发与证据；根因不清时交 `redberry-debugging`，已确认的根因直接复用。
+46: 2. 交 `redberry-research` 查证并比较适合当前约束的修复方案。已有有效依据可复用，但仍记录选择理由；修法看似明确也不能省掉这项判断。
+47: 3. 按需回需求、设计或 POC，更新计划，由 `redberry-coding` 修复并自检。
 48: 4. 将当前实现交新的干净子 agent 验收；它核对完整验收清单，执行本轮受影响项及必要回归，不能只复查上一条缺陷。通过后完成代码审查；审查又发现问题则返回本闭环。
 49: 
 50: 轮次、验收者、源码基准、问题处置及证据维护在同一任务记录中。只有**完整必需验收项全部通过、必修问题关闭、审查完成且证据对应最终实现**，才能交付完成；不以固定轮数或暂时没有新发现作为通过条件。完善标准指约定范围内可观察的行为、边界和失败场景，不是无限添加功能或保证零缺陷。发现范围内判据遗漏先补齐，不能通过删用例、降低标准或把必验项改为可选来收尾。
@@ -88,87 +88,87 @@
 54: 交付时报告实际改动、独立验收轮次与证据、问题关闭情况和未验证项。必需项缺失只能标记“部分完成／受阻”；POC、测试数量或构建成功不能替代正式验收。提交、发布及外部操作仍遵循本任务授权。
 
 
-### redplum-requirements/SKILL.md
+### redberry-requirements/SKILL.md
 1: ---
-2: name: redplum-requirements
-3: description: Use when a Red Plum feature needs requirements clarified, its scope changes, or its acceptance criteria and failure behavior are incomplete.
+2: name: redberry-requirements
+3: description: Use when a Red Berry feature needs requirements clarified, its scope changes, or its acceptance criteria and failure behavior are incomplete.
 4: ---
 5: 
-6: # 红梅需求澄清
+6: # 红莓需求澄清
 7: 
-8: 把用户目标转为可验收行为。输入为用户请求、现有实现、项目约束和已确认决定；已明确的内容直接复用。流程由 `using-redplum` 组织；单独调用时交付需求结果，不擅自进入实现。
+8: 把用户目标转为可验收行为。输入为用户请求、现有实现、项目约束和已确认决定；已明确的内容直接复用。流程由 `using-redberry` 组织；单独调用时交付需求结果，不擅自进入实现。
 9: 
 10: ## 执行
 11: 
 12: 1. 还原目标：谁在什么条件下做什么，期望看到什么结果。检查已有能力和约束，区分本次范围、明确不做的内容及未决项。
 13: 2. 按用户操作梳理正常、失败和恢复行为。涉及共享状态时列出相关操作及其顺序或并发约束；只展开本次实际受影响的链路，不增加未经要求的功能。
 14: 3. 可复用模块将“干净应用通过 CLI 添加并配置后使用默认能力”纳入范围，区分必要配置、业务策略与不应由使用者编写的装配。将每个范围内要求写成可观察判据：**前置条件／动作或事件／预期结果**，包括与任务相关的错误和边界。沿用项目编号或简短标签，便于计划、验收及审查引用。
-15: 4. 分开标记已确认要求、可验证假设和待用户决定事项。技术事实交 `redplum-research` 查证；无法从上下文查明且会改变结果的业务选择才询问用户。已有批准继续有效，只补新增缺口。
+15: 4. 分开标记已确认要求、可验证假设和待用户决定事项。技术事实交 `redberry-research` 查证；无法从上下文查明且会改变结果的业务选择才询问用户。已有批准继续有效，只补新增缺口。
 16: 
 17: ## 出口与交接
 18: 
 19: 交付目标、范围、逐项验收条件和未决项，并更新当前任务记录。示例判据：“导出任务执行失败后，列表显示失败状态；刷新页面后仍能看到该状态。”不能用“可靠、全面、行业标杆”代替判据。
 20: 
-21: 关键行为已明确时交 `redplum-design`；既有方案可直接复用时交 `redplum-planning`。仍有未知项时指出它阻断哪个决定，推进不依赖它的部分。需求讨论结束只表示需求阶段完成，不表示实现已交付。
+21: 关键行为已明确时交 `redberry-design`；既有方案可直接复用时交 `redberry-planning`。仍有未知项时指出它阻断哪个决定，推进不依赖它的部分。需求讨论结束只表示需求阶段完成，不表示实现已交付。
 
 
-### redplum-design/SKILL.md
+### redberry-design/SKILL.md
 1: ---
-2: name: redplum-design
-3: description: Use when a Red Plum change needs decisions about architecture, module responsibilities, public interfaces, state transitions, dependencies, or abstractions.
+2: name: redberry-design
+3: description: Use when a Red Berry change needs decisions about architecture, module responsibilities, public interfaces, state transitions, dependencies, or abstractions.
 4: ---
 5: 
-6: # 红梅设计
+6: # 红莓设计
 7: 
-8: 输入为已明确需求、验收条件、现有架构和调研证据。形成可实施的行为方案；流程由 `using-redplum` 组织。项目规则优先，涉及模块协作时读取[模块与依赖](references/modules.md)。
+8: 输入为已明确需求、验收条件、现有架构和调研证据。形成可实施的行为方案；流程由 `using-redberry` 组织。项目规则优先，涉及模块协作时读取[模块与依赖](references/modules.md)。
 9: 
 10: ## 执行
 11: 
-12: 1. 核对需求与技术事实。业务选择缺口交 `redplum-requirements`，技术事实缺口交 `redplum-research`；已有且仍适用的决定直接复用。
+12: 1. 核对需求与技术事实。业务选择缺口交 `redberry-requirements`，技术事实缺口交 `redberry-research`；已有且仍适用的决定直接复用。
 13: 2. 划分职责、公开接口和依赖方向。可复用模块按[添加即用的交付契约](references/modules.md#添加即用的交付契约)设计默认装配，列清必要配置与可选扩展，不能以示例手工接线代替默认能力。说明调用方必须知道的输入、输出、错误与不变量，优先简单直接的方案；新增抽象须对应实际变化点及收益。
 14: 3. 沿操作及数据流设计关键行为。涉及共享状态时列出所有受影响的读写入口，说明状态迁移、资源生命周期及必要的事务、并发与副作用边界；覆盖失败、取消或恢复中本次实际需要的行为。
-15: 4. 将方案行为对应到验收条件。给出关键取舍、受影响模块、兼容或迁移影响和待验假设。可行性必须实测时，明确候选与通过判据，交 `redplum-proof-of-concept`，结果返回本阶段定案。
+15: 4. 将方案行为对应到验收条件。给出关键取舍、受影响模块、兼容或迁移影响和待验假设。可行性必须实测时，明确候选与通过判据，交 `redberry-proof-of-concept`，结果返回本阶段定案。
 16: 
 17: ## 出口与交接
 18: 
-19: 交付：**职责与接口、关键行为与不变量、验收对应、取舍及限制**，更新同一任务记录。关键决定有依据、范围内行为有验证去向时交 `redplum-planning`；有阻断项则标记初步方案并说明所需证据。
+19: 交付：**职责与接口、关键行为与不变量、验收对应、取舍及限制**，更新同一任务记录。关键决定有依据、范围内行为有验证去向时交 `redberry-planning`；有阻断项则标记初步方案并说明所需证据。
 20: 
 21: 局部修改沿用既有方案时，直接说明局部改法及影响，无需额外设计文档或审批。只要求设计时在方案交付后停止。主文档保留最终有效规则，调研与实验材料留在项目过程资料区；方案已定不代表代码已经实现。
 
 
-### redplum-planning/SKILL.md
+### redberry-planning/SKILL.md
 1: ---
-2: name: redplum-planning
-3: description: Use when an agreed Red Plum change needs an implementation plan, dependency ordering, acceptance mapping, or replanning after new findings.
+2: name: redberry-planning
+3: description: Use when an agreed Red Berry change needs an implementation plan, dependency ordering, acceptance mapping, or replanning after new findings.
 4: ---
 5: 
-6: # 红梅实施计划
+6: # 红莓实施计划
 7: 
-8: 输入为验收条件、已定方案、现有实现和验证条件。将范围拆为可独立判断结果的工作单元。已有计划有效时直接复用；流程由 `using-redplum` 组织。
+8: 输入为验收条件、已定方案、现有实现和验证条件。将范围拆为可独立判断结果的工作单元。已有计划有效时直接复用；流程由 `using-redberry` 组织。
 9: 
 10: ## 执行
 11: 
-12: 1. 核对关键行为已明确、关键可行性已有依据。业务语义缺口交 `redplum-requirements`，设计缺口交 `redplum-design`；仅规划不依赖未决项的部分。
+12: 1. 核对关键行为已明确、关键可行性已有依据。业务语义缺口交 `redberry-requirements`，设计缺口交 `redberry-design`；仅规划不依赖未决项的部分。
 13: 2. 沿完整业务链拆任务，列出源码、调用方、生成输入及接入位置。每项记录：**目标行为／依赖／改动范围／对应验收条件／验证方式**。基础设施任务注明为哪条业务链提供能力，避免只列“后端、前端、测试”而无法验收。
 14: 3. 根据依赖排序，提前核实测试入口、所需服务和环境。与状态或资源共享有关的变更，列出受影响操作与要保持的不变量；为这些操作安排验证，不能只覆盖报错的那个入口。
-15: 4. 可复用模块安排干净消费应用的真实 CLI 安装与核心操作验收，将生成器／模板的缺口纳入对应任务，不能只验证已经接线的示例。将必要的生成、示例同步、迁移或配置调整、干净子 agent 正式验收及代码审查纳入安排，按 `redplum-verification` 准备独立验收的材料与环境。命令以目标项目实际定义为准；环境缺口注明影响与可行替代范围，不用替代环境抹去必验项。
+15: 4. 可复用模块安排干净消费应用的真实 CLI 安装与核心操作验收，将生成器／模板的缺口纳入对应任务，不能只验证已经接线的示例。将必要的生成、示例同步、迁移或配置调整、干净子 agent 正式验收及代码审查纳入安排，按 `redberry-verification` 准备独立验收的材料与环境。命令以目标项目实际定义为准；环境缺口注明影响与可行替代范围，不用替代环境抹去必验项。
 16: 
 17: ## 出口与交接
 18: 
-19: 每条验收条件均有实施任务和验证去向，每个任务的前置依赖可判断，未决事项没有被写成已完成。将计划更新到同一任务记录，交 `redplum-coding` 逐项执行；已获授权且条件满足时直接继续。
+19: 每条验收条件均有实施任务和验证去向，每个任务的前置依赖可判断，未决事项没有被写成已完成。将计划更新到同一任务记录，交 `redberry-coding` 逐项执行；已获授权且条件满足时直接继续。
 20: 
 21: 局部修复可压缩为一行：“修复某调用的过期结果提交；覆盖共享写入入口；以乱序复现与相关回归验收。”无需固定任务数量或新增计划文档。只要求计划时，交付计划及缺项，不开始编码。
 
 
-### redplum-coding/SKILL.md
+### redberry-coding/SKILL.md
 1: ---
-2: name: redplum-coding
-3: description: Use when implementing or refactoring an agreed Red Plum change, integrating generated clients, or applying an authorized bug fix.
+2: name: redberry-coding
+3: description: Use when implementing or refactoring an agreed Red Berry change, integrating generated clients, or applying an authorized bug fix.
 4: ---
 5: 
-6: # 红梅编码
+6: # 红莓编码
 7: 
-8: 输入为已明确需求、方案和实施安排。缺少关键行为或任务映射时分别交 `redplum-requirements`、`redplum-design` 或 `redplum-planning` 补齐；局部变更可直接引用已有约定。流程由 `using-redplum` 组织。
+8: 输入为已明确需求、方案和实施安排。缺少关键行为或任务映射时分别交 `redberry-requirements`、`redberry-design` 或 `redberry-planning` 补齐；局部变更可直接引用已有约定。流程由 `using-redberry` 组织。
 9: 
 10: ## 执行
 11: 
@@ -180,20 +180,20 @@
 17: 
 18: ## 出口与交接
 19: 
-20: 实现与生成产物一致、局部检查已有证据后，更新任务记录，由主 agent 按 `redplum-verification` 派发干净子 agent 做正式验收，再交审查。提供源码与原始自检证据，不替验收者预填通过结论。编码完成不等于整体任务完成。遇到失败进入 `redplum-debugging`，修复后回到原验收条件；来自验收或审查的问题按 `using-redplum` 闭环处理。必需检查受阻时明确阻断并继续独立工作。
+20: 实现与生成产物一致、局部检查已有证据后，更新任务记录，由主 agent 按 `redberry-verification` 派发干净子 agent 做正式验收，再交审查。提供源码与原始自检证据，不替验收者预填通过结论。编码完成不等于整体任务完成。遇到失败进入 `redberry-debugging`，修复后回到原验收条件；来自验收或审查的问题按 `using-redberry` 闭环处理。必需检查受阻时明确阻断并继续独立工作。
 21: 
 22: 低风险文案或等价局部修改核对实际差异及适当现有检查，无需新增镜像实现的测试。只交付计划、代码草案或未执行的验证安排时，按实际状态说明，不报告为已运行通过。
 
 
-### redplum-verification/SKILL.md
+### redberry-verification/SKILL.md
 1: ---
-2: name: redplum-verification
-3: description: Use when a Red Plum implementation needs acceptance testing, completion evidence, integration checks, or reassessment after a fix or environment change.
+2: name: redberry-verification
+3: description: Use when a Red Berry implementation needs acceptance testing, completion evidence, integration checks, or reassessment after a fix or environment change.
 4: ---
 5: 
-6: # 红梅实现验收
+6: # 红莓实现验收
 7: 
-8: 验证当前实现是否满足约定行为。输入为验收条件、实施范围、当前源码与环境、原始检查证据。可独立用于已有实现；整体流程及修复闭环由 `using-redplum` 组织。代码审查检查实现与风险，验收检查可观察行为和证据，两者互相补充。
+8: 验证当前实现是否满足约定行为。输入为验收条件、实施范围、当前源码与环境、原始检查证据。可独立用于已有实现；整体流程及修复闭环由 `using-redberry` 组织。代码审查检查实现与风险，验收检查可观察行为和证据，两者互相补充。
 9: 
 10: ## 干净验收者与交接
 11: 
@@ -208,25 +208,25 @@
 20: 1. 建立对应表：**验收条件／实际入口与场景／验证方式／结果／证据**。结果区分通过、失败、未执行及有理由的不适用。先核对范围完整性，再判断结果；缺少判据时返回需求阶段，不能按现有测试反向缩小需求。
 21: 2. 核对已有原始证据对应的源码、配置、依赖、环境和用例，由验收者决定哪些不受影响的检查可复用并写明理由。每轮实际执行关键验收场景；修复后必须重验原失败、受影响部分和必要回归。实现者的“全部通过”摘要不构成验收证据。构建、类型检查、局部测试、POC 和生产环境验证分别说明范围，不能相互替代。
 22: 3. 从项目实际任务入口执行必需检查及风险相关测试。可复用模块必须在干净应用通过真实 CLI 添加，只填必要配置即可运行核心能力；记录人工改动，API 映射、Provider 等模块专属接线不能算配置。已有 examples 不能替代安装验收；本地来源或隔离版本夹具注明覆盖范围。验证用户操作到最终状态的真实调用链；涉及共享机制时，检查所有受影响入口是否有验收覆盖。按变化选择失败、恢复、并发或持久化场景，不机械要求每类任务都做全套测试。
-23: 4. 对失败、覆盖缺口或可疑结果记录编号、对应判据、预期与实际、复现条件和原始证据，交回主 agent 按 `using-redplum` 的调研与修复闭环处理。验收者不边修边宣告通过；测试修订必须保持业务判据，不能删除失败用例或降低约定来获得绿色结果。
+23: 4. 对失败、覆盖缺口或可疑结果记录编号、对应判据、预期与实际、复现条件和原始证据，交回主 agent 按 `using-redberry` 的调研与修复闭环处理。验收者不边修边宣告通过；测试修订必须保持业务判据，不能删除失败用例或降低约定来获得绿色结果。
 24: 5. 环境不足时先检查已有配置能否提供不干扰用户服务的独立验证方式。可用替代环境只证明其范围；记录仍缺的条件、受影响验收项与恢复步骤。只清理本次创建的资源。
 25: 
 26: ## 出口与交接
 27: 
-28: 输出**轮次与验收者标识、源码基准、环境、逐项验收表、实际命令及结果、证据位置、复用依据、问题与未验项**，交回主 agent 更新同一任务记录。必需项全部通过才标记本轮验收完成，交 `redplum-code-review`；本轮检查已通过且无新增变化时不重复运行。
+28: 输出**轮次与验收者标识、源码基准、环境、逐项验收表、实际命令及结果、证据位置、复用依据、问题与未验项**，交回主 agent 更新同一任务记录。必需项全部通过才标记本轮验收完成，交 `redberry-code-review`；本轮检查已通过且无新增变化时不重复运行。
 29: 
 30: 必需项失败或未执行时标记部分完成，继续可执行工作。若用户只要求验收，则以验收报告收尾，不自动修复或发布。示例结论：“本地真实 API 链路通过；目标代理环境未提供，代理验收未执行，暂不能判定该部署形式通过。”
 
 
-### redplum-code-review/SKILL.md
+### redberry-code-review/SKILL.md
 1: ---
-2: name: redplum-code-review
-3: description: Use when reviewing Red Plum code for requirement compliance, design issues, project conventions, verification gaps, or regressions after fixes.
+2: name: redberry-code-review
+3: description: Use when reviewing Red Berry code for requirement compliance, design issues, project conventions, verification gaps, or regressions after fixes.
 4: ---
 5: 
-6: # 红梅代码审查
+6: # 红莓代码审查
 7: 
-8: 输入为需求、已定方案、变更范围、当前源码与验证证据。围绕可定位的实际问题审查；流程由 `using-redplum` 组织，规范按需从[开发约定](references/conventions.md)进入。
+8: 输入为需求、已定方案、变更范围、当前源码与验证证据。围绕可定位的实际问题审查；流程由 `using-redberry` 组织，规范按需从[开发约定](references/conventions.md)进入。
 9: 
 10: ## 执行
 11: 
@@ -240,18 +240,18 @@
 19: 
 20: 输出审查范围、问题及处置状态、实际检查和验证限制，更新同一任务记录。没有发现问题时也说明覆盖边界，不给出全面正确性保证。
 21: 
-22: 仅审查任务在报告处收尾，不修改源码。已有修复授权时，将问题交回 `using-redplum` 的调研与修复闭环；修复后按 `redplum-verification` 重新安排干净子 agent 验收，再回本阶段复查，保持同一任务的问题记录。审查意见不能替代行为验收，审查发现的修改同样会影响旧验收证据。实现任务满足入口规定的完成条件后汇总交付，缺项明确保留。
+22: 仅审查任务在报告处收尾，不修改源码。已有修复授权时，将问题交回 `using-redberry` 的调研与修复闭环；修复后按 `redberry-verification` 重新安排干净子 agent 验收，再回本阶段复查，保持同一任务的问题记录。审查意见不能替代行为验收，审查发现的修改同样会影响旧验收证据。实现任务满足入口规定的完成条件后汇总交付，缺项明确保留。
 
 
-### redplum-research/SKILL.md
+### redberry-research/SKILL.md
 1: ---
-2: name: redplum-research
-3: description: Use when a Red Plum decision depends on technical facts, existing solutions, library behavior, dependency maintenance, technology suitability, or a remedy for an acceptance or review finding.
+2: name: redberry-research
+3: description: Use when a Red Berry decision depends on technical facts, existing solutions, library behavior, dependency maintenance, technology suitability, or a remedy for an acceptance or review finding.
 4: ---
 5: 
-6: # 红梅调研
+6: # 红莓调研
 7: 
-8: 输入为待回答的问题、需求约束、目标版本与已有证据。输出支持当前决策的依据；需求范围和业务选择由 `redplum-requirements` 处理，流程由 `using-redplum` 组织。
+8: 输入为待回答的问题、需求约束、目标版本与已有证据。输出支持当前决策的依据；需求范围和业务选择由 `redberry-requirements` 处理，流程由 `using-redberry` 组织。
 9: 
 10: ## 执行
 11: 
@@ -270,48 +270,48 @@
 24: 
 25: 交付：**问题的答案与状态、来源及适用条件、未决问题与验证去向**，更新同一任务记录。证据足以支持当前决定时结束调研；资料受限时说明缺失证据阻断哪个决定，继续可独立查证的部分。
 26: 
-27: 新方案交 `redplum-design`；初步设计已有、关键适配需实测时交 `redplum-proof-of-concept`，实测后返回设计定案。只要求查询或调研时在本阶段收尾，报告范围清楚即可，不自动安装依赖或实施方案。
+27: 新方案交 `redberry-design`；初步设计已有、关键适配需实测时交 `redberry-proof-of-concept`，实测后返回设计定案。只要求查询或调研时在本阶段收尾，报告范围清楚即可，不自动安装依赖或实施方案。
 28: 
 29: 复用型材料存入项目已有过程资料区；主方案仅写最终有效规则。参考规范按需阅读[开发约定](references/conventions.md)。
 
 
-### redplum-debugging/SKILL.md
+### redberry-debugging/SKILL.md
 1: ---
-2: name: redplum-debugging
-3: description: Use when a Red Plum project has errors, unexpected behavior, failing tests, performance regressions, or intermittent failures requiring root-cause analysis.
+2: name: redberry-debugging
+3: description: Use when a Red Berry project has errors, unexpected behavior, failing tests, performance regressions, or intermittent failures requiring root-cause analysis.
 4: ---
 5: 
-6: # 红梅排障
+6: # 红莓排障
 7: 
-8: 输入为预期与实际行为、问题证据和当前实现。定位根因并确定修复边界，再交编码、验收与审查闭环；整体流程由 `using-redplum` 组织，技术约束按需读取[开发约定](references/conventions.md)。
+8: 输入为预期与实际行为、问题证据和当前实现。定位根因并确定修复边界，再交编码、验收与审查闭环；整体流程由 `using-redberry` 组织，技术约束按需读取[开发约定](references/conventions.md)。
 9: 
 10: ## 执行
 11: 
 12: 1. 固定现象与环境：触发条件、输入、时间顺序及影响，区分用户反馈、实际观测与解释假设。已证实的审查问题复用原证据，不重做无关调查。
 13: 2. 建立失败判据。优先最小可重复场景或测试，确认失败对应原问题并保留结果。无法复现时收集必要日志、请求与上下文；明确缺少的条件，不靠试改把猜测当成根因。
-14: 3. 沿实际数据流验证假设，每次检查一个关键因素。涉及共享状态、资源或公共机制时追踪其他读写入口，确定同类触发与受影响的不变量。库行为未知时交 `redplum-research` 查证。
+14: 3. 沿实际数据流验证假设，每次检查一个关键因素。涉及共享状态、资源或公共机制时追踪其他读写入口，确定同类触发与受影响的不变量。库行为未知时交 `redberry-research` 查证。
 15: 4. 形成最小修复方案，说明根因、修复位置、相关入口及回归场景。需要改变约定行为或模块接口时，分别交需求或设计阶段；不附带无关重构。
 16: 
 17: ## 出口与交接
 18: 
-19: 交付：**现象、失败判据与证据、已确认根因／待验证假设、修复范围、回归判据**，更新同一任务记录。验收或审查问题定位后交 `redplum-research` 形成方案依据，遵循 `using-redplum` 的闭环；已有调研证据有效时复用。其他故障在根因与修复方案明确且已获授权后，交 `redplum-planning` 安排工作（小修复可简写），再由 `redplum-coding` 实施、`redplum-verification` 独立验收、`redplum-code-review` 复查。
+19: 交付：**现象、失败判据与证据、已确认根因／待验证假设、修复范围、回归判据**，更新同一任务记录。验收或审查问题定位后交 `redberry-research` 形成方案依据，遵循 `using-redberry` 的闭环；已有调研证据有效时复用。其他故障在根因与修复方案明确且已获授权后，交 `redberry-planning` 安排工作（小修复可简写），再由 `redberry-coding` 实施、`redberry-verification` 独立验收、`redberry-code-review` 复查。
 20: 
 21: 原失败消失之外，还要核对受影响行为及必需检查；最小复现通过仅证明其范围。证据不足时继续取证，报告阻断与恢复条件。用户仅要求诊断时交付诊断结论，不自动改代码；用户已授权修复时，不因阶段切换重复询问。
 
 
-### redplum-proof-of-concept/SKILL.md
+### redberry-proof-of-concept/SKILL.md
 1: ---
-2: name: redplum-proof-of-concept
-3: description: Use when a preliminary Red Plum design or technology choice needs practical integration evidence, or when reviewing whether a POC meets its criteria.
+2: name: redberry-proof-of-concept
+3: description: Use when a preliminary Red Berry design or technology choice needs practical integration evidence, or when reviewing whether a POC meets its criteria.
 4: ---
 5: 
-6: # 红梅可行性验证
+6: # 红莓可行性验证
 7: 
-8: 输入为初步方案、候选及版本、目标环境、真实使用场景和通过判据。验证关键可行性，结果返回设计定案；正式实现另交 `redplum-verification` 验收。流程由 `using-redplum` 组织。
+8: 输入为初步方案、候选及版本、目标环境、真实使用场景和通过判据。验证关键可行性，结果返回设计定案；正式实现另交 `redberry-verification` 验收。流程由 `using-redberry` 组织。
 9: 
 10: ## 执行
 11: 
-12: 1. 固定待证明的问题与必验项。没有初步方案时交 `redplum-design`；事实未知时交 `redplum-research`。核对历史结果的版本、环境和用例后决定复用范围。
+12: 1. 固定待证明的问题与必验项。没有初步方案时交 `redberry-design`；事实未知时交 `redberry-research`。核对历史结果的版本、环境和用例后决定复用范围。
 13: 2. 在项目已有实验区搭建最小真实接入，固定依赖与必要锁文件。按问题覆盖所需的模块、存储或前后端链路；协议夹具和孤立示例只证明各自范围。
 14: 3. 运行对应生成、编译、类型及静态检查和场景验证。逐项记录通过、失败、未执行及证据，不用单项通过概括全部可行。
 15: 4. 保留失败结果，分析配置、版本、接入方式或候选本身；修正后复验受影响部分。生成代码问题修在源码、生成输入或官方配置；检查标准与验收范围的变化须有明确依据，不能为过关降低标准。
@@ -319,7 +319,7 @@
 17: 
 18: ## 出口与交接
 19: 
-20: 输出：**候选与环境、逐项判据及结果、复现证据、适用限制、定案建议**，更新同一任务记录。必验项全部通过后才给出该范围的可行结论，交 `redplum-design` 定案，再进入计划；失败或缺项则保持初步方案状态，给出调整或补验去向。
+20: 输出：**候选与环境、逐项判据及结果、复现证据、适用限制、定案建议**，更新同一任务记录。必验项全部通过后才给出该范围的可行结论，交 `redberry-design` 定案，再进入计划；失败或缺项则保持初步方案状态，给出调整或补验去向。
 21: 
 22: 只评阅已有实验时说明没有重跑。只要求 POC 时在实验报告收尾。最终主方案保留有效决定，实验与失败材料放过程资料区。项目技术约束按需从[开发约定](references/conventions.md)查阅。
 
@@ -327,12 +327,12 @@
 ### docs/status.md
 1: # 规范与实现归属
 2: 
-3: 本仓库维护十个 Red Plum Skills、配套技术规范及流程行为测试。`docs/` 是规范唯一源；七个需要参考资料的 Skill 通过同步脚本获得 `references/` 副本，需求、计划、验收三个 Skill 自包含。Skills 由开发者独立安装与更新，CLI 不管理。
+3: 本仓库维护十个 Red Berry Skills、配套技术规范及流程行为测试。`docs/` 是规范唯一源；七个需要参考资料的 Skill 通过同步脚本获得 `references/` 副本，需求、计划、验收三个 Skill 自包含。Skills 由开发者独立安装与更新，CLI 不管理。
 4: 
 5: ## 工程边界
 6: 
-7: - `red-plum-kit/skills`：阶段入口、交接与验收闭环、随包技术规范。
-8: - `red-plum-kit/cli`：CLI、应用及模块模板、工作区与生成装配、工程任务编排。
+7: - `red-berry-kit/skills`：阶段入口、交接与验收闭环、随包技术规范。
+8: - `red-berry-kit/cli`：CLI、应用及模块模板、工作区与生成装配、工程任务编排。
 9: - `go-admin-template`：公共运行时 `app`、`config`、`migrate` 与运行库自身检查。
 10: - 消费项目：业务、配置、模块接入、部署和实际验收证据。
 11: 
@@ -348,7 +348,7 @@
 ### docs/modules.md
 1: # 模块与依赖
 2: 
-3: 用户业务与基础功能都作为独立模块维护。`redplum create mod` 使用模块模板创建完整的前后端基础文件；配置定义与迁移按需添加。自有源码放项目内的模块目录，外部源码由 CLI 管理于 `.redplum/modules/`。
+3: 用户业务与基础功能都作为独立模块维护。`redberry create mod` 使用模块模板创建完整的前后端基础文件；配置定义与迁移按需添加。自有源码放项目内的模块目录，外部源码由 CLI 管理于 `.redberry/modules/`。
 4: 
 5: ## 公开入口
 6: 
@@ -373,7 +373,7 @@
 25: 
 26: 验收至少有一条独立消费链：新建应用 → 真实 CLI 添加模块 → 必要配置 → 启动 → 模块核心操作；检查生成客户端、路由、配置、迁移及适用的卸载／恢复行为。记录所有人工改动，出现模块专属接线即判定默认接入未完成。已有 examples 的业务测试只能补充这条证据。未发布模块可使用 CLI 支持的本地来源或隔离的版本仓库夹具，注明所覆盖的安装路径，不能以复制源码或手改生成产物替代安装。
 27: 
-28: 前端模块可在 `frontend/index.ts` 具名导出 `createProvider(context)`，返回 Provider 组件。CLI 生成 `.redplum/frontend/providers.tsx`，按依赖在外、消费方在内组合；应用入口在 render 外调用 `createModuleProviders(queryClient)`，在 UI 与 Query Provider 内统一挂载返回的 `ModuleProviders`。上下文提供生成 `api`、有限 `ui`、应用 `scope` 和 `queryClient`；模块用最小结构类型声明所需能力，生成调用负责静态兼容检查。无工厂的模块直接透传 children。工厂只定义组件，不获取资源；组件挂载／卸载管理资源，不在 render 中创建订阅或会话。应用主题可通过有限 UI 入口定制，旧应用升级需一次接入通用容器，不为每个模块增加专属装配。
+28: 前端模块可在 `frontend/index.ts` 具名导出 `createProvider(context)`，返回 Provider 组件。CLI 生成 `.redberry/frontend/providers.tsx`，按依赖在外、消费方在内组合；应用入口在 render 外调用 `createModuleProviders(queryClient)`，在 UI 与 Query Provider 内统一挂载返回的 `ModuleProviders`。上下文提供生成 `api`、有限 `ui`、应用 `scope` 和 `queryClient`；模块用最小结构类型声明所需能力，生成调用负责静态兼容检查。无工厂的模块直接透传 children。工厂只定义组件，不获取资源；组件挂载／卸载管理资源，不在 render 中创建订阅或会话。应用主题可通过有限 UI 入口定制，旧应用升级需一次接入通用容器，不为每个模块增加专属装配。
 29: 
 30: 前端页面在路由 `staticData` 中声明 `layout`（省略时为 `workspace`，全屏需显式设为 `fullscreen`）及可选 `menu`（必填标题 `title`、可选顺序 `order`，省略顺序为 0，同序沿用路由装配顺序）。模块模板为普通页面生成菜单声明；未声明 `menu` 的页面不进入菜单，全屏页面也不进入工作台菜单。登录等全屏页不嵌套工作台。布局、菜单可见性与访问控制分别设计和验收，不把全屏或隐藏菜单当成权限声明。
 31: 
@@ -389,12 +389,12 @@
 41: 
 42: ## 模块描述
 43: 
-44: `redplum.yaml` 只负责模块 ID、版本、依赖和替代声明。入口及迁移资源按约定路径发现，不增加对应配置字段。依赖字段使用 `deps`，替代声明使用 `replaces`。
+44: `redberry.yaml` 只负责模块 ID、版本、依赖和替代声明。入口及迁移资源按约定路径发现，不增加对应配置字段。依赖字段使用 `deps`，替代声明使用 `replaces`。
 45: 
 46: 身份字段写法：
 47: 
 48: ```yaml
-49: id: github.com/redplum/user
+49: id: github.com/redberry/user
 50: version: 1.2.0
 51: ```
 52: 
@@ -406,14 +406,14 @@
 58: ### 模块依赖
 59: 
 60: ```yaml
-61: id: github.com/redplum/rbac
+61: id: github.com/redberry/rbac
 62: version: 1.0.0
 63: 
 64: deps:
-65:   github.com/redplum/user: ^1.2.0
+65:   github.com/redberry/user: ^1.2.0
 66: ```
 67: 
-68: `deps` 按“模块 ID → 版本约束”声明 Red Plum 模块依赖，支持精确版本与标准 `^` 写法，版本统一不带 `v`。`^1.2.0` 表示 `>=1.2.0 <2.0.0`；零主版本按兼容范围收窄，`^0.2.3` 表示 `>=0.2.3 <0.3.0`，`^0.0.3` 表示 `>=0.0.3 <0.0.4`。Go 依赖由各自模块根层的 `go.mod` 管理，前端包依赖由 `frontend/package.json` 管理，不重复放入 `deps`。
+68: `deps` 按“模块 ID → 版本约束”声明 Red Berry 模块依赖，支持精确版本与标准 `^` 写法，版本统一不带 `v`。`^1.2.0` 表示 `>=1.2.0 <2.0.0`；零主版本按兼容范围收窄，`^0.2.3` 表示 `>=0.2.3 <0.3.0`，`^0.0.3` 表示 `>=0.0.3 <0.0.4`。Go 依赖由各自模块根层的 `go.mod` 管理，前端包依赖由 `frontend/package.json` 管理，不重复放入 `deps`。
 69: 
 70: 锁文件固定实际选中的实现及源码提交，以便重现解析结果。
 71: 
@@ -424,7 +424,7 @@
 76: version: 2.0.0
 77: 
 78: replaces:
-79:   github.com/redplum/user: 1
+79:   github.com/redberry/user: 1
 80: ```
 81: 
 82: `replaces` 按“目标模块 ID → 大版本”声明替代关系，不填写目标的次版本、补丁版本或 `^` 范围。上例声明可以替代目标模块的 `1.x` 版本线；替代模块自身版本独立维护，不要求与目标版本一致。
@@ -443,11 +443,11 @@
 95: 
 96: ```yaml
 97: deps:
-98:   github.com/redplum/rbac: ^1.0.0
+98:   github.com/redberry/rbac: ^1.0.0
 99:   github.com/acme/user: ^2.0.0
 100: ```
 101: 
-102: 如果 `github.com/acme/user` 声明 `replaces: {github.com/redplum/user: 1}`，解析器就用该实现满足 RBAC 对原用户模块的大版本 1 的依赖，不再安装原实现。替代模块自身版本通过其 `deps` 约束选择；替代目标按 `replaces` 中的大版本匹配。
+102: 如果 `github.com/acme/user` 声明 `replaces: {github.com/redberry/user: 1}`，解析器就用该实现满足 RBAC 对原用户模块的大版本 1 的依赖，不再安装原实现。替代模块自身版本通过其 `deps` 约束选择；替代目标按 `replaces` 中的大版本匹配。
 103: 
 104: 发现多个候选实现则报冲突，不按声明顺序或版本高低自动挑选。锁文件记录最终解析结果。
 105: 
@@ -455,7 +455,7 @@
 107: 
 108: 依赖源码与生成目录由 Git 忽略；项目提交依赖清单和锁文件。锁文件固定实际选中的实现、版本与源码提交，CLI 维护安装结果、工作区和装配输入。
 109: 
-110: 有锁按锁恢复，无锁解析并生成；`--locked` 拒绝缺锁或与清单不一致，不等同于离线。添加、安装、移除、升级和状态查询的完整行为见[CLI 约定](cli.md#依赖维护redplum)。
+110: 有锁按锁恢复，无锁解析并生成；`--locked` 拒绝缺锁或与清单不一致，不等同于离线。添加、安装、移除、升级和状态查询的完整行为见[CLI 约定](cli.md#依赖维护redberry)。
 111: 
 112: 外部依赖目录不保存业务自定义；需要特殊行为时通过模块公开扩展接口，或选择声明替代关系的独立实现。
 113: 
@@ -471,7 +471,7 @@
 2: 
 3: ## 项目定位
 4: 
-5: 红梅（Red Plum）是一套面向 Agent 辅助编程的 Go 业务项目模板。它提供可组合的基础能力、统一约定和静态检查边界，让开发集中于业务功能。
+5: 红莓（Red Berry）是一套面向 Agent 辅助编程的 Go 业务项目模板。它提供可组合的基础能力、统一约定和静态检查边界，让开发集中于业务功能。
 6: 
 7: 项目包含后端、前端、skill / tool 三部分，独立处理、按需加入。当前 Agent 开发的重点是编程过程中的约束，让开发者和 Agent 从类型、约定与检查结果中获得明确反馈。Agent 文档入口、工具职责和任务流程见下述设计；交付状态见[实现范围](status.md)。
 8: 
@@ -495,7 +495,7 @@
 26: 
 27: CLI 管理源码、版本、工作区和装配输入，依赖注入负责对象和资源的组合。两者共用模块图，不让业务分别维护脱节的安装与装配步骤。
 28: 
-29: 自有模块放项目内的模块目录，外部源码放 Git 忽略的 `.redplum/modules/`。项目提交 YAML 清单和锁文件，以便团队与 CI 恢复依赖。自定义行为留在业务模块或独立实现中，外部目录不作为长期修改基础源码的地方。
+29: 自有模块放项目内的模块目录，外部源码放 Git 忽略的 `.redberry/modules/`。项目提交 YAML 清单和锁文件，以便团队与 CI 恢复依赖。自定义行为留在业务模块或独立实现中，外部目录不作为长期修改基础源码的地方。
 30: 
 31: 替代实现通过 `replaces` 声明目标模块 ID 与大版本，消费方继续依赖目标约定。同一目标只允许一个实现，选择后全项目生效；替代维护者负责遵守约定，框架执行正常编译与边界检查，不另建健全性评估机制。详见[模块与依赖](modules.md)。
 32: 
@@ -527,7 +527,7 @@
 58: 
 59: ### Agent 文档入口
 60: 
-61: 项目根 `AGENTS.md` 是 Agent 开发的统一入口，由 `redplum create app` 初次生成，简要说明项目结构、常用 CLI 与项目任务命令、用户模块和 `.redplum/` 生成目录的边界，并留出项目特有规则区。可提示使用用户已安装的 Red Plum Skill，不绑定客户端路径；不复制完整规范。创建后由业务项目维护，后续 CLI 操作、Skill 或官方规范更新均不覆盖。
+61: 项目根 `AGENTS.md` 是 Agent 开发的统一入口，由 `redberry create app` 初次生成，简要说明项目结构、常用 CLI 与项目任务命令、用户模块和 `.redberry/` 生成目录的边界，并留出项目特有规则区。可提示使用用户已安装的 Red Berry Skill，不绑定客户端路径；不复制完整规范。创建后由业务项目维护，后续 CLI 操作、Skill 或官方规范更新均不覆盖。
 62: 
 63: 具体任务按需提供 Skill，以 `SKILL.md` 描述任务流程，并按需配套脚本和参考资料。官方 Skill 发布包携带该 Skill 实际需要的规范资料，放在 Skill 目录的 `references/` 下并使用包内相对路径；参考资料由独立 Skills 仓库的 `docs/` 生成，同 Skill 使用相同版本。用户自行获取、安装和更新 Skill 包，安装位置遵循所用客户端的约定。
 64: 
@@ -535,24 +535,24 @@
 66: 
 67: ### 开发工具入口
 68: 
-69: Red Plum CLI 负责从项目模板和模块模板创建项目与模块，并维护项目声明的模块依赖；CLI 将输入填入模板，再执行必要的依赖接入。项目任务脚本提供统一的生成、检查、测试、开发和构建入口，具体命令以目标项目定义为准；任务调用 Red Plum CLI、编译器、静态检查器及测试工具完成工作。
+69: Red Berry CLI 负责从项目模板和模块模板创建项目与模块，并维护项目声明的模块依赖；CLI 将输入填入模板，再执行必要的依赖接入。项目任务脚本提供统一的生成、检查、测试、开发和构建入口，具体命令以目标项目定义为准；任务调用 Red Berry CLI、编译器、静态检查器及测试工具完成工作。
 70: 
 71: Skill 说明何时使用 CLI 或项目任务入口、如何判断结果并继续工作，不重复实现命令能力。业务运行时供 Agent 调用的工具按业务模块需要单独设计，不预设通用工具集合或统一注册层。
 72: 
 73: ### 编码 Skill
 74: 
-75: Red Plum Skills 的统一入口为 `using-redplum`。入口负责阶段选择、任务恢复和交付；每个专业 Skill 的执行步骤、出口和交接以其 `SKILL.md` 为唯一流程定义。本页只说明资源边界，不再复制流程表。
+75: Red Berry Skills 的统一入口为 `using-redberry`。入口负责阶段选择、任务恢复和交付；每个专业 Skill 的执行步骤、出口和交接以其 `SKILL.md` 为唯一流程定义。本页只说明资源边界，不再复制流程表。
 76: 
-77: 项目 `AGENTS.md` 应指向已安装的 `using-redplum`，由入口按任务选择专业能力。具体发现、读取或调用机制遵循所用客户端；源码目录不等于客户端安装目录。缺少某项 Skill 时应说明缺失并继续有依据的工作，不伪称已使用。
+77: 项目 `AGENTS.md` 应指向已安装的 `using-redberry`，由入口按任务选择专业能力。具体发现、读取或调用机制遵循所用客户端；源码目录不等于客户端安装目录。缺少某项 Skill 时应说明缺失并继续有依据的工作，不伪称已使用。
 78: 
 79: ### Skill 组织与维护
 80: 
-81: - Skill 源码在独立 Skills 仓库根的 `<skill-name>/SKILL.md`；名称与目录一致，统一入口为 `using-redplum`，专业 Skill 使用 `redplum-` 前缀。
+81: - Skill 源码在独立 Skills 仓库根的 `<skill-name>/SKILL.md`；名称与目录一致，统一入口为 `using-redberry`，专业 Skill 使用 `redberry-` 前缀。
 82: - `description` 用英文描述触发条件，正文与说明用中文。入口组织流程，专业 Skill 定义阶段要求，技术规范按需引用。
-83: - 需求、计划与验收分别由 `redplum-requirements`、`redplum-planning`、`redplum-verification` 承担；调研、设计、POC、编码、排障和审查保持各自职责。新增 Skill 应有独立触发场景，补充说明可保留为参考文件。
+83: - 需求、计划与验收分别由 `redberry-requirements`、`redberry-planning`、`redberry-verification` 承担；调研、设计、POC、编码、排障和审查保持各自职责。新增 Skill 应有独立触发场景，补充说明可保留为参考文件。
 84: - 规范在本 Skills 仓库的 `docs/` 单点维护；`scripts/sync-references.py` 将规范同步至已有的 `references/`，保证单个 Skill 内的相对链接可用。无需技术规范的 Skill 保持自包含。
 85: - 任务流程直接修改对应 `SKILL.md`，不在规范副本重写；新增或修订流程先建立行为对照，再验证阶段选择、产出与交接，检查实际行为，不能只匹配标题。
-86: - 项目 `AGENTS.md` 只保留使用入口及项目特有规则，由项目维护。用户独立安装和更新 Skills，Red Plum CLI 不管理、不覆盖它们，`.redplum/` 不保存 Skills。
+86: - 项目 `AGENTS.md` 只保留使用入口及项目特有规则，由项目维护。用户独立安装和更新 Skills，Red Berry CLI 不管理、不覆盖它们，`.redberry/` 不保存 Skills。
 87: - 源码更新不等于所有客户端已加载；安装后核对实际路径，发现目录可能需要客户端重新扫描。未安装的下游 Skill 不能作为已执行的证据。
 88: 
 89: ### 任务与发布
@@ -566,24 +566,24 @@
 1: # CLI 与开发流程
 2: 
 3: 本文是 CLI 命令与流程在整体需求中的原始表述。CLI 的权威需求条目、命令契约与实现都在独立仓库
-4: `red-plum-kit/cli`（`docs/requirements.md`、`docs/commands.md`），两侧不一致时以该仓库为准。
+4: `red-berry-kit/cli`（`docs/requirements.md`、`docs/commands.md`），两侧不一致时以该仓库为准。
 5: 
-6: ## 依赖维护：redplum
+6: ## 依赖维护：redberry
 7: 
-8: 外部模块源码放 `.redplum/modules/`，自有模块放项目内的模块目录。
+8: 外部模块源码放 `.redberry/modules/`，自有模块放项目内的模块目录。
 9: 
 10: | 命令 | 职责 |
 11: | --- | --- |
-12: | `redplum create app <名称>` | 使用项目模板创建项目，并生成项目根 `AGENTS.md` |
-13: | `redplum create mod <模块ID>` | 使用模块模板创建模块并加入当前项目 |
-14: | `redplum add <模块ID>[@版本约束]` | 添加依赖或更新已有约束 |
-15: | `redplum install [--locked]` | 安装清单声明的全部模块 |
-16: | `redplum rm <模块ID>` | 移除直接依赖 |
-17: | `redplum up [模块ID]` | 在现有约束内升级指定或全部模块 |
-18: | `redplum outdated` | 查询落后版本 |
-19: | `redplum list` | 查看实际模块、版本、依赖关系与替代实现 |
-20: | `redplum gen` | 生成装配、路由、API 客户端等产物 |
-21: | `redplum check` | 检查代码合规、模块规范与安装及生成状态 |
+12: | `redberry create app <名称>` | 使用项目模板创建项目，并生成项目根 `AGENTS.md` |
+13: | `redberry create mod <模块ID>` | 使用模块模板创建模块并加入当前项目 |
+14: | `redberry add <模块ID>[@版本约束]` | 添加依赖或更新已有约束 |
+15: | `redberry install [--locked]` | 安装清单声明的全部模块 |
+16: | `redberry rm <模块ID>` | 移除直接依赖 |
+17: | `redberry up [模块ID]` | 在现有约束内升级指定或全部模块 |
+18: | `redberry outdated` | 查询落后版本 |
+19: | `redberry list` | 查看实际模块、版本、依赖关系与替代实现 |
+20: | `redberry gen` | 生成装配、路由、API 客户端等产物 |
+21: | `redberry check` | 检查代码合规、模块规范与安装及生成状态 |
 22: 
 23: 项目与模块都从对应模板创建；CLI 将名称或模块 ID 填入模板，并完成项目依赖接入。
 24: 
@@ -594,30 +594,30 @@
 29: 两个创建命令共用 `--template` 参数，短别名为 `-t`，参数位于名称或模块 ID 之后；省略时使用官方默认模板。
 30: 
 31: ```sh
-32: redplum create app shop -m github.com/acme/shop -t <仓库地址>
-33: redplum create mod github.com/acme/shop/modules/order -t <仓库地址>
+32: redberry create app shop -m github.com/acme/shop -t <仓库地址>
+33: redberry create mod github.com/acme/shop/modules/order -t <仓库地址>
 34: ```
 35: 
-36: `create app` 必须通过 `--module` / `-m` 指定项目的 Go module 路径。`--scope` / `-s` 指定前端包组织名；省略时按模块路径推导。创建只准备模板与模块装配，随后在项目根运行 `redplum install` 安装依赖并生成完整产物。
+36: `create app` 必须通过 `--module` / `-m` 指定项目的 Go module 路径。`--scope` / `-s` 指定前端包组织名；省略时按模块路径推导。创建只准备模板与模块装配，随后在项目根运行 `redberry install` 安装依赖并生成完整产物。
 37: 
 38: ```sh
-39: redplum create app shop -m github.com/acme/shop -s acme
+39: redberry create app shop -m github.com/acme/shop -s acme
 40: cd shop
-41: redplum install
+41: redberry install
 42: ```
 43: 
 44: 外部模板可通过 `--ref` / `-r` 固定分支、标签或提交；省略时使用仓库默认分支。模板只做文件渲染，不执行仓库脚本。外部模板创建成功后，在标准错误输出仓库、请求 ref 和解析得到的完整提交，默认分支同样保留来源诊断。
 45: 
-46: `create mod` 接收完整模块 ID，采用 Go module path 格式。项目内模块 ID 必须以项目根 `go.mod` 的 module 路径为前缀，其余路径与项目根下的相对目录一致；模块目录不要求位于 `modules/` 下，但不能占用 `cmd/`、`backend/`、`frontend/`、`config/`、`migrations/`、`scripts/`、`tests/` 等工程目录与隐藏目录。例如项目根路径为 `github.com/acme/shop` 时，`redplum create mod github.com/acme/shop/modules/order` 在 `modules/order/` 创建本地模块，`github.com/acme/shop/order` 则在 `order/` 创建，两种写法都加入项目依赖。默认模块模板包含完整前后端基础文件：`redplum.yaml`、`go.mod`、`backend/module.go`、`backend/order.go`、`frontend/package.json`、`frontend/index.ts` 和 `frontend/order.tsx`；`order` 替换为模块目录名。初始模块版本为 `0.1.0`，项目依赖清单写入 `^0.1.0`。配置定义与 `migrations/` 按需添加。
+46: `create mod` 接收完整模块 ID，采用 Go module path 格式。项目内模块 ID 必须以项目根 `go.mod` 的 module 路径为前缀，其余路径与项目根下的相对目录一致；模块目录不要求位于 `modules/` 下，但不能占用 `cmd/`、`backend/`、`frontend/`、`config/`、`migrations/`、`scripts/`、`tests/` 等工程目录与隐藏目录。例如项目根路径为 `github.com/acme/shop` 时，`redberry create mod github.com/acme/shop/modules/order` 在 `modules/order/` 创建本地模块，`github.com/acme/shop/order` 则在 `order/` 创建，两种写法都加入项目依赖。默认模块模板包含完整前后端基础文件：`redberry.yaml`、`go.mod`、`backend/module.go`、`backend/order.go`、`frontend/package.json`、`frontend/index.ts` 和 `frontend/order.tsx`；`order` 替换为模块目录名。初始模块版本为 `0.1.0`，项目依赖清单写入 `^0.1.0`。配置定义与 `migrations/` 按需添加。
 47: 
-48: 项目根 `AGENTS.md` 在项目创建时生成，包含项目结构、常用 CLI 与项目任务命令、用户模块与 `.redplum/` 生成目录边界，以及项目特有规则区。文件归业务项目维护，依赖管理、安装、生成、检查和升级操作均不覆盖它。Skill 与配套规范由用户独立安装和更新，CLI 不管理。
+48: 项目根 `AGENTS.md` 在项目创建时生成，包含项目结构、常用 CLI 与项目任务命令、用户模块与 `.redberry/` 生成目录边界，以及项目特有规则区。文件归业务项目维护，依赖管理、安装、生成、检查和升级操作均不覆盖它。Skill 与配套规范由用户独立安装和更新，CLI 不管理。
 49: 
 50: ### 版本与添加
 51: 
 52: ```sh
-53: redplum add github.com/redplum/user@^1.2.0
-54: redplum add github.com/redplum/user@1.2.0
-55: redplum add github.com/redplum/user
+53: redberry add github.com/redberry/user@^1.2.0
+54: redberry add github.com/redberry/user@1.2.0
+55: redberry add github.com/redberry/user
 56: ```
 57: 
 58: 版本使用 SemVer，支持精确版本与标准 `^` 范围，不带 `v`。省略版本时选择最新稳定版，以该版本起始的 `^` 范围写入清单，锁文件固定实际版本。
@@ -647,7 +647,7 @@
 82: 
 83: ### 生成与检查
 84: 
-85: `gen` 使用当前安装结果生成产物，不隐式升级或安装依赖；源码缺失、安装状态不完整时提示先运行 `redplum install`。
+85: `gen` 使用当前安装结果生成产物，不隐式升级或安装依赖；源码缺失、安装状态不完整时提示先运行 `redberry install`。
 86: 
 87: `check` 由 `pnpm check` 调用，检查类型、格式、静态规则、模块边界、迁移约定、受管理源码、锁文件与生成产物一致性。仅检查，不自动修复。
 88: 
@@ -675,13 +675,13 @@
 110: ./shop migrate -e prod -c /etc/shop
 111: ```
 112: 
-113: 成功返回 `0`，配置、迁移或启动失败返回非零并报告错误。`shop check` 检查运行配置；`redplum check` 检查开发阶段代码与项目状态。
+113: 成功返回 `0`，配置、迁移或启动失败返回非零并报告错误。`shop check` 检查运行配置；`redberry check` 检查开发阶段代码与项目状态。
 114: 
 115: `check` 复用服务的配置加载与校验，不需要先获取数据库连接或监听端口，失败时报告完整配置路径。`migrate` 成功或没有待执行迁移均返回 `0`，配置、锁等待或迁移失败返回非零，结束后释放资源；提前运行 `migrate` 不会让 `serve` 绕过迁移检查，后者按版本账本跳过已完成步骤。详细加载规则见[配置](config.md)，事务、锁与失败处理见[数据迁移](migrations.md)。
 116: 
 117: ## 项目任务
 118: 
-119: 项目根 `package.json` 提供统一入口，脚本只转发到 Red Plum CLI：
+119: 项目根 `package.json` 提供统一入口，脚本只转发到 Red Berry CLI：
 120: 
 121: | 脚本 | 行为 |
 122: | --- | --- |
@@ -692,10 +692,10 @@
 127: | `pnpm build` | 生成、检查并构建单二进制产物 |
 128: | `pnpm build:split` | 生成、检查并构建前后端分离产物 |
 129: 
-130: `redplum app dev --env test` 覆盖开发运行环境；后端代码修改后手动重启。构建不选择运行环境，不携带运行配置。
+130: `redberry app dev --env test` 覆盖开发运行环境；后端代码修改后手动重启。构建不选择运行环境，不携带运行配置。
 131: 前端专用脚本另有 `dev:web`、`build:web`、`check:web`、`test:web`、`gen:api`，只覆盖前端一层。
 132: 
-133: CI 恢复锁定依赖与必要生成产物后，依次执行 `check` → `test` → `build`。脚本负责转发，依赖维护、生成与任务编排集中在 Red Plum CLI，脚本不重复实现这些领域逻辑。
+133: CI 恢复锁定依赖与必要生成产物后，依次执行 `check` → `test` → `build`。脚本负责转发，依赖维护、生成与任务编排集中在 Red Berry CLI，脚本不重复实现这些领域逻辑。
 134: 
 135: `check` 采用检查模式，不格式化或自动修复，也不能通过覆盖旧产物来掩盖生成不一致。冷启动 CI 先恢复锁定依赖和必要产物，再执行检查；`build` 自身保留检查前置条件。
 136: 
@@ -736,8 +736,8 @@
 9: ├── AGENTS.md                     # Agent 开发入口，项目命令与项目特有规则
 10: ├── go.mod                        # 项目根 Go 模块
 11: ├── go.sum
-12: ├── redplum.yaml                   # 项目依赖清单
-13: ├── redplum.lock                   # 实际解析版本与依赖锁定结果
+12: ├── redberry.yaml                   # 项目依赖清单
+13: ├── redberry.lock                   # 实际解析版本与依赖锁定结果
 14: ├── go.work                        # CLI 维护的 Go 工作区
 15: ├── package.json                   # workspace 根、统一任务入口与生成代码运行依赖
 16: ├── pnpm-lock.yaml
@@ -765,7 +765,7 @@
 38: │   └── 0.1.0.sql                 # 版本迁移示例
 39: ├── modules/                      # 用户维护的业务模块示例（ID 后缀即模块目录）
 40: │   └── order/
-41: │       ├── redplum.yaml
+41: │       ├── redberry.yaml
 42: │       ├── go.mod
 43: │       ├── go.sum
 44: │       ├── backend/
@@ -784,10 +784,10 @@
 57: │   ├── app.dev.toml               # 开发环境配置
 58: │   ├── app.test.toml              # 测试环境配置
 59: │   └── app.prod.toml              # 生产环境配置
-60: └── .redplum/                      # CLI 管理，Git 忽略，可恢复
+60: └── .redberry/                      # CLI 管理，Git 忽略，可恢复
 61:     ├── modules/                   # 拉取的外部依赖模块源码
 62:     │   └── github.com/
-63:     │       └── redplum/
+63:     │       └── redberry/
 64:     │           └── user/          # 外部用户模块源码
 65:     ├── config/
 66:     │   └── app.schema.json        # 配置编辑提示与检查约束
@@ -804,17 +804,17 @@
 77:     └── openapi.json               # 后端导出的 OpenAPI
 78: ```
 79: 
-80: `cmd/<项目命令名>/` 是后端启动层。项目根包含 `go.mod`、`go.sum`，不为命令目录单独创建 Go module。项目内的模块目录保存用户自有模块，ID 后缀与该目录一致；示例放在 `modules/` 下，也可以直接放在项目根。`.redplum/modules/` 保存受管理的外部源码，用户不在其中维护业务修改。模板只产出一套结构；没有前端的项目不生成前端文件。
+80: `cmd/<项目命令名>/` 是后端启动层。项目根包含 `go.mod`、`go.sum`，不为命令目录单独创建 Go module。项目内的模块目录保存用户自有模块，ID 后缀与该目录一致；示例放在 `modules/` 下，也可以直接放在项目根。`.redberry/modules/` 保存受管理的外部源码，用户不在其中维护业务修改。模板只产出一套结构；没有前端的项目不生成前端文件。
 81: 
-82: `go.work` 由 CLI 更新，自有模块通过 `use` 纳入，受管理外部目标通过生成的本地映射接入；生成包共用根模块，不独立列为工作区模块。用户无需手工维护 `replace`。模块 ID 到 `.redplum/modules/` 路径的映射由 CLI 统一处理，图中的域名路径仅展示一个依赖实例。
+82: `go.work` 由 CLI 更新，自有模块通过 `use` 纳入，受管理外部目标通过生成的本地映射接入；生成包共用根模块，不独立列为工作区模块。用户无需手工维护 `replace`。模块 ID 到 `.redberry/modules/` 路径的映射由 CLI 统一处理，图中的域名路径仅展示一个依赖实例。
 83: 
 84: ## 模块结构
 85: 
-86: `redplum create mod` 从模块模板创建模块描述、Go module、后端 Fx 入口与业务文件，以及前端包描述、公开入口与业务组件。`backend/config.go` 和 `migrations/` 按需创建。
+86: `redberry create mod` 从模块模板创建模块描述、Go module、后端 Fx 入口与业务文件，以及前端包描述、公开入口与业务组件。`backend/config.go` 和 `migrations/` 按需创建。
 87: 
 88: ```text
 89: order/
-90: ├── redplum.yaml        # 模块描述
+90: ├── redberry.yaml        # 模块描述
 91: ├── go.mod             # 位于模块根目录（默认生成）
 92: ├── go.sum             # Go 依赖校验和
 93: ├── backend/
@@ -848,17 +848,17 @@
 121: 
 122: `frontend/index.ts` 只提供模块公开导出，不执行挂载，也不反向引用项目启动入口。浏览器代码和 Node 配置分别由 `tsconfig.app.json`、`tsconfig.node.json` 检查，`tsconfig.json` 为配置入口；检查范围须覆盖参与装配的模块和生成代码，而不只包含主入口的导入闭包。
 123: 
-124: 根 `package.json` 负责统一脚本、工具版本约束，以及根层生成代码直接引用的运行依赖（当前为 React 与 TanStack Query），`frontend/package.json` 声明应用依赖，各模块仍声明自身依赖。workspace 显式纳入各模块的前端包与 `.redplum/modules/` 下的前端包，统一使用根锁文件。
+124: 根 `package.json` 负责统一脚本、工具版本约束，以及根层生成代码直接引用的运行依赖（当前为 React 与 TanStack Query），`frontend/package.json` 声明应用依赖，各模块仍声明自身依赖。workspace 显式纳入各模块的前端包与 `.redberry/modules/` 下的前端包，统一使用根锁文件。
 125: 
 126: 前端 workspace 包名与 Go 模块 ID 分开：项目应用包使用 `@<组织>/app`，模块前端包使用 `@<组织>/<模块名>`，模块包名不附加所属项目名。应用包和模块包均设为 `private: true`。例如组织为 `acme` 时，项目应用包名为 `@acme/app`，`order` 模块包名为 `@acme/order`。根 `package.json` 是 workspace 根层工具包，不与应用或模块前端包共用身份。
 127: 
-128: `.redplum/frontend/` 生成代码引用解析后的模块公开入口静态路径；不假定它会继承 `frontend/package.json` 的包解析环境。Orval 生成的 `api.ts` 直接导入 TanStack Query，因此其运行依赖由根 `package.json` 显式声明；应用和模块仍声明自身使用的依赖，不靠 hoist 或应用目录为生成代码兜底。
+128: `.redberry/frontend/` 生成代码引用解析后的模块公开入口静态路径；不假定它会继承 `frontend/package.json` 的包解析环境。Orval 生成的 `api.ts` 直接导入 TanStack Query，因此其运行依赖由根 `package.json` 显式声明；应用和模块仍声明自身使用的依赖，不靠 hoist 或应用目录为生成代码兜底。
 129: 
-130: 自动生成文件归入 `.redplum/`，不手工修改。隐藏目录可以通过完整包路径显式导入；生成包共用根目录 `go.mod`，不额外创建生成模块。外部依赖模块保留各自的 `go.mod`。
+130: 自动生成文件归入 `.redberry/`，不手工修改。隐藏目录可以通过完整包路径显式导入；生成包共用根目录 `go.mod`，不额外创建生成模块。外部依赖模块保留各自的 `go.mod`。
 131: 
 132: ## 受管理目录
 133: 
-134: 项目内的模块目录为自有模块，`.redplum/modules/` 为 CLI 管理的外部依赖。`.redplum/` 整体由 Git 忽略，依赖按根层锁文件重新拉取，生成代码重新生成。锁文件、用户配置和迁移执行状态不放入该目录。
+134: 项目内的模块目录为自有模块，`.redberry/modules/` 为 CLI 管理的外部依赖。`.redberry/` 整体由 Git 忽略，依赖按根层锁文件重新拉取，生成代码重新生成。锁文件、用户配置和迁移执行状态不放入该目录。
 135: 
 136: 生成层的 `backend/`、`frontend/` 按启用部分生成。生成前准备依赖，构建和检查前确保生成结果完整，移除模块时清理旧产物。隐藏生成包须由统一检查入口显式覆盖，不能只依靠根层 `go test ./...`。
 137: 
@@ -871,7 +871,7 @@
 144: | 单二进制（默认） | `dist/shop` | 先构建前端，再通过 `go:embed` 嵌入静态资源，由后端提供资源与 API |
 145: | 前后端分离 | `dist/backend/shop`、`dist/frontend/` | 后端提供 API，前端静态资源独立部署 |
 146: 
-147: `dist/` 用于发布产物，由 Git 忽略；`.redplum/` 继续用于受管理依赖和生成代码。两种模式共用业务实现。
+147: `dist/` 用于发布产物，由 Git 忽略；`.redberry/` 继续用于受管理依赖和生成代码。两种模式共用业务实现。
 148: 
 149: ### 构建模式参数
 150: 
@@ -885,16 +885,16 @@
 158: ### 前端嵌入资源
 159: 
 160: ```text
-161: .redplum/backend/assets/
+161: .redberry/backend/assets/
 162: ├── embed.go
 163: └── web/             # 前端构建输出
 164: ```
 165: 
-166: 单二进制构建时，先将前端构建到 `.redplum/backend/assets/web/`，再编译 Go。`embed.go` 在同一包内通过 `go:embed` 嵌入并导出 `web/` 资源，由后端提供静态资源与 SPA 回退。
+166: 单二进制构建时，先将前端构建到 `.redberry/backend/assets/web/`，再编译 Go。`embed.go` 在同一包内通过 `go:embed` 嵌入并导出 `web/` 资源，由后端提供静态资源与 SPA 回退。
 167: 
-168: 分离模式不引入该嵌入包，前端直接输出到 `dist/frontend/`。构建流程应保证模式切换时不会误引入上次生成的嵌入资源。清理构建产物时保留 `.redplum/modules/` 中的依赖源码。
+168: 分离模式不引入该嵌入包，前端直接输出到 `dist/frontend/`。构建流程应保证模式切换时不会误引入上次生成的嵌入资源。清理构建产物时保留 `.redberry/modules/` 中的依赖源码。
 169: 
-170: 中间资源由 CLI 管理，保留在 `.redplum/`；最终发布产物仍在 `dist/`。
+170: 中间资源由 CLI 管理，保留在 `.redberry/`；最终发布产物仍在 `dist/`。
 171: 
 172: ### API 路径与转发
 173: 

@@ -1,4 +1,4 @@
-> 隔离夹具实际运行记录，来源：`/tmp/redplum-workflow-fixture/task.md`。仅证明下述小型故障任务，不是业务 auth 验收。
+> 隔离夹具实际运行记录，来源：`/tmp/redberry-workflow-fixture/task.md`。仅证明下述小型故障任务，不是业务 auth 验收。
 
 # 当前任务
 
@@ -27,9 +27,9 @@
 
 已实际读取并使用的 Skill：
 
-- `/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/using-redplum/SKILL.md`
-- `/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-debugging/SKILL.md`
-- `/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-planning/SKILL.md`
-- `/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-coding/SKILL.md`
-- `/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-verification/SKILL.md`
-- `/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-code-review/SKILL.md`
+- `/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/using-redberry/SKILL.md`
+- `/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-debugging/SKILL.md`
+- `/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-planning/SKILL.md`
+- `/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-coding/SKILL.md`
+- `/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-verification/SKILL.md`
+- `/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/redberry-code-review/SKILL.md`

@@ -9,8 +9,8 @@ shop/
 ├── AGENTS.md                     # Agent 开发入口，项目命令与项目特有规则
 ├── go.mod                        # 项目根 Go 模块
 ├── go.sum
-├── redplum.yaml                   # 项目依赖清单
-├── redplum.lock                   # 实际解析版本与依赖锁定结果
+├── redberry.yaml                   # 项目依赖清单
+├── redberry.lock                   # 实际解析版本与依赖锁定结果
 ├── go.work                        # CLI 维护的 Go 工作区
 ├── package.json                   # workspace 根、统一任务入口与生成代码运行依赖
 ├── pnpm-lock.yaml
@@ -38,7 +38,7 @@ shop/
 │   └── 0.1.0.sql                 # 版本迁移示例
 ├── modules/                      # 用户维护的业务模块示例（ID 后缀即模块目录）
 │   └── order/
-│       ├── redplum.yaml
+│       ├── redberry.yaml
 │       ├── go.mod
 │       ├── go.sum
 │       ├── backend/
@@ -57,10 +57,10 @@ shop/
 │   ├── app.dev.toml               # 开发环境配置
 │   ├── app.test.toml              # 测试环境配置
 │   └── app.prod.toml              # 生产环境配置
-└── .redplum/                      # CLI 管理，Git 忽略，可恢复
+└── .redberry/                      # CLI 管理，Git 忽略，可恢复
     ├── modules/                   # 拉取的外部依赖模块源码
     │   └── github.com/
-    │       └── redplum/
+    │       └── redberry/
     │           └── user/          # 外部用户模块源码
     ├── config/
     │   └── app.schema.json        # 配置编辑提示与检查约束
@@ -77,17 +77,17 @@ shop/
     └── openapi.json               # 后端导出的 OpenAPI
 ```
 
-`cmd/<项目命令名>/` 是后端启动层。项目根包含 `go.mod`、`go.sum`，不为命令目录单独创建 Go module。项目内的模块目录保存用户自有模块，ID 后缀与该目录一致；示例放在 `modules/` 下，也可以直接放在项目根。`.redplum/modules/` 保存受管理的外部源码，用户不在其中维护业务修改。模板只产出一套结构；没有前端的项目不生成前端文件。
+`cmd/<项目命令名>/` 是后端启动层。项目根包含 `go.mod`、`go.sum`，不为命令目录单独创建 Go module。项目内的模块目录保存用户自有模块，ID 后缀与该目录一致；示例放在 `modules/` 下，也可以直接放在项目根。`.redberry/modules/` 保存受管理的外部源码，用户不在其中维护业务修改。模板只产出一套结构；没有前端的项目不生成前端文件。
 
-`go.work` 由 CLI 更新，自有模块通过 `use` 纳入，受管理外部目标通过生成的本地映射接入；生成包共用根模块，不独立列为工作区模块。用户无需手工维护 `replace`。模块 ID 到 `.redplum/modules/` 路径的映射由 CLI 统一处理，图中的域名路径仅展示一个依赖实例。
+`go.work` 由 CLI 更新，自有模块通过 `use` 纳入，受管理外部目标通过生成的本地映射接入；生成包共用根模块，不独立列为工作区模块。用户无需手工维护 `replace`。模块 ID 到 `.redberry/modules/` 路径的映射由 CLI 统一处理，图中的域名路径仅展示一个依赖实例。
 
 ## 模块结构
 
-`redplum create mod` 从模块模板创建模块描述、Go module、后端 Fx 入口与业务文件，以及前端包描述、公开入口与业务组件。`backend/config.go` 和 `migrations/` 按需创建。
+`redberry create mod` 从模块模板创建模块描述、Go module、后端 Fx 入口与业务文件，以及前端包描述、公开入口与业务组件。`backend/config.go` 和 `migrations/` 按需创建。
 
 ```text
 order/
-├── redplum.yaml        # 模块描述
+├── redberry.yaml        # 模块描述
 ├── go.mod             # 位于模块根目录（默认生成）
 ├── go.sum             # Go 依赖校验和
 ├── backend/
@@ -121,17 +121,17 @@ order/
 
 `frontend/index.ts` 只提供模块公开导出，不执行挂载，也不反向引用项目启动入口。浏览器代码和 Node 配置分别由 `tsconfig.app.json`、`tsconfig.node.json` 检查，`tsconfig.json` 为配置入口；检查范围须覆盖参与装配的模块和生成代码，而不只包含主入口的导入闭包。
 
-根 `package.json` 负责统一脚本、工具版本约束，以及根层生成代码直接引用的运行依赖（当前为 React 与 TanStack Query），`frontend/package.json` 声明应用依赖，各模块仍声明自身依赖。workspace 显式纳入各模块的前端包与 `.redplum/modules/` 下的前端包，统一使用根锁文件。
+根 `package.json` 负责统一脚本、工具版本约束，以及根层生成代码直接引用的运行依赖（当前为 React 与 TanStack Query），`frontend/package.json` 声明应用依赖，各模块仍声明自身依赖。workspace 显式纳入各模块的前端包与 `.redberry/modules/` 下的前端包，统一使用根锁文件。
 
 前端 workspace 包名与 Go 模块 ID 分开：项目应用包使用 `@<组织>/app`，模块前端包使用 `@<组织>/<模块名>`，模块包名不附加所属项目名。应用包和模块包均设为 `private: true`。例如组织为 `acme` 时，项目应用包名为 `@acme/app`，`order` 模块包名为 `@acme/order`。根 `package.json` 是 workspace 根层工具包，不与应用或模块前端包共用身份。
 
-`.redplum/frontend/` 生成代码引用解析后的模块公开入口静态路径；不假定它会继承 `frontend/package.json` 的包解析环境。Orval 生成的 `api.ts` 直接导入 TanStack Query，因此其运行依赖由根 `package.json` 显式声明；应用和模块仍声明自身使用的依赖，不靠 hoist 或应用目录为生成代码兜底。
+`.redberry/frontend/` 生成代码引用解析后的模块公开入口静态路径；不假定它会继承 `frontend/package.json` 的包解析环境。Orval 生成的 `api.ts` 直接导入 TanStack Query，因此其运行依赖由根 `package.json` 显式声明；应用和模块仍声明自身使用的依赖，不靠 hoist 或应用目录为生成代码兜底。
 
-自动生成文件归入 `.redplum/`，不手工修改。隐藏目录可以通过完整包路径显式导入；生成包共用根目录 `go.mod`，不额外创建生成模块。外部依赖模块保留各自的 `go.mod`。
+自动生成文件归入 `.redberry/`，不手工修改。隐藏目录可以通过完整包路径显式导入；生成包共用根目录 `go.mod`，不额外创建生成模块。外部依赖模块保留各自的 `go.mod`。
 
 ## 受管理目录
 
-项目内的模块目录为自有模块，`.redplum/modules/` 为 CLI 管理的外部依赖。`.redplum/` 整体由 Git 忽略，依赖按根层锁文件重新拉取，生成代码重新生成。锁文件、用户配置和迁移执行状态不放入该目录。
+项目内的模块目录为自有模块，`.redberry/modules/` 为 CLI 管理的外部依赖。`.redberry/` 整体由 Git 忽略，依赖按根层锁文件重新拉取，生成代码重新生成。锁文件、用户配置和迁移执行状态不放入该目录。
 
 生成层的 `backend/`、`frontend/` 按启用部分生成。生成前准备依赖，构建和检查前确保生成结果完整，移除模块时清理旧产物。隐藏生成包须由统一检查入口显式覆盖，不能只依靠根层 `go test ./...`。
 
@@ -144,7 +144,7 @@ order/
 | 单二进制（默认） | `dist/shop` | 先构建前端，再通过 `go:embed` 嵌入静态资源，由后端提供资源与 API |
 | 前后端分离 | `dist/backend/shop`、`dist/frontend/` | 后端提供 API，前端静态资源独立部署 |
 
-`dist/` 用于发布产物，由 Git 忽略；`.redplum/` 继续用于受管理依赖和生成代码。两种模式共用业务实现。
+`dist/` 用于发布产物，由 Git 忽略；`.redberry/` 继续用于受管理依赖和生成代码。两种模式共用业务实现。
 
 ### 构建模式参数
 
@@ -158,16 +158,16 @@ pnpm build:split        # 前后端分离
 ### 前端嵌入资源
 
 ```text
-.redplum/backend/assets/
+.redberry/backend/assets/
 ├── embed.go
 └── web/             # 前端构建输出
 ```
 
-单二进制构建时，先将前端构建到 `.redplum/backend/assets/web/`，再编译 Go。`embed.go` 在同一包内通过 `go:embed` 嵌入并导出 `web/` 资源，由后端提供静态资源与 SPA 回退。
+单二进制构建时，先将前端构建到 `.redberry/backend/assets/web/`，再编译 Go。`embed.go` 在同一包内通过 `go:embed` 嵌入并导出 `web/` 资源，由后端提供静态资源与 SPA 回退。
 
-分离模式不引入该嵌入包，前端直接输出到 `dist/frontend/`。构建流程应保证模式切换时不会误引入上次生成的嵌入资源。清理构建产物时保留 `.redplum/modules/` 中的依赖源码。
+分离模式不引入该嵌入包，前端直接输出到 `dist/frontend/`。构建流程应保证模式切换时不会误引入上次生成的嵌入资源。清理构建产物时保留 `.redberry/modules/` 中的依赖源码。
 
-中间资源由 CLI 管理，保留在 `.redplum/`；最终发布产物仍在 `dist/`。
+中间资源由 CLI 管理，保留在 `.redberry/`；最终发布产物仍在 `dist/`。
 
 ### API 路径与转发
 

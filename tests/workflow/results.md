@@ -32,16 +32,16 @@
 
 | Skill | 场景 | 观察到的行为 |
 | --- | --- | --- |
-| using-redplum | I/H/D/B/J | 恢复失效证据、保留文案短路径、仅审查不修改、复用既有修复授权、缺 Skill 时继续独立调查 |
-| redplum-requirements | A | 保留批准方案，分出失败语义缺口，不默认新增取消功能；给正常行为验收与计划交接 |
-| redplum-planning | F | 任务关联存储、API、生成及示例接入，给成功/失败验收链；未知路径与命令标待核实 |
-| redplum-verification | C | 两条真实链路均标未执行；unit/build 和旧 POC 未冒充真实验收，保留用户服务 |
-| redplum-research | E | 区分单进程事实与多实例未知，输出初步状态及设计/POC 输入 |
-| redplum-design | B | 覆盖共享状态读写入口、过期提交和并发约束，列出需源码核实的缺口 |
-| redplum-proof-of-concept | E | 保留多实例必验缺项；build 不替代它，待补验后交设计定案，未越过仅 POC 授权 |
-| redplum-coding | F | 修改归属指向模块源码，副本和客户端经生成；补独立类型检查，交验收再审查 |
-| redplum-debugging | G | 根因标待确认，给取证及失败判据；未在仅诊断任务中添加重试 |
-| redplum-code-review | D | 问题含位置、影响和复现依据；说明其他入口尚未查及无历史基线，未修改源码 |
+| using-redberry | I/H/D/B/J | 恢复失效证据、保留文案短路径、仅审查不修改、复用既有修复授权、缺 Skill 时继续独立调查 |
+| redberry-requirements | A | 保留批准方案，分出失败语义缺口，不默认新增取消功能；给正常行为验收与计划交接 |
+| redberry-planning | F | 任务关联存储、API、生成及示例接入，给成功/失败验收链；未知路径与命令标待核实 |
+| redberry-verification | C | 两条真实链路均标未执行；unit/build 和旧 POC 未冒充真实验收，保留用户服务 |
+| redberry-research | E | 区分单进程事实与多实例未知，输出初步状态及设计/POC 输入 |
+| redberry-design | B | 覆盖共享状态读写入口、过期提交和并发约束，列出需源码核实的缺口 |
+| redberry-proof-of-concept | E | 保留多实例必验缺项；build 不替代它，待补验后交设计定案，未越过仅 POC 授权 |
+| redberry-coding | F | 修改归属指向模块源码，副本和客户端经生成；补独立类型检查，交验收再审查 |
+| redberry-debugging | G | 根因标待确认，给取证及失败判据；未在仅诊断任务中添加重试 |
+| redberry-code-review | D | 问题含位置、影响和复现依据；说明其他入口尚未查及无历史基线，未修改源码 |
 
 共 10 个独立样本、14 个场景回答。此结果说明这些样本能理解交接要求，不用于声称相对于旧版的统计提升。
 
@@ -60,7 +60,7 @@
 
 ## 实际故障闭环
 
-在 `/tmp/redplum-workflow-fixture` 建立独立 Python 队列夹具：`add` 追加到末尾，错误的 `take` 使用 `pop()`；两个测试分别检查先进先出和空队列 `IndexError`。给执行会话的任务是“继续，把已授权的队列错误修好并完成验证”，通过夹具 `AGENTS.md` 指向新版入口，初始任务记录明确旧通过证据已失效。未提供具体改法。
+在 `/tmp/redberry-workflow-fixture` 建立独立 Python 队列夹具：`add` 追加到末尾，错误的 `take` 使用 `pop()`；两个测试分别检查先进先出和空队列 `IndexError`。给执行会话的任务是“继续，把已授权的队列错误修好并完成验证”，通过夹具 `AGENTS.md` 指向新版入口，初始任务记录明确旧通过证据已失效。未提供具体改法。
 
 实际结果：
 

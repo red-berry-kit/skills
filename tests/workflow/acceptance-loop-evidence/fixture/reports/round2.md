@@ -1,12 +1,12 @@
 # 第 2 轮正式验收报告
 
-本轮完整 A—E 通过，R1-001 在当前源码上已复验关闭；无新增问题、无范围内未验项。本轮验收完成，可交接 `redplum-code-review`。此结论仅覆盖约定的内存会话缓存，不代表已完成代码审查或发布。
+本轮完整 A—E 通过，R1-001 在当前源码上已复验关闭；无新增问题、无范围内未验项。本轮验收完成，可交接 `redberry-code-review`。此结论仅覆盖约定的内存会话缓存，不代表已完成代码审查或发布。
 
 ## 身份与基准
 
 - 验收者：`/root/clean_loop_trial/acceptance_round2`，本轮新建独立验收者，未参与实现、修复或前轮验收，未递归派发。
-- 项目：`/tmp/redplum-clean-acceptance-90yw4a9h/fixture`。
-- 实际读取：`AGENTS.md`、`requirements.md`、指定的 `redplum-verification/SKILL.md`、`store.py`、现有两个测试文件，以及指定的前轮原始日志和复现脚本。
+- 项目：`/tmp/redberry-clean-acceptance-90yw4a9h/fixture`。
+- 实际读取：`AGENTS.md`、`requirements.md`、指定的 `redberry-verification/SKILL.md`、`store.py`、现有两个测试文件，以及指定的前轮原始日志和复现脚本。
 - 未读取 `task.md`、`reports/remedy.md`、前轮验收摘要、Skills/tests、父目录 before 或其他历史任务材料；未采用实现者自检结论。
 - Python：`3.14.8`；无第三方依赖，实际入口为 `python3 -m unittest discover -v`。
 - `store.py` 执行前后 SHA256 均为 `43ecd19f0fba425e2f5e954c7eb0995225c55e4f61cd207dd80362754b94da68`，与交接值一致。详见 `round2-environment.log`。

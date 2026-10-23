@@ -1,6 +1,6 @@
-# Red Plum Skills
+# Red Berry Skills
 
-统一入口：[using-redplum](using-redplum/SKILL.md)。它负责选择阶段、恢复任务与组织交付；各专业 Skill 定义阶段的输入、执行、出口和下一步。阶段路径与发现问题后的修复循环只在入口维护；验收方式的选择、独立验收者的创建与复用、交接材料和证据规则由 [redplum-verification](redplum-verification/SKILL.md) 定义。
+统一入口：[using-redberry](using-redberry/SKILL.md)。它负责选择阶段、恢复任务与组织交付；各专业 Skill 定义阶段的输入、执行、出口和下一步。阶段路径与发现问题后的修复循环只在入口维护；验收方式的选择、独立验收者的创建与复用、交接材料和证据规则由 [redberry-verification](redberry-verification/SKILL.md) 定义。
 
 ## 在项目中使用
 
@@ -8,9 +8,9 @@
 
 项目 `AGENTS.md` 保留以下入口即可，其余位置继续维护项目特有规则：
 
-> Red Plum 的需求、调研、设计、实现、排障、验收与审查使用已安装的 `using-redplum`；按入口实际读取所需专业 Skill，并维护当前阶段、产出、证据与下一步。复用已有授权及有效结论。
+> Red Berry 的需求、调研、设计、实现、排障、验收与审查使用已安装的 `using-redberry`；按入口实际读取所需专业 Skill，并维护当前阶段、产出、证据与下一步。复用已有授权及有效结论。
 
-安装方式依客户端而定，安装后核对实际文件路径与发现结果；源码更新不保证当前会话重新加载目录。Skills 由开发者安装和更新，Red Plum CLI 不管理 Skills。
+安装方式依客户端而定，安装后核对实际文件路径与发现结果；源码更新不保证当前会话重新加载目录。Skills 由开发者安装和更新，Red Berry CLI 不管理 Skills。
 
 ## 维护
 

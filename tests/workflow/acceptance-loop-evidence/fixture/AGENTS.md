@@ -1,1 +1,1 @@
-使用中文。开发流程入口为 /home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/using-redplum/SKILL.md，其他专业 Skill 位于同一父目录。只允许修改本夹具目录，可使用独立子 agent；不得修改真实业务及 Skills，不得提交或发布。验证入口 python3 -m unittest discover -v。
+使用中文。开发流程入口为 /home/mapleafgo/Projects/OpenProject/red-berry-kit/skills/using-redberry/SKILL.md，其他专业 Skill 位于同一父目录。只允许修改本夹具目录，可使用独立子 agent；不得修改真实业务及 Skills，不得提交或发布。验证入口 python3 -m unittest discover -v。

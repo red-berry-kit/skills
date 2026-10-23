@@ -1,6 +1,6 @@
 # 可复用模块安装场景独立验收：第 2 轮
 
-日期：2026-10-20。验收者：`/root/skill_installability_round2`，新派发的独立验收者，未参与实现或上一轮验收，未递归派发。被测目录：`/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills`。实际阶段为独立验收；应用 `using-redplum` 与 `redplum-verification`，并实际读取其余八个专业 Skill 核对交接。
+日期：2026-10-20。验收者：`/root/skill_installability_round2`，新派发的独立验收者，未参与实现或上一轮验收，未递归派发。被测目录：`/home/mapleafgo/Projects/OpenProject/red-berry-kit/skills`。实际阶段为独立验收；应用 `using-redberry` 与 `redberry-verification`，并实际读取其余八个专业 Skill 核对交接。
 
 **本轮 Skills 的完整约定范围与指定行为场景通过；未发现新的必修问题。SK-01、SK-02 在本轮实际源码中均已关闭。该结论不表示模块 X、真实 CLI 装配或任何业务模块已经通过安装验收。**
 
@@ -14,8 +14,8 @@ Git HEAD 为 `257cee67469fafc7ff04001fc8a1298502fac3e0`，工作区含已有修�
 
 | 文件 | 前后相同的 SHA-256 |
 | --- | --- |
-| `using-redplum/SKILL.md` | `a542d0864efe30c993cc4e0235c71507c65964183dae7f719f15a28fd7a552d3` |
-| `redplum-verification/SKILL.md` | `497ec65afaefa001ec25fc6f6460e6fc6a046feacf34ba9335ed65b5fc18bca9` |
+| `using-redberry/SKILL.md` | `a542d0864efe30c993cc4e0235c71507c65964183dae7f719f15a28fd7a552d3` |
+| `redberry-verification/SKILL.md` | `497ec65afaefa001ec25fc6f6460e6fc6a046feacf34ba9335ed65b5fc18bca9` |
 | `docs/status.md` | `9584bde1ee41fa6c30850351b064051fc71728fc2ffc22d5e5683adef72c4bea` |
 | `docs/modules.md` | `07b913fbf2186dad9c11196b4ec324994ea7c078f31b8525e220d5ba5061f5cc` |
 
@@ -28,7 +28,7 @@ Git HEAD 为 `257cee67469fafc7ff04001fc8a1298502fac3e0`，工作区含已有修�
 | 可复用模块的干净应用添加即用 | 对照需求、模块契约、计划与验收入口，判定 examples 不能覆盖安装证据 | 通过。需求执行 3、计划执行 4、验收执行 3 均要求真实 CLI 添加及核心操作；`docs/modules.md:22-26` 要求完整独立消费链 |
 | 必要配置不能包含手写 API/UI/Provider 胶水 | 对开发者把 README 复制接线称为配置的请求作独立判断 | 通过。模块契约排除 API 映射、Provider、路由注册与基础设施接线；上下文统一提供 API/UI；编码执行 3 禁止向消费应用复制专属接线 |
 | 需求、设计、计划、编码、验收、审查串联 | 实际读取六个阶段 Skill 及入口，沿 X 缺口追踪交接 | 通过。各阶段均有安装性交付关口；审查执行 4 明确 examples 隐藏接线仍为缺陷 |
-| 默认装配、生成边界与扩展职责 | 对照模块与架构规范、编码要求 | 通过。模块公开入口声明能力，CLI/模板负责通用连接；修复生成输入，不手改 `.redplum/` 或同步副本；可选扩展不成为默认路径必选项 |
+| 默认装配、生成边界与扩展职责 | 对照模块与架构规范、编码要求 | 通过。模块公开入口声明能力，CLI/模板负责通用连接；修复生成输入，不手改 `.redberry/` 或同步副本；可选扩展不成为默认路径必选项 |
 | 普通模块菜单与全屏页面默认明确 | 独立展开省略值、显式值、缺少 menu 和相同 order 的情况 | 通过。省略 layout 为 workspace；fullscreen 必须显式声明；普通模板生成 menu；menu 必填 title，order 默认 0，同序沿用装配顺序；无 menu 及全屏页不进入工作台菜单 |
 | 布局、菜单与权限独立 | 检查登录全屏、隐藏菜单及直接 URL 的语义 | 通过。全屏不嵌套工作台；全屏不等同匿名权限，菜单隐藏不等同拒绝访问；三个维度分别设计、验收，见 `docs/modules.md:30` |
 | 修复后换新干净验收者且覆盖完整清单 | 沿入口闭环、正式验收和审查返回路径核对 | 通过。关闭继承、不能复用实现者/旧验收者；完整清单核对、关键场景实跑、原失败/受影响项/必要回归复验；审查引发修复亦重新验收 |
@@ -36,7 +36,7 @@ Git HEAD 为 `257cee67469fafc7ff04001fc8a1298502fac3e0`，工作区含已有修�
 | 完成条件与阻断处理 | 测试全绿、安装证据缺失、开发者要求直接通过 | 通过。必需项缺失只能部分完成/受阻；不把自评、POC、测试数量或构建成功当正式验收；验收者不修实现，不降低判据 |
 | 静态有效性与引用副本一致 | 实际运行两个仓库脚本 | 通过。10 个 Skills、0 问题；0 漂移；均退出 0 |
 
-主要依据：[入口](../../using-redplum/SKILL.md)、[需求](../../redplum-requirements/SKILL.md)、[设计](../../redplum-design/SKILL.md)、[计划](../../redplum-planning/SKILL.md)、[编码](../../redplum-coding/SKILL.md)、[验收](../../redplum-verification/SKILL.md)、[审查](../../redplum-code-review/SKILL.md)、[模块交付契约](../../docs/modules.md#添加即用的交付契约)、[仓库与入口归属](../../docs/status.md)。本轮读取内容的带行号快照见 [原始审阅资料](installability-round2-evidence/reviewed-sources.txt)。
+主要依据：[入口](../../using-redberry/SKILL.md)、[需求](../../redberry-requirements/SKILL.md)、[设计](../../redberry-design/SKILL.md)、[计划](../../redberry-planning/SKILL.md)、[编码](../../redberry-coding/SKILL.md)、[验收](../../redberry-verification/SKILL.md)、[审查](../../redberry-code-review/SKILL.md)、[模块交付契约](../../docs/modules.md#添加即用的交付契约)、[仓库与入口归属](../../docs/status.md)。本轮读取内容的带行号快照见 [原始审阅资料](installability-round2-evidence/reviewed-sources.txt)。
 
 ## 给定行为场景的实际判断
 
@@ -52,7 +52,7 @@ Git HEAD 为 `257cee67469fafc7ff04001fc8a1298502fac3e0`，工作区含已有修�
 
 必要配置允许外部地址、部署秘密和已确认业务策略。通用主题定制与真正可选的扩展不构成上述缺陷；旧应用一次接入通用 Provider 容器也不能扩大解释成每个模块都要消费方手写接线。
 
-后续应更新同一任务记录，保留完整判据和 X-01/X-02/X-03。若最初遗漏安装性，需求阶段补齐；根因未明才排障。按 [调研 Skill](../../redplum-research/SKILL.md) 核对源码与已有依据、比较合理修复并记录选择理由，不能因修法看似明显就省略判断。按需回设计/POC；设计明确模块、生成器/模板与应用配置边界；计划列出完整消费链、必要生成、失败与回归检查；编码修真实源码与生成输入、自检并更新最终使用文档。
+后续应更新同一任务记录，保留完整判据和 X-01/X-02/X-03。若最初遗漏安装性，需求阶段补齐；根因未明才排障。按 [调研 Skill](../../redberry-research/SKILL.md) 核对源码与已有依据、比较合理修复并记录选择理由，不能因修法看似明显就省略判断。按需回设计/POC；设计明确模块、生成器/模板与应用配置边界；计划列出完整消费链、必要生成、失败与回归检查；编码修真实源码与生成输入、自检并更新最终使用文档。
 
 修复后由主 agent 另派全新的干净验收者，提供完整范围、固定源码、规则、环境、实际入口、允许操作及原始证据，关闭会话继承，不灌输推荐修法和预设通过结论。新验收者核对全部清单，执行真实 CLI 安装和核心操作，记录全部人工改动，覆盖客户端、路由、配置、迁移及适用卸载/恢复；普通菜单、全屏与访问控制分别验收。全部必需项通过后交审查；审查引入修复则再次进入此闭环。没有固定通过轮数，不删除失败用例或将必需项降为可选。
 

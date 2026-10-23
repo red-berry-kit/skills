@@ -17,7 +17,7 @@
 - 启动服务时未指定环境则只读取公共配置；直接运行根命令只显示帮助，不加载应用配置。
 - 应用运行时从外部加载配置，运行环境在启动时确定，与构建产物独立。
 
-配置 schema 是生成产物，位于 `.redplum/config/app.schema.json`，编辑提示和配置检查使用同一份约束。
+配置 schema 是生成产物，位于 `.redberry/config/app.schema.json`，编辑提示和配置检查使用同一份约束。
 
 运行子命令共用 `--env` / `-e`、`--config` / `-c`，其中 `--config` 指配置目录。参数和调用示例见[CLI 约定](cli.md#业务项目可执行文件)。
 
@@ -27,7 +27,7 @@
 
 字段优先级由低到高为：模块默认值 < 公共配置 < 指定环境配置。显式提供的 `false`、`0` 和空字符串也覆盖低优先级的值；未提供的字段保留低优先级值。校验在最终合并后执行。
 
-必填项缺失、枚举不合法或出现未知配置项时，启动直接报错，并指出完整配置路径，例如 `redplum.user.allow_signup`。校验通过后才向模块注入配置。
+必填项缺失、枚举不合法或出现未知配置项时，启动直接报错，并指出完整配置路径，例如 `redberry.user.allow_signup`。校验通过后才向模块注入配置。
 
 ## 配置生效时机
 
@@ -38,10 +38,10 @@
 项目配置按“组织名 → 模块短名”分组，组织名取模块 ID 中域名后的组织部分，例如：
 
 ```toml
-[redplum.user]
+[redberry.user]
 allow_signup = false
 
-[redplum.rbac]
+[redberry.rbac]
 default_role = "member"
 ```
 
@@ -51,11 +51,11 @@ Schema、时长与语义校验遵循下文[Schema 与校验](#schema-与校验)�
 
 配置组名冲突直接报错，不自动改名，不引入额外别名配置。组织名与模块短名用于配置分组，不改变完整模块 ID 的唯一标识职责。
 
-替代模块沿用目标模块的组织名、配置组名和配置契约。例如替代 `github.com/redplum/user` 后仍使用 `[redplum.user]`，不会因替代实现的组织或自身名称改变配置组名。替代实现新增的专属配置也放在该组内。统一 schema 根据实际选中的实现生成，不要求原模块与替代模块同时参与装配。
+替代模块沿用目标模块的组织名、配置组名和配置契约。例如替代 `github.com/redberry/user` 后仍使用 `[redberry.user]`，不会因替代实现的组织或自身名称改变配置组名。替代实现新增的专属配置也放在该组内。统一 schema 根据实际选中的实现生成，不要求原模块与替代模块同时参与装配。
 
 ## Schema 与校验
 
-Huma 从模块 `backend/config.go` 中的 Go 类型、默认值与约束生成统一配置 Schema，输出到 `.redplum/config/app.schema.json`。编辑器提示与运行配置结构校验共用这份 Schema。
+Huma 从模块 `backend/config.go` 中的 Go 类型、默认值与约束生成统一配置 Schema，输出到 `.redberry/config/app.schema.json`。编辑器提示与运行配置结构校验共用这份 Schema。
 
 普通字段使用 Huma 原生的 `default`、`enum`、`minimum` 等标签。配置使用独立的 Huma Registry，将 `time.Duration` 映射为字符串；时长默认值通过官方 `SchemaTransformer` 设置。业务字段保留原生 `time.Duration`，TOML 使用 `5s`、`1m30s` 等 Go 时长写法。
 

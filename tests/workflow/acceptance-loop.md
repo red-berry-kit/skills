@@ -1,6 +1,6 @@
 # 干净子 agent 验收闭环验证
 
-本文保留历史试验与证据；当前是否需要独立验收，以 [验收方式分流](../../redplum-verification/SKILL.md#选择验收方式) 为准。
+本文保留历史试验与证据；当前是否需要独立验收，以 [验收方式分流](../../redberry-verification/SKILL.md#选择验收方式) 为准。
 
 日期：2026-10-20。范围：Skills 验收流程规范，不修改 auth 或用户服务。当前状态：规范的独立验收与审查通过；真实夹具完成两轮干净验收及一次问题调研、修复闭环，当前范围无必修缺项。
 
@@ -30,7 +30,7 @@
 2. 独立协调会话在临时 Python 会话缓存项目中实际使用新版流程。原始需求包含初始化、身份切换、缓存读写、退出与退出后重登录；初始现有测试只覆盖账户切换。协调会话获得原始需求和源码，不获得预设缺陷或修法。
 3. 记录实际子 agent 交接与失败、调研、修复、复验，检查是否满足上述判据；观察到规范问题则修正后交新的干净验收者再验。
 
-临时夹具位置：`/tmp/redplum-clean-acceptance-90yw4a9h/fixture`。源码、测试与正式证据已归档到 [fixture](acceptance-loop-evidence/fixture/task.md)，报告中的临时路径保留为原执行环境记录。
+临时夹具位置：`/tmp/redberry-clean-acceptance-90yw4a9h/fixture`。源码、测试与正式证据已归档到 [fixture](acceptance-loop-evidence/fixture/task.md)，报告中的临时路径保留为原执行环境记录。
 
 ## Skills 独立验收结果
 
