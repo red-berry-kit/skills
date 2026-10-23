@@ -1,0 +1,24 @@
+$ python3 -m unittest discover -v
+test_A_initial_state (test_acceptance_round1.AcceptanceRound1.test_A_initial_state) ... ok
+test_B_different_identity_clears_all_cache (test_acceptance_round1.AcceptanceRound1.test_B_different_identity_clears_all_cache) ... ok
+test_B_same_identity_preserves_all_cache (test_acceptance_round1.AcceptanceRound1.test_B_same_identity_preserves_all_cache) ... ok
+test_B_set_identity (test_acceptance_round1.AcceptanceRound1.test_B_set_identity) ... ok
+test_C_missing_returns_none (test_acceptance_round1.AcceptanceRound1.test_C_missing_returns_none) ... ok
+test_C_put_get_and_overwrite (test_acceptance_round1.AcceptanceRound1.test_C_put_get_and_overwrite) ... ok
+test_D_logout_clears_all_cache (test_acceptance_round1.AcceptanceRound1.test_D_logout_clears_all_cache) ... ok
+test_D_logout_clears_identity (test_acceptance_round1.AcceptanceRound1.test_D_logout_clears_identity) ... ok
+test_D_repeat_logout_keeps_exited_state (test_acceptance_round1.AcceptanceRound1.test_D_repeat_logout_keeps_exited_state) ... ok
+test_E_same_user_relogin_has_no_previous_cache (test_acceptance_round1.AcceptanceRound1.test_E_same_user_relogin_has_no_previous_cache) ... ok
+test_A_instances_start_empty_and_are_independent (test_acceptance_round2.AcceptanceRound2.test_A_instances_start_empty_and_are_independent) ... ok
+test_B_identity_transitions_preserve_or_clear_every_entry (test_acceptance_round2.AcceptanceRound2.test_B_identity_transitions_preserve_or_clear_every_entry) ... ok
+test_C_writes_overwrite_and_missing_reads_do_not_mutate (test_acceptance_round2.AcceptanceRound2.test_C_writes_overwrite_and_missing_reads_do_not_mutate) ... ok
+test_D_logout_clears_immediately_and_is_repeatable (test_acceptance_round2.AcceptanceRound2.test_D_logout_clears_immediately_and_is_repeatable) ... ok
+test_E_repeated_relogin_cycles_never_restore_old_values (test_acceptance_round2.AcceptanceRound2.test_E_repeated_relogin_cycles_never_restore_old_values) ... ok
+test_account_switch (test_store.StoreTests.test_account_switch) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.000s
+
+OK
+
+退出码：0

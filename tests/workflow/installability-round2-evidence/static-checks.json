@@ -1,0 +1,23 @@
+[
+  {
+    "cwd": "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills",
+    "command": [
+      "python3",
+      "scripts/check-skills.py"
+    ],
+    "exit_code": 0,
+    "stdout": "检查 10 个 Skills，0 个问题\n",
+    "stderr": ""
+  },
+  {
+    "cwd": "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills",
+    "command": [
+      "python3",
+      "scripts/sync-references.py",
+      "--check"
+    ],
+    "exit_code": 0,
+    "stdout": "发现漂移：0 个文件\n",
+    "stderr": ""
+  }
+]

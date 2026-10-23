@@ -45,7 +45,7 @@ redplum install
 
 `create mod` 接收完整模块 ID，采用 Go module path 格式。项目内模块 ID 必须以项目根 `go.mod` 的 module 路径为前缀，其余路径与项目根下的相对目录一致；模块目录不要求位于 `modules/` 下，但不能占用 `cmd/`、`backend/`、`frontend/`、`config/`、`migrations/`、`scripts/`、`tests/` 等工程目录与隐藏目录。例如项目根路径为 `github.com/acme/shop` 时，`redplum create mod github.com/acme/shop/modules/order` 在 `modules/order/` 创建本地模块，`github.com/acme/shop/order` 则在 `order/` 创建，两种写法都加入项目依赖。默认模块模板包含完整前后端基础文件：`redplum.yaml`、`go.mod`、`backend/module.go`、`backend/order.go`、`frontend/package.json`、`frontend/index.ts` 和 `frontend/order.tsx`；`order` 替换为模块目录名。初始模块版本为 `0.1.0`，项目依赖清单写入 `^0.1.0`。配置定义与 `migrations/` 按需添加。
 
-项目根 `AGENTS.md` 在项目创建时生成，包含项目结构、常用 `redplum` / `task` 命令、用户模块与 `.redplum/` 生成目录边界，以及项目特有规则区。文件归业务项目维护，依赖管理、安装、生成、检查和升级操作均不覆盖它。Skill 与配套规范由用户独立安装和更新，CLI 不管理。
+项目根 `AGENTS.md` 在项目创建时生成，包含项目结构、常用 CLI 与项目任务命令、用户模块与 `.redplum/` 生成目录边界，以及项目特有规则区。文件归业务项目维护，依赖管理、安装、生成、检查和升级操作均不覆盖它。Skill 与配套规范由用户独立安装和更新，CLI 不管理。
 
 ### 版本与添加
 

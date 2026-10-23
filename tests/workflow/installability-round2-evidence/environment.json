@@ -1,0 +1,25 @@
+{
+  "head": "257cee67469fafc7ff04001fc8a1298502fac3e0",
+  "python": "Python 3.14.8",
+  "skills": [
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-code-review/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-coding/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-debugging/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-design/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-planning/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-proof-of-concept/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-requirements/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-research/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-verification/SKILL.md",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/using-redplum/SKILL.md"
+  ],
+  "references": [
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-code-review/references",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-coding/references",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-debugging/references",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-design/references",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-proof-of-concept/references",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/redplum-research/references",
+    "/home/mapleafgo/Projects/OpenProject/red-plum-kit/skills/using-redplum/references"
+  ]
+}

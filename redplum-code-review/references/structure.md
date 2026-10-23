@@ -72,6 +72,7 @@ shop/
     ├── frontend/
     │   ├── modules.ts             # 前端模块入口汇总
     │   ├── routes.ts              # 路由装配导出
+    │   ├── providers.tsx          # 模块默认 Provider 装配
     │   └── api.ts                 # Orval 生成的 Fetch、类型与 Query 接入
     └── openapi.json               # 后端导出的 OpenAPI
 ```

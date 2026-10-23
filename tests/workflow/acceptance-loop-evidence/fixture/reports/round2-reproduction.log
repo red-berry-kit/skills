@@ -1,0 +1,6 @@
+$ python3 -c exec(open("reports/reproduce_round1.py").read())
+logout_once user= None cache= {} get_first= None get_second= None
+logout_twice user= None cache= {} get_first= None get_second= None
+same_user_relogin user= 'a' cache= {} get_first= None
+
+退出码：0
