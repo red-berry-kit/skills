@@ -33,6 +33,7 @@ shop/
 │   ├── tsconfig.json             # 类型检查配置入口
 │   ├── tsconfig.app.json         # 浏览器代码
 │   └── tsconfig.node.json        # Node 工具配置
+├── .local/redberry/operation.lock # 依赖操作互斥锁，不属于生成事务
 ├── migrations/                   # 项目自身模块的迁移资源（按需）
 │   ├── embed.go                  # 嵌入并导出迁移 SQL
 │   └── 0.1.0.sql                 # 版本迁移示例
@@ -68,7 +69,8 @@ shop/
     │   ├── modules.go             # 后端模块导入与 Fx 组合
     │   └── assets/                # 单二进制模式生成
     │       ├── embed.go           # 嵌入并导出前端资源
-    │       └── web/               # 前端构建输出
+    │       ├── admin/             # 后台前端构建输出
+    │       └── <应用名>/          # 独立应用构建输出
     ├── frontend/
     │   ├── modules.ts             # 前端模块入口汇总
     │   ├── routes.ts              # 路由装配导出
@@ -142,7 +144,7 @@ order/
 | 模式 | 发布产物（以项目命令名 `shop` 为例） | 行为 |
 | --- | --- | --- |
 | 单二进制（默认） | `dist/shop` | 先构建前端，再通过 `go:embed` 嵌入静态资源，由后端提供资源与 API |
-| 前后端分离 | `dist/backend/shop`、`dist/frontend/` | 后端提供 API，前端静态资源独立部署 |
+| 前后端分离 | `dist/backend/shop`、`dist/admin/` | 后端提供 API，前端静态资源独立部署 |
 
 `dist/` 用于发布产物，由 Git 忽略；`.redberry/` 继续用于受管理依赖和生成代码。两种模式共用业务实现。
 
@@ -160,12 +162,13 @@ pnpm build:split        # 前后端分离
 ```text
 .redberry/backend/assets/
 ├── embed.go
-└── web/             # 前端构建输出
+├── admin/           # 后台前端构建输出
+└── <应用名>/        # 独立应用构建输出
 ```
 
-单二进制构建时，先将前端构建到 `.redberry/backend/assets/web/`，再编译 Go。`embed.go` 在同一包内通过 `go:embed` 嵌入并导出 `web/` 资源，由后端提供静态资源与 SPA 回退。
+单二进制构建时，先将各应用分别构建到 `.redberry/backend/assets/<应用名>/`，再编译 Go。`embed.go` 按应用名嵌入并提供独立资源根，宿主依应用声明交付页面与静态资源。
 
-分离模式不引入该嵌入包，前端直接输出到 `dist/frontend/`。构建流程应保证模式切换时不会误引入上次生成的嵌入资源。清理构建产物时保留 `.redberry/modules/` 中的依赖源码。
+分离模式不引入该嵌入包，前端直接输出到 `dist/admin/`。构建流程应保证模式切换时不会误引入上次生成的嵌入资源。清理构建产物时保留 `.redberry/modules/` 中的依赖源码。
 
 中间资源由 CLI 管理，保留在 `.redberry/`；最终发布产物仍在 `dist/`。
 

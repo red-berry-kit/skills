@@ -7,6 +7,8 @@ description: Use when reviewing Red Berry code for requirement compliance, desig
 
 输入为需求、已定方案、变更范围、当前源码与验证证据。围绕可定位的实际问题审查；流程由 `using-redberry` 组织，规范按需从[开发约定](references/conventions.md)进入。
 
+涉及多个应用的资源、路由或交付时，按[独立应用边界](references/conventions.md#独立应用边界)核对声明驱动装配、应用命名、路径冲突与跨应用隔离。
+
 ## 执行
 
 1. 固定审查对象。使用可用的 Git 基点与工作区变更，包含新增及未跟踪文件；无 Git 或历史基线时，以文件清单和当前内容固定范围，说明无法判定的历史差异，不因此放弃当前源码审查。
