@@ -11,7 +11,7 @@
 | ORM | Bun ORM |
 | 默认数据库 | SQLite |
 | Go 接口生成 OpenAPI、HTTP 参数校验 | Huma |
-| 终端 CLI | github.com/urfave/cli/v2 |
+| 终端 CLI | github.com/urfave/cli/v3 |
 | 配置加载、合并与解码 | Koanf（底层使用 mapstructure/v2 解码） |
 | 配置 Schema 生成与结构校验 | Huma |
 | 日志 | Go 标准库 slog |
@@ -43,7 +43,7 @@ Bun 指 Go ORM。前端使用 Node 与 pnpm。
 
 ## TypeScript
 
-统一使用 TypeScript 6.0.3，由根 pnpm catalog 精确固定，工作区声明使用 `catalog:`。严格校验 peer 与真实依赖树的单版本状态；编译器 API 检查器使用创建 Program 时的同一编译器实例。
+统一使用 TypeScript 7.0.2，由根 pnpm catalog 精确固定，工作区声明使用 `catalog:`。严格校验 peer 与真实依赖树的单版本状态；编译器 API 检查器采用 TypeScript 7 原生 `typescript/unstable/sync` 与 `typescript/unstable/ast`；语法树和类型查询来自同一原生项目快照，结束时关闭 API 进程。根 `pnpm-workspace.yaml` 通过 `overrides` 将整个依赖树统一到 7.0.2，包括生成器的传递依赖，不保留另一份 TypeScript。
 
 ## 静态检查与格式
 
@@ -73,19 +73,19 @@ Bun 指 Go ORM。前端使用 Node 与 pnpm。
 
 | 依赖 | 版本 |
 | --- | --- |
-| Go | 1.27.2 |
-| chi / Fx / Huma | 5.5.0 / 1.24.0 / 2.39.1 |
+| Go | 1.27.3 |
+| chi / Fx / Huma | 5.5.0 / 1.24.0 / 2.40.0 |
 | Bun / sqliteshim | 1.3.0 / 1.3.0 |
-| Koanf / mapstructure | 2.3.8 / 2.5.0 |
-| Node / pnpm | 22.23.1 / 12.11.2 |
-| TypeScript / React | 6.0.3 / 19.3.0 |
-| Vite / Mantine | 8.3.4 / 9.7.2 |
-| Mantine dates / Day.js | 9.7.2 / 1.11.23 |
-| Router / Query | 1.170.44 / 5.104.2 |
+| Koanf / mapstructure | 2.4.1 / 2.5.0 |
+| Node / pnpm | 26.12.1 / 12.15.0 |
+| TypeScript / React | 7.0.2 / 19.3.1 |
+| Vite / Mantine | 8.3.5 / 9.7.4 |
+| Mantine dates / Day.js | 9.7.4 / 1.11.23 |
+| Router / Query | 1.170.46 / 5.105.0 |
 | Form / Table / Zod | 1.33.5 / 9.3.1 / 4.6.7 |
-| Orval | 8.43.0 |
-| Oxlint / Oxfmt | 1.88.0 / 0.73.0 |
-| Vitest / Playwright Test | 5.0.4 / 1.63.0 |
+| Orval | 8.45.0 |
+| Oxlint / Oxfmt | 1.89.0 / 0.74.0 |
+| Vitest / Playwright Test | 5.0.5 / 1.64.1 |
 | vitest-browser-react | 2.3.0 |
 
 版本由项目统一维护，业务模块声明自身依赖并共用根锁文件。
