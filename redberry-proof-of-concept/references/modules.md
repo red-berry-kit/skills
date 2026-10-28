@@ -7,6 +7,8 @@
 | 部分 | 文件 | 导出约定 |
 | --- | --- | --- |
 | 后端 | `backend/module.go` | 导出 `Module`，统一提供 Fx 装配 |
+| 配置检查 | `backend/check.go` | 按需导出 `CheckModule`，仅提供纯声明和检查 |
+| 迁移扩展 | `backend/migration.go` | 按需导出 `MigrationModule`，提供迁移所需扩展 |
 | 前端 | `frontend/index.ts` | 使用具名导出，公开允许外部使用的内容 |
 
 跨模块调用通过后端的 `backend` 包或前端的 `frontend/index.ts`，不直接引用内部实现。Go 的包导出规则仍然适用；`module.go` 是装配入口文件，不意味着 Go 可以限制其他包只访问这一文件。
@@ -38,6 +40,10 @@
 统一检查入口执行 `fx.ValidateApp`，在不执行构造器的情况下检查依赖缺失、重复提供与循环依赖。图检查使用类型化提供者，不要求加载部署配置；它属于检查阶段的图验证，不是 Go 编译期验证。
 
 构造阶段只创建对象和注册生命周期。数据库连接、端口监听等资源在 `OnStart` 获取，通过 `OnStop` 逆序释放；某个启动步骤失败时，该步骤负责清理自身获取的资源，Fx 回退已成功启动的步骤。构造器业务错误与实际启动行为通过测试验证。
+
+持续后台任务及其专用资源通过 `app.ProvideBackground` 声明，宿主仅在 `serve` 构造并管理其生命周期；维护命令、迁移、检查与导出不构造后台服务。多个后台服务的启动次序不固定，有次序依赖的工作由同一服务组织。共享连接等命令所需资源继续使用普通 Fx 生命周期。
+
+跨模块配置检查在 `backend/check.go` 的 `CheckModule` 初始化表达式中直接注册 `app.ProvideConfigCheck`，或经 `fx.Options` 组合；检查及依赖不得获取运行资源。CLI 自动生成检查装配并拒绝未接入 `CheckModule` 的直接注册。数据库扩展同时在 `CheckModule` 中声明所需纯驱动信息，独立迁移所需能力在 `backend/migration.go` 的 `MigrationModule` 中声明。
 
 ## 模块描述
 
