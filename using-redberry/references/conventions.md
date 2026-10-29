@@ -71,7 +71,7 @@
 ## 文件与公开入口
 
 - Go 模块文件在各自模块根；项目启动入口是 `cmd/<项目命令名>/main.go`，装配位于同目录 `bootstrap.go`。
-- 模块后端入口为 `backend/module.go`，导出 Fx `Module`；前端公开入口为 `frontend/index.ts`，使用具名导出。
+- 模块后端入口为 `backend/redberry_module.go`，导出 Fx `Module`；前端公开入口为 `frontend/index.ts`，使用具名导出。
 - 跨模块只通过公开入口引用，包括类型；模块内部可引用自身实现。私有目录的 `index.ts` 不自动成为公开入口。
 - 自有模块放项目内的模块目录，ID 后缀即该目录；外部依赖及生成产物在 `.redberry/`，整体 Git 忽略且可恢复，不保存业务自定义。
 - `migrations/` 放模块根，与 `backend/`、`frontend/` 平级，不把各模块 SQL 复制到项目根。

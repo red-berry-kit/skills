@@ -49,7 +49,7 @@ allow_signup = false
 default_role = "member"
 ```
 
-模块在 `backend/config.go` 中定义自身的配置类型、默认值和约束；没有配置项的模块无需创建该文件。项目根据已安装模块生成统一 schema，提供字段、枚举及说明，模块不各自加载配置文件。
+模块在 `backend/redberry_config.go` 中定义自身的配置类型、默认值和约束；没有配置项的模块无需创建该文件。项目根据已安装模块生成统一 schema，提供字段、枚举及说明，模块不各自加载配置文件。
 
 Schema、时长与语义校验遵循下文[Schema 与校验](#schema-与校验)。
 
@@ -59,7 +59,7 @@ Schema、时长与语义校验遵循下文[Schema 与校验](#schema-与校验)�
 
 ## Schema 与校验
 
-Huma 从模块 `backend/config.go` 中的 Go 类型、默认值与约束生成统一配置 Schema，输出到 `.redberry/config/app.schema.json`。编辑器提示与运行配置结构校验共用这份 Schema。
+Huma 从模块 `backend/redberry_config.go` 中的 Go 类型、默认值与约束生成统一配置 Schema，输出到 `.redberry/config/app.schema.json`。编辑器提示与运行配置结构校验共用这份 Schema。
 
 普通字段使用 Huma 原生的 `default`、`enum`、`minimum` 等标签。配置使用独立的 Huma Registry，将 `time.Duration` 映射为字符串；时长默认值通过官方 `SchemaTransformer` 设置。业务字段保留原生 `time.Duration`，TOML 使用 `5s`、`1m30s` 等 Go 时长写法。
 

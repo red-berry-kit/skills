@@ -21,8 +21,8 @@ shop/
 │       ├── main.go               # CLI 入口与退出处理
 │       └── bootstrap.go          # 应用装配与启动，与 main.go 同包
 ├── backend/                      # 项目后端模块
-│   ├── module.go                 # Fx 装配入口
-│   └── config.go                 # 项目配置定义（按需）
+│   ├── redberry_module.go                 # Fx 装配入口
+│   └── redberry_config.go                 # 项目配置定义（按需）
 ├── frontend/                     # 项目前端应用
 │   ├── package.json              # 应用依赖与前端脚本
 │   ├── index.html                # HTML 入口
@@ -43,8 +43,8 @@ shop/
 │       ├── go.mod
 │       ├── go.sum
 │       ├── backend/
-│       │   ├── module.go          # 后端 Fx 模块入口
-│       │   ├── config.go          # 模块配置定义（按需）
+│       │   ├── redberry_module.go          # 后端 Fx 模块入口
+│       │   ├── redberry_config.go          # 模块配置定义（按需）
 │       │   └── order.go
 │       ├── frontend/
 │       │   ├── package.json       # 模块前端依赖
@@ -85,7 +85,7 @@ shop/
 
 ## 模块结构
 
-`redberry create mod` 从模块模板创建模块描述、Go module、后端 Fx 入口与业务文件，以及前端包描述、公开入口与业务组件。`backend/config.go` 和 `migrations/` 按需创建。
+`redberry create mod` 从模块模板创建模块描述、Go module、后端 Fx 入口与业务文件，以及前端包描述、公开入口与业务组件。`backend/redberry_config.go` 和 `migrations/` 按需创建。
 
 ```text
 order/
@@ -93,8 +93,8 @@ order/
 ├── go.mod             # 位于模块根目录（默认生成）
 ├── go.sum             # Go 依赖校验和
 ├── backend/
-│   ├── module.go       # Fx 入口（默认生成）
-│   ├── config.go       # 配置类型、默认值与约束（按需）
+│   ├── redberry_module.go       # Fx 入口（默认生成）
+│   ├── redberry_config.go       # 配置类型、默认值与约束（按需）
 │   └── order.go        # 后端业务实现（默认生成）
 ├── frontend/
 │   ├── package.json    # 模块前端依赖（默认生成）
@@ -109,7 +109,7 @@ order/
 
 `frontend/package.json` 声明模块前端依赖，由项目 pnpm workspace 统一安装；`pnpm-lock.yaml` 统一位于项目根目录，模块内不另建锁文件。
 
-模块功能可以只实现一侧；`create mod` 的默认模板同时生成前后端基础入口。纯前端模块不需要 Go 工程文件。模块描述不重复声明约定入口 `backend/module.go`、`frontend/index.ts` 及资源目录。
+模块功能可以只实现一侧；`create mod` 的默认模板同时生成前后端基础入口。纯前端模块不需要 Go 工程文件。模块描述不重复声明约定入口 `backend/redberry_module.go`、`frontend/index.ts` 及资源目录。
 
 迁移资源由模块自己维护，项目统一发现和执行，不要求额外复制到项目根。迁移目录的“根层”指模块根层。一次迁移批次覆盖所有模块的待执行迁移，事务与中断恢复遵循[数据迁移](migrations.md#迁移事务与失败处理)中的数据库方言约定。
 
