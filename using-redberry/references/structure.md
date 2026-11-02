@@ -36,7 +36,12 @@ shop/
 ├── .local/redberry/operation.lock # 依赖操作互斥锁，不属于生成事务
 ├── migrations/                   # 项目自身模块的迁移资源（按需）
 │   ├── embed.go                  # 嵌入并导出迁移 SQL
-│   └── 0.1.0.sql                 # 版本迁移示例
+│   ├── sqlite/
+│   │   └── 0.1.0.sql             # 版本迁移示例（按方言分目录）
+│   ├── postgres/
+│   │   └── 0.1.0.sql
+│   └── mysql/
+│       └── 0.1.0.sql
 ├── modules/                      # 用户维护的业务模块示例（ID 后缀即模块目录）
 │   └── order/
 │       ├── redberry.yaml
@@ -52,7 +57,9 @@ shop/
 │       │   └── order.tsx
 │       └── migrations/
 │           ├── embed.go
-│           └── 0.1.0.sql
+│           ├── sqlite/0.1.0.sql
+│           ├── postgres/0.1.0.sql
+│           └── mysql/0.1.0.sql
 ├── config/
 │   ├── app.toml                   # 始终读取的公共配置
 │   ├── app.dev.toml               # 开发环境配置
@@ -102,7 +109,9 @@ order/
 │   └── order.tsx       # 前端业务实现（默认生成）
 └── migrations/         # 模块根层的迁移资源
     ├── embed.go        # 嵌入并导出迁移资源
-    └── 0.1.0.sql       # 版本迁移示例
+    ├── sqlite/0.1.0.sql    # 按方言分目录，示例版本
+    ├── postgres/0.1.0.sql
+    └── mysql/0.1.0.sql
 ```
 
 `go.mod` 位于模块根目录，使 `backend` 和 `migrations` 同属一个 Go module。`migrations/embed.go` 在资源所在目录嵌入 SQL，后端通过导入迁移包获取资源，无需跨父目录嵌入。
