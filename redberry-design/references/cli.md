@@ -128,7 +128,7 @@ redberry add github.com/redberry/user
 | `pnpm build:split` | 生成、检查并构建前后端分离产物 |
 
 `redberry app dev --env test` 覆盖开发运行环境；后端代码修改后手动重启。构建不选择运行环境，不携带运行配置。
-前端专用脚本另有 `dev:web`、`build:web`、`check:web`、`test:web`、`gen:api`，只覆盖前端一层。
+前端的开发与构建命令只在 `redberry.yaml` 的 `web.apps` 声明中维护，`package.json` 不重复定义；前端专用脚本仅保留 `check:web`、`test:web`、`gen:api`。
 
 CI 恢复锁定依赖与必要生成产物后，依次执行 `check` → `test` → `build`。脚本负责转发，依赖维护、生成与任务编排集中在 Red Berry CLI，脚本不重复实现这些领域逻辑。
 
