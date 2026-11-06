@@ -14,6 +14,8 @@ description: Use when a Red Berry project has errors, unexpected behavior, faili
 3. 沿实际数据流验证假设，每次检查一个关键因素。涉及共享状态、资源或公共机制时追踪其他读写入口，确定同类触发与受影响的不变量。库行为未知时交 `redberry-research` 查证。
 4. 形成最小修复方案，说明根因、修复位置、相关入口及回归场景。需要改变约定行为或模块接口时，分别交需求或设计阶段；不附带无关重构。
 
+完成条件：根因能一句话复述；失败判据在修复前可复现、修复后不再出现，回归场景覆盖受影响入口。
+
 ## 出口与交接
 
 交付：**现象、失败判据与证据、已确认根因／待验证假设、修复范围、回归判据**，更新同一任务记录。根因和修法明确时直接交编码；只有技术事实或取舍未明时才交 `redberry-research`，已有依据有效时复用。其他故障在根因与修复方案明确且已获授权后，交 `redberry-planning` 安排工作（小修复可简写），再由 `redberry-coding` 实施、`redberry-verification` 按风险选择验证方式、`redberry-code-review` 复查。

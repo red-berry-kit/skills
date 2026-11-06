@@ -13,15 +13,15 @@ description: Use when starting or continuing requirements, research, design, imp
 
 | 尚需解决的问题 | 读取的 Skill |
 | --- | --- |
-| 用户可观察行为、范围或验收语义不清 | `redberry-requirements` |
-| 技术事实未知，已有依据不足以决定方案 | `redberry-research` |
-| 新增或改变职责、接口、状态模型、页面任务组织或组件选型 | `redberry-design` |
-| 关键可行性需实验才能决定 | `redberry-proof-of-concept` |
-| 多项任务存在依赖或需要重排 | `redberry-planning` |
-| 实施明确的变更 | `redberry-coding` |
-| 选择验收范围、真实入口或独立验收方式 | `redberry-verification` |
-| 专项代码审查或复杂变更的风险复查 | `redberry-code-review` |
-| 异常的根因尚未明确 | `redberry-debugging` |
+| 范围或验收不清 | `redberry-requirements` |
+| 事实未知 | `redberry-research` |
+| 职责、接口或选型变化 | `redberry-design` |
+| 可行性待实测 | `redberry-proof-of-concept` |
+| 任务有依赖 | `redberry-planning` |
+| 变更已明确 | `redberry-coding` |
+| 验收范围或方式待定 | `redberry-verification` |
+| 复查复杂变更 | `redberry-code-review` |
+| 根因未明 | `redberry-debugging` |
 
 实际使用专业 Skill 前读取正文；同一上下文已读且未变化的内容复用。参考资料只读本次决策需要的章节。前端沿用有效选型时核对约束和接入是否仍匹配；新增候选或原约束变化时才重新选型。纯说明、文档纠错直接处理并核对。
 
