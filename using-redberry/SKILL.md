@@ -9,7 +9,7 @@ description: Use when starting or continuing requirements, research, design, imp
 
 ## 默认路径
 
-需求清楚、影响可定位时，由当前 agent 完成“实现 → 针对性验证 → 差异复查 → 交付”。用一句话明确改动和通过条件，读取 `redberry-coding`；验证与复查按下表按需读取。普通任务不必依次展开全部阶段，也不必为阶段切换新建文档或派发 agent。
+需求清楚、影响可定位时，由当前 agent 完成“实现 → 针对性验证 → 差异复查 → 交付”。用一句话明确改动和通过条件，读取 `redberry-coding`；验证与复查按下表按需读取。普通任务按需展开阶段；跨阶段记录写在当前任务摘要里。
 
 | 尚需解决的问题 | 读取的 Skill |
 | --- | --- |
