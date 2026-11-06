@@ -113,14 +113,14 @@ deps:
 
 ## 模块身份与来源
 
-模块 ID 至少两级，形如 `组织名/模块名`（例如 `red-berry-kit/boot`、`example.com/shop/order`）；单段 ID 无组织归属，直接拒绝。组织段带域名时按域名解释，不带域名时按组织名解释，两者都参与配置分组。
+模块 ID 至少两级，形如 `组织名/模块名`（例如 `red-berry-kit/boot`、`example.com/shop/order`），且只用小写；单段 ID 无组织归属，直接拒绝。组织段带域名时按域名解释，不带域名时按组织名解释，两者都参与配置分组。
 
 来源只由清单 `registries` 声明的索引决定，不按模块 ID 推断仓库：
 
 - 索引是 `version: 1` 的 JSON，`modules[]` 每项给出 `id`、可选 `description` 与 `source: {url, directory}`。
-- `source.url` 是模块所在仓库，支持相对索引的本地路径、`file://`、`http(s)://` 与 `ssh://` 等 git 地址；`directory` 是模块在仓库内的子目录。
+- `source.url` 是模块所在仓库，支持相对索引的本地路径、`file://`、`http(s)://` 与 `ssh://` 等 git 地址；`directory` 是模块在仓库内的子目录。相对地址按索引文件所在目录解析，因此只对本地与 `http(s)` 索引有效。
 - 版本取自仓库 tag：子目录模块用 `<directory>/v<版本>` 形式，仓库没有 tag 时取默认分支并按提交锁定。
-- 索引自身也可以是 git 地址：CLI 浅克隆后读取根目录 `index.json`，使用本机 git 凭据，因此私有仓库可直接使用。
+- 索引自身也可以是 git 地址：写 `ssh://`、`git+ssh://`、`git+https://` 时 CLI 浅克隆仓库后读取根目录 `index.json`，使用本机 git 凭据，因此私有仓库可直接使用；写成普通 `https://` 则按 JSON 文件抓取，不会克隆。git 索引里的 `source.url` 必须是绝对地址。
 
 `sources` 是逐模块的本地替换，命中后完全按本地目录走、不拉取，优先于索引；未在索引声明且没有 `sources` 的模块直接失败，不回退猜测地址。模块取回后落在 `.redberry/modules/<模块ID>`，由 Git 忽略。
 

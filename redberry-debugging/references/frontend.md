@@ -165,6 +165,6 @@ TanStack Form 是可编辑表单状态的来源，Zod 承担表单业务校验�
 
 ## 后台页面挂载路径
 
-后台逻辑路由保持模块声明的 `/auth`、`/users` 等路径。宿主使用 `REDBERRY_ADMIN_BASE_PATH` 作为开发／构建入口配置，Vite `base` 统一资源地址，TanStack Router `basepath` 读取 `import.meta.env.BASE_URL`；业务不复制前缀拼接器。内部页面导航使用 Router 的 `to`，回跳参数保存不含挂载前缀的逻辑路径；需重载文档时使用 Router 的 `reloadDocument`，品牌首页链接使用相同的 `BASE_URL`。
+后台逻辑路由保持模块声明的 `/auth`、`/users` 等路径。挂载前缀只来自 `redberry.yaml` 的 `web.apps.<应用名>.path`：CLI 构建时以 `--base` 传给 Vite 统一资源地址，TanStack Router 的 `basepath` 读取 `import.meta.env.BASE_URL`；不提供环境变量入口，业务不复制前缀拼接器。内部页面导航使用 Router 的 `to`，回跳参数保存不含挂载前缀的逻辑路径；需重载文档时使用 Router 的 `reloadDocument`，品牌首页链接使用相同的 `BASE_URL`。
 
 API 保持 `/api`。单二进制由生成装配携带后台前缀，仅在前缀内回退 SPA，前缀外返回 404，站点根路径可交给独立前端。分离部署的静态服务器采用同样的挂载及回退边界。修改生产前缀须重建，不让构建读取部署运行配置。浏览器测试通过带前缀的 baseURL 和原生相对 URL 访问页面，API 使用 origin 绝对路径。

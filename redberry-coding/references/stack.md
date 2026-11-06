@@ -63,7 +63,7 @@ Bun 指 Go ORM。前端使用 Node 与 pnpm。
 | 纯逻辑 | Vitest Node |
 | TSX 组件 | Vitest Browser Mode + Playwright provider + vitest-browser-react |
 | 真实前后端 | Playwright Test |
-| 页面视觉 | Playwright 截图断言 |
+| 页面视觉 | Playwright 截图断言；标记 `@visual`，默认测试任务跳过，需在目标环境单独运行并更新基线 |
 
 统一管理配置与生命周期，默认零重试。拒绝未批准的 skip/todo、only 与空测试集合。统一入口同时校验退出码和结构化报告，确保必需测试层均已执行，框架异常、报告缺失或损坏均判为失败。
 
