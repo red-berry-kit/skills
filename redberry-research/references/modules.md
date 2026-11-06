@@ -113,7 +113,7 @@ deps:
 
 ## 模块身份与来源
 
-模块 ID 至少两级，形如 `组织名/模块名`（例如 `red-berry-kit/boot`、`example.com/shop/order`），且只用小写；单段 ID 无组织归属，直接拒绝。组织段带域名时按域名解释，不带域名时按组织名解释；配置分组名由组织段与模块名组成，规则见[模块配置](config.md#模块配置)。
+模块 ID 至少两级，形如 `组织名/模块名`；组织名带域名时必须再带组织段（`example.com/acme/shop`），`example.com/shop` 这类「域名+模块名」被拒绝（例如 `red-berry-kit/boot`、`example.com/acme/shop/order`），且只用小写；单段 ID 无组织归属，直接拒绝。组织段带域名时按域名解释，不带域名时按组织名解释；配置分组名由组织段与模块名组成，规则见[模块配置](config.md#模块配置)。
 
 来源只由清单 `registries` 声明的索引决定，不按模块 ID 推断仓库：
 

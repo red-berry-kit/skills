@@ -53,7 +53,7 @@ default_role = "member"
 
 Schema、时长与语义校验遵循下文[Schema 与校验](#schema-与校验)。
 
-配置组名由模块 ID 推导：去掉域名段与 `/vN` 后，其余段用 `.` 连接，例如 `github.com/redberry/user` → `[redberry.user]`、`red-berry-kit/boot` → `[red-berry-kit.boot]`、`example.com/shop` → `[shop]`。配置组名冲突直接报错，不自动改名，不引入额外别名配置；组名不改变完整模块 ID 的唯一标识职责。
+配置组名由模块 ID 推导：去掉域名段与 `/vN` 后，其余段用 `.` 连接，例如 `github.com/redberry/user` → `[redberry.user]`、`red-berry-kit/boot` → `[red-berry-kit.boot]`、`example.com/acme/shop` → `[shop]`。配置组名冲突直接报错，不自动改名，不引入额外别名配置；组名不改变完整模块 ID 的唯一标识职责。
 
 替代模块沿用目标模块的组织名、配置组名和配置契约。例如替代 `github.com/redberry/user` 后仍使用 `[redberry.user]`，不会因替代实现的组织或自身名称改变配置组名。替代实现新增的专属配置也放在该组内。统一 schema 根据实际选中的实现生成，不要求原模块与替代模块同时参与装配。
 
