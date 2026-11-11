@@ -21,4 +21,4 @@ description: Use when a preliminary Red Berry design or technology choice needs 
 
 输出：**候选与环境、逐项判据及结果、复现证据、适用限制、定案建议**，更新同一任务记录。必验项全部通过后才给出该范围的可行结论，交 `redberry-design` 定案，再进入计划；失败或缺项则保持初步方案状态，给出调整或补验去向。
 
-只评阅已有实验时说明没有重跑。只要求 POC 时在实验报告收尾。最终主方案保留有效决定，实验与失败材料放过程资料区。项目技术约束按需从[开发约定](references/conventions.md)查阅。
+只评阅已有实验时说明没有重跑。只要求 POC 时在实验报告收尾。最终主方案保留有效决定，实验与失败材料放过程资料区。项目技术约束按需从[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)查阅。

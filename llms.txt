@@ -1,0 +1,26 @@
+# Red Berry Skills
+
+> Red Berry 框架的 Agent Skills 入口与技术规范索引。任务流程在各 Skill 的 SKILL.md；规范正文位于 standards/，Skill 通过远程 URL 按需读取。
+
+## 规范
+
+- [开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md): 命名判据、原生优先、槽位与独立应用边界
+- [设计](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/design.md): 架构、Agent 文档入口与交付边界
+- [诊断](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/diagnostics.md): 用户错误反馈与开发诊断
+- [前端](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md): UI、Mantine、组件、按钮与菜单图标、时区
+- [国际化](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/i18n.md): 前后端翻译分工与语言状态
+- [技术选型](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/stack.md): 依赖与版本选择
+
+## Skills
+
+- [using-redberry](https://raw.githubusercontent.com/red-berry-kit/skills/main/using-redberry/SKILL.md): 阶段选择、任务恢复与交付入口
+- [redberry-requirements](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-requirements/SKILL.md): 需求澄清与验收条件
+- [redberry-research](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-research/SKILL.md): 技术事实与方案调研
+- [redberry-design](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-design/SKILL.md): 架构、接口与组件选型
+- [redberry-proof-of-concept](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-proof-of-concept/SKILL.md): 可行性实测与结论
+- [redberry-planning](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-planning/SKILL.md): 实施计划与依赖排序
+- [redberry-coding](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-coding/SKILL.md): 实现、生成接入与修复
+- [redberry-debugging](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-debugging/SKILL.md): 根因分析与排障
+- [redberry-verification](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-verification/SKILL.md): 验收、证据与复验
+- [redberry-code-review](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-code-review/SKILL.md): 需求、设计、规范与回归审查
+- [redberry-writing-module-docs](https://raw.githubusercontent.com/red-berry-kit/skills/main/redberry-writing-module-docs/SKILL.md): 模块 README.LLMS.md 使用约定与公共入口说明

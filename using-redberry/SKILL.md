@@ -5,7 +5,7 @@ description: Use when starting or continuing requirements, research, design, imp
 
 # 红莓开发入口
 
-按风险选择最短可验证路径。先核对项目 `AGENTS.md`、相关实现与当前任务摘要；复用已有授权、方案和有效证据。
+按风险选择最短可验证路径。维护任务先读取适用的 `AGENTS.md`，核对相关实现与当前任务摘要；使用项目能力时读取项目的使用说明；使用 Skills 时读取其 README 和 SKILL.md；复用已有授权、方案和有效证据。使用模块前，先读取该模块的 `README.LLMS.md`。
 
 ## 默认路径
 
@@ -15,6 +15,7 @@ description: Use when starting or continuing requirements, research, design, imp
 | --- | --- |
 | 范围或验收不清 | `redberry-requirements` |
 | 事实未知 | `redberry-research` |
+| 编写或修订模块 `README.LLMS.md` | `redberry-writing-module-docs` |
 | 职责、接口或选型变化 | `redberry-design` |
 | 可行性待实测 | `redberry-proof-of-concept` |
 | 任务有依赖 | `redberry-planning` |

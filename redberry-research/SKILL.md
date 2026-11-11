@@ -10,8 +10,8 @@ description: Use when a Red Berry decision depends on technical facts, existing 
 ## 执行
 
 1. 阅读相关实现、已定方案和历史实验，明确问题及决策标准。旧结论先核对版本、环境和范围，仍适用时复用。
-2. 按[原生优先](references/conventions.md#依赖原生模式优先)查当前版本对具体场景的完整推荐用法，不只检索孤立API是否存在。按项目约定使用文档与检索工具，优先官方文档、对应版本源码、发布记录，再结合实际采用案例。关键事实附具体来源和适用条件；来源冲突或资料缺失明确保留，不用宣传、星数或版本号替代适配证据。
-3. 前端行为及组件选型按[能力复用与 Hooks](references/frontend.md#能力复用与-hooks)先查 Mantine 与已有依赖，再查社区方案，保留适配及缺口依据。比较候选与现有能力，考虑需求匹配、维护状态、接入及运维成本。分别标记来源事实、项目推断和待实测假设；资料未说明某能力，只能判定证据不足。
+2. 按[原生优先](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#依赖原生模式优先)查当前版本对具体场景的完整推荐用法，不只检索孤立API是否存在。按项目约定使用文档与检索工具，优先官方文档、对应版本源码、发布记录，再结合实际采用案例。关键事实附具体来源和适用条件；来源冲突或资料缺失明确保留，不用宣传、星数或版本号替代适配证据。
+3. 前端行为及组件选型按[能力复用与 Hooks](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md#能力复用与-hooks)先查 Mantine 与已有依赖，再查社区方案，保留适配及缺口依据。比较候选与现有能力，考虑需求匹配、维护状态、接入及运维成本。分别标记来源事实、项目推断和待实测假设；资料未说明某能力，只能判定证据不足。
 
 完成条件：每个候选都带来源、适用条件与结论归属（事实／推断／待实测），结论能直接支持或否定一个待决方案。
 4. 对必须实测的问题，给出候选、目标环境、最小真实接入范围及通过/失败判据。没有条件执行时保留缺项，不把待验推荐升级为最终选型。
@@ -28,4 +28,4 @@ description: Use when a Red Berry decision depends on technical facts, existing 
 
 新方案交 `redberry-design`；初步设计已有、关键适配需实测时交 `redberry-proof-of-concept`，实测后返回设计定案。只要求查询或调研时在本阶段收尾，报告范围清楚即可，不自动安装依赖或实施方案。
 
-复用型材料存入项目已有过程资料区；主方案仅写最终有效规则。参考规范按需阅读[开发约定](references/conventions.md)。
+复用型材料存入项目已有过程资料区；主方案仅写最终有效规则。参考规范按需阅读[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)。
