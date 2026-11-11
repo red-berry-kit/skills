@@ -15,8 +15,8 @@
 ## 维护
 
 - `<skill-name>/SKILL.md`：流程源文件。`description` 用英文描述触发条件，正文中文。
-- `docs/`：随包技术规范的唯一维护源，自独立仓库已有规范快照迁入。项目本身的规则优先；不要再用旧模板仓库的打包脚本覆盖本仓库。
-- `<skill-name>/references/`：规范副本。带此目录的 Skill 通过同步脚本获得独立安装所需资料；`SKILL.md` 按任务触发条件引用包内资料，自包含 Skill 按自身说明使用。
+- `using-redberry/references/`：技术规范的唯一维护源，随入口 Skill 一起维护。
+- `<skill-name>/references/`：各 Skill 自包含的规范副本，由同步脚本从 `using-redberry/references/` 更新；`SKILL.md` 按任务触发条件读取包内资料。
 - `tests/workflow/`：行为验收场景和本次验证结果；不作为项目开发时的必读文件。
 
 规范变更后，在本仓库执行：

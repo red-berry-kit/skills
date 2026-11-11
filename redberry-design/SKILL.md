@@ -5,7 +5,7 @@ description: Use when a Red Berry change needs frontend component or hook select
 
 # 红莓设计
 
-输入为已明确需求、验收条件、现有架构和调研证据。形成可实施的行为方案；流程由 `using-redberry` 组织。涉及 UI 组件选型时，必须按[Mantine 与统一主题](references/frontend.md#ui-与样式)、[能力复用与 Hooks](references/frontend.md#能力复用与-hooks)、[组件选型](references/frontend.md#组件选型)及[按钮图标](references/frontend.md#按钮图标)确定适用专用组件，或记录不适配依据及替代交互。界面改版或指定参考案例时，读取[界面参考与用户文案](references/frontend.md#界面参考与用户文案)，确定可见内容、排版对照和有依据的差异。项目规则优先，涉及模块协作时读取[模块与依赖](references/modules.md)；涉及用户界面、用户可见的 API 消息或语言格式时读取[国际化契约](references/i18n.md)，明确前后端翻译分工、语言状态、资源归属及默认装配。
+输入为已明确需求、验收条件、现有架构和调研证据。形成可实施的行为方案；流程由 `using-redberry` 组织。涉及 UI 组件选型时，必须按[Mantine 与统一主题](references/frontend.md#ui-与样式)、[能力复用与 Hooks](references/frontend.md#能力复用与-hooks)、[组件选型](references/frontend.md#组件选型)、[按钮图标](references/frontend.md#按钮图标)与[菜单图标](references/frontend.md#菜单图标)确定适用专用组件，或记录不适配依据及替代交互。界面改版或指定参考案例时，读取[界面参考与用户文案](references/frontend.md#界面参考与用户文案)，确定可见内容、排版对照和有依据的差异。项目规则优先，涉及模块协作时读取[模块与依赖](references/modules.md)；涉及用户界面、用户可见的 API 消息或语言格式时读取[国际化契约](references/i18n.md)，明确前后端翻译分工、语言状态、资源归属及默认装配。
 
 涉及多个应用的资源、路由或交付时，按[独立应用边界](references/conventions.md#独立应用边界)核对声明驱动装配、应用命名、路径冲突与跨应用隔离。
 

@@ -10,9 +10,9 @@ def main():
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     root = Path(__file__).resolve().parent.parent
-    sources = sorted((root / "docs").glob("*.md"))
+    sources = sorted((root / "using-redberry" / "references").glob("*.md"))
     if not sources:
-        parser.error("docs/ 中没有规范源文件")
+        parser.error("using-redberry/references/ 中没有规范源文件")
     changed = []
     for skill in sorted(root.glob("*/SKILL.md")):
         destination = skill.parent / "references"

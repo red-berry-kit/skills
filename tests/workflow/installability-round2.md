@@ -36,7 +36,7 @@ Git HEAD 为 `257cee67469fafc7ff04001fc8a1298502fac3e0`，工作区含已有修�
 | 完成条件与阻断处理 | 测试全绿、安装证据缺失、开发者要求直接通过 | 通过。必需项缺失只能部分完成/受阻；不把自评、POC、测试数量或构建成功当正式验收；验收者不修实现，不降低判据 |
 | 静态有效性与引用副本一致 | 实际运行两个仓库脚本 | 通过。10 个 Skills、0 问题；0 漂移；均退出 0 |
 
-主要依据：[入口](../../using-redberry/SKILL.md)、[需求](../../redberry-requirements/SKILL.md)、[设计](../../redberry-design/SKILL.md)、[计划](../../redberry-planning/SKILL.md)、[编码](../../redberry-coding/SKILL.md)、[验收](../../redberry-verification/SKILL.md)、[审查](../../redberry-code-review/SKILL.md)、[模块交付契约](../../docs/modules.md#添加即用的交付契约)、[仓库与入口归属](../../docs/status.md)。本轮读取内容的带行号快照见 [原始审阅资料](installability-round2-evidence/reviewed-sources.txt)。
+主要依据：[入口](../../using-redberry/SKILL.md)、[需求](../../redberry-requirements/SKILL.md)、[设计](../../redberry-design/SKILL.md)、[计划](../../redberry-planning/SKILL.md)、[编码](../../redberry-coding/SKILL.md)、[验收](../../redberry-verification/SKILL.md)、[审查](../../redberry-code-review/SKILL.md)、[模块交付契约](../../using-redberry/references/modules.md#添加即用的交付契约)、[仓库与入口归属](../../using-redberry/references/status.md)。本轮读取内容的带行号快照见 [原始审阅资料](installability-round2-evidence/reviewed-sources.txt)。
 
 ## 给定行为场景的实际判断
 

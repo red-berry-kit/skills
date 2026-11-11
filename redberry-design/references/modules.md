@@ -31,7 +31,7 @@ CLI 同时识别旧的 `module.go`、`config.go`、`migration.go`、`check.go` �
 
 前端模块可在 `frontend/index.ts` 具名导出 `createProvider(context)`，返回 Provider 组件。CLI 生成 `.redberry/frontend/providers.tsx`，按依赖在外、消费方在内组合；应用入口在 render 外调用 `createModuleProviders(queryClient)`，在 UI 与 Query Provider 内统一挂载返回的 `ModuleProviders`。上下文提供生成 `api`、有限 `ui`、应用 `scope` 、`queryClient` 和可卸载请求扩展 `http`；模块用最小结构类型声明所需能力，生成调用负责静态兼容检查。无工厂的模块直接透传 children。工厂只定义组件，不获取资源；组件挂载／卸载管理资源，不在 render 中创建订阅或会话。应用主题可通过有限 UI 入口定制，旧应用升级需一次接入通用容器，不为每个模块增加专属装配。
 
-前端页面在路由 `staticData` 中声明 `layout`（省略时为 `workspace`，全屏需显式设为 `fullscreen`）及可选 `menu`（必填标题 `title`、可选顺序 `order`，省略顺序为 0，同序沿用路由装配顺序）。模块模板为普通页面生成菜单声明；未声明 `menu` 的页面不进入菜单，全屏页面也不进入工作台菜单。登录等全屏页不嵌套工作台。布局、菜单可见性与访问控制分别设计和验收，不把全屏或隐藏菜单当成权限声明。
+前端页面在路由 `staticData` 中声明 `layout`（省略时为 `workspace`，全屏需显式设为 `fullscreen`）及可选 `menu`（必填标题 `title`、可选顺序 `order`，省略顺序为 0，同序沿用路由装配顺序）；`icon` 为入口功能图标，同级图标互不相同，规则见[菜单图标](frontend.md#菜单图标)。模块模板为普通页面生成菜单声明；未声明 `menu` 的页面不进入菜单，全屏页面也不进入工作台菜单。登录等全屏页不嵌套工作台。布局、菜单可见性与访问控制分别设计和验收，不把全屏或隐藏菜单当成权限声明。
 
 模块专有 npm 依赖自行声明可解析的版本；只有平台已经提供的共同依赖才引用统一 catalog，不要求每个消费应用补模块私有 catalog 条目。
 
