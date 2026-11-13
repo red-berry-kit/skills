@@ -5,7 +5,7 @@ description: Use when a Red Berry project has errors, unexpected behavior, faili
 
 # 红莓排障
 
-输入为预期与实际行为、问题证据和当前实现。定位根因并确定修复边界，再交编码、验收与审查闭环；流程由 `using-redberry` 组织，技术约束按需读取[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)。
+根据预期与实际行为、问题证据和当前实现定位根因，确定修复边界；技术约束按需读取[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)。
 
 ## 执行
 
@@ -14,10 +14,17 @@ description: Use when a Red Berry project has errors, unexpected behavior, faili
 3. 沿实际数据流验证假设，每次检查一个关键因素。涉及共享状态、资源或公共机制时追踪其他读写入口，确定同类触发与受影响的不变量。库行为未知时交 `redberry-research` 查证。
 4. 形成最小修复方案，说明根因、修复位置、相关入口及回归场景。需要改变约定行为或模块接口时，分别交需求或设计阶段；不附带无关重构。
 
-完成条件：根因能一句话复述；失败判据在修复前可复现、修复后不再出现，回归场景覆盖受影响入口。
+完成条件：
+
+- 定位完成：根因能一句话复述，失败判据在修复前可复现，回归场景覆盖受影响入口。
+- 修复验收：后续编码、验收阶段确认失败判据在修复后不再出现；仅交付定位结果时标明尚待修复与验证。
 
 ## 出口与交接
 
-交付：**现象、失败判据与证据、已确认根因／待验证假设、修复范围、回归判据**，更新同一任务记录。根因和修法明确时直接交编码；只有技术事实或取舍未明时才交 `redberry-research`，已有依据有效时复用。其他故障在根因与修复方案明确且已获授权后，交 `redberry-planning` 安排工作（小修复可简写），再由 `redberry-coding` 实施、`redberry-verification` 按风险选择验证方式、`redberry-code-review` 复查。
+交付：**现象、失败判据与证据、已确认根因／待验证假设、修复范围、回归判据**，更新同一任务记录。
 
-原失败消失之外，还要核对受影响行为及必需检查；最小复现通过仅证明其范围。证据不足时继续取证，报告阻断与恢复条件。用户仅要求诊断时交付诊断结论，不自动改代码；用户已授权修复时，不因阶段切换重复询问。
+- 根因和修法明确时直接交 `redberry-coding`；技术事实或取舍未明时才交 `redberry-research`，复用仍有效的依据。
+- 其他故障在根因、修复方案明确且已获授权后，交 `redberry-planning` 安排工作（小修复可简写），再交 `redberry-coding` 实施、`redberry-verification` 按风险验证、`redberry-code-review` 复查。
+- 修复后核对原失败、受影响行为及必需检查；最小复现的结论限于其覆盖范围。
+- 证据不足时继续取证，报告阻断与恢复条件。
+- 用户仅要求诊断时交付诊断结论，不自动改代码；已授权修复时按原授权继续。

@@ -1,85 +1,96 @@
 # 技术选型
 
-本文汇总技术栈、版本和检查工具；组件接入细则随 ui 模块的 `README.LLMS.md`。
+选依赖、配置工具或执行工程检查时，使用本页的工具、版本和命令。模块及状态职责按[设计与架构](design.md)划分，具体场景的接入模式按[开发约定](conventions.md#依赖现有能力优先)核对。
 
 ## 后端
 
-| 职责 | 选择 |
+| 用途 | 固定选择 |
 | --- | --- |
+| 业务语言 | Go |
 | HTTP 路由 | chi |
-| 依赖注入与装配 | Uber Fx |
-| ORM | Bun ORM |
+| 依赖注入 | Uber Fx |
+| ORM | Bun ORM（不是 JavaScript 运行时） |
 | 默认数据库 | SQLite |
-| Go 接口生成 OpenAPI、HTTP 参数校验 | Huma |
-| 终端 CLI | github.com/urfave/cli/v3 |
-| 配置加载、合并与解码 | Koanf（底层使用 mapstructure/v2 解码） |
-| 配置 Schema 生成与结构校验 | Huma |
+| OpenAPI、HTTP 参数校验、配置 Schema | Huma |
+| CLI | github.com/urfave/cli/v3 |
+| 配置加载、合并与解码 | Koanf、mapstructure/v2 |
 | 日志 | Go 标准库 slog |
-
-Bun 指 Go ORM。前端使用 Node 与 pnpm。
 
 ## 前端
 
-| 职责 | 选择 |
+| 用途 | 固定选择 |
 | --- | --- |
+| 运行时与包管理 | Node、pnpm |
 | UI 与类型 | React、TypeScript、TSX |
 | 构建 | Vite |
-| 包管理 | pnpm |
 | 路由 | TanStack Router |
 | 服务端状态与缓存 | TanStack Query |
 | 表单状态 | TanStack Form |
 | 表单业务校验 | Zod |
 | 表格状态 | TanStack Table v9 |
 | 基础 UI | Mantine |
-| 日期与时间控件 | Mantine dates |
-| 日期控件格式与时间转换 | Day.js |
-| 内部样式 | CSS Modules |
+| 日期时间控件 | Mantine dates |
+| 日期格式与时间转换 | Day.js |
+| 样式 | Mantine 主题；ui 模块内部按需使用 CSS Modules，不引入 Tailwind CSS |
 
-ui 模块集中维护主题和公开组件入口，业务使用 TSX 组合界面。表单与表格使用各自统一的状态来源。样式采用 Mantine 主题与 CSS Modules，不引入 Tailwind CSS。
-
-## 项目任务
-
-项目根 `package.json` 的脚本提供 `dev`、`gen`、`check`、`test`、`build`、`build:split`。脚本只做转发，模块解析、安装、生成与任务编排由 Red Berry CLI 承担。
-
-## TypeScript
-
-统一使用 TypeScript 7.0.2，由根 pnpm catalog 精确固定，工作区声明使用 `catalog:`。严格校验 peer 与真实依赖树的单版本状态。根 `pnpm-workspace.yaml` 通过 `overrides` 将整个依赖树统一到 7.0.2，包括生成器的传递依赖，不保留另一份 TypeScript。
-
-编译器 API 检查（生成器的类型查询等）必须使用该版本的原生同步与语法树接口，语法树和类型查询来自同一项目快照并在结束时关闭 API 进程；不并行维护第二份解析器或旧版兼容分支。
+组件接法读取 ui 模块的 `README.LLMS.md`；[前端状态与公开入口](design.md#前端状态与公开入口)规定库之间的职责边界。
 
 ## API 客户端
 
-前端通过生成的类型化客户端访问 API，使用原生 Fetch 与 TanStack Query，不手写请求层。
+- **生成工具**：Huma 生成 OpenAPI，Orval 生成类型、原生 Fetch 调用与 TanStack Query 接入。
+- **调用方式**：业务按操作标识与类型化参数调用生成入口，所有部署形式统一使用 `/api` 同源相对路径，不手写请求层。
+- **运行依赖**：生成代码直接引用的依赖由项目显式声明；源码与生成边界按[装配约定](design.md#装配与工具职责)，校验边界按[接口与校验职责](design.md#接口与校验职责)执行。
 
-业务基于操作标识与类型化参数调用，统一使用 `/api` 同源路径。生成代码直接引用的运行依赖由项目显式声明；生成文件不手工修改。
+## TypeScript
 
-强校验覆盖代码、类型、规范与模块边界；客户端请求和响应不增加重复的 schema 校验。服务端输入校验、表单业务校验和 HTTP 错误处理各自承担职责。
+- **版本统一**：根 pnpm catalog 精确固定下表 TypeScript 版本，工作区声明使用 `catalog:`；根 `pnpm-workspace.yaml` 用 `overrides` 覆盖整个依赖树，包含生成器传递依赖。校验 peer 与真实依赖树仅有同一版本。
+- **编译器 API**：使用该版本提供的同步与语法树接口；语法树及类型查询来自同一项目快照，结束时关闭 API 进程，不并行维护第二份解析器或旧版兼容分支。
 
 ## 静态检查与格式
 
-| 工具 | 职责 |
+| 工具 | 检查对象 |
 | --- | --- |
-| 独立 tsc | 完整类型检查，启用 strict、exactOptionalPropertyTypes、noUncheckedIndexedAccess |
-| Oxlint / 类型感知规则 | 常见错误、异步使用、组件规则与可配置边界 |
-| Oxfmt | 统一代码格式 |
-| 统一边界检查 | 模块真实路径归属、静态可见的样式对象展开 |
+| 独立 tsc | 完整类型；启用 strict、exactOptionalPropertyTypes、noUncheckedIndexedAccess |
+| Oxlint／类型感知规则 | 常见错误、异步使用、组件规则与可配置边界 |
+| Oxfmt | 格式与导入等格式化规则 |
+| 统一边界检查 | 模块真实路径归属、依赖方向、公开入口、生成边界、UI 使用范围及静态可见的样式对象展开 |
 
-类型检查覆盖业务模块与生成代码。检查配置集中维护，业务不能自行关闭既定规则。Vite 构建和测试执行不代替 tsc。
+- **覆盖范围**：统一检查覆盖业务模块与生成代码；配置集中维护，业务不能自行关闭既定规则。
+- **独立执行**：Vite 构建和测试不能替代 tsc；边界静态检查统一接入 `redberry check`，检查不自动修复。
+- **人工判断**：名称语义、职责划分、抽象及设计取舍按对应规范评审；工具可检查的部分接入统一检查，调研、POC 与覆盖结论仍须有来源和实际验证证据。
 
 ## 自动测试
 
-| 层次 | 选择 |
+| 测试层 | 工具与执行要求 |
 | --- | --- |
 | 纯逻辑 | Vitest Node |
 | TSX 组件 | Vitest Browser Mode + Playwright provider + vitest-browser-react |
 | 真实前后端 | Playwright Test |
-| 页面视觉 | Playwright 截图断言；标记 `@visual`，默认测试任务跳过，需在目标环境单独运行并更新基线 |
+| 页面视觉 | Playwright 截图断言，标记 `@visual`；默认任务跳过，在目标环境单独执行并更新基线 |
 
-统一管理配置与生命周期，默认零重试。拒绝未批准的 skip/todo、only 与空测试集合。统一入口同时校验退出码和结构化报告，确保必需测试层均已执行，框架异常、报告缺失或损坏均判为失败。
+- **配置与生命周期**：统一管理测试配置与资源生命周期，默认零重试。
+- **执行完整性**：拒绝未批准的 skip/todo、only 与空测试集合；统一入口核对必需测试层、退出码及结构化报告。
+- **失败判定**：框架异常、报告缺失或损坏均判为失败，不以测试数量或单一退出码覆盖报告异常。
+
+## 项目任务
+
+通过项目根 `package.json` 的以下脚本执行任务；具体定义以目标项目为准。命令使用子命令在前、参数在后的写法。
+
+| 入口 | 用途与边界 |
+| --- | --- |
+| `dev` | 默认 dev 环境；后端手动重启，前端 Vite HMR |
+| `gen` | 执行项目生成入口 |
+| `check` | 执行统一检查 |
+| `test` | 执行统一测试 |
+| `build`、`build:split` | 按目标项目定义选择发布构建形式 |
+
+- **发布配置**：构建产物不携带运行配置，按上述构建入口选择发布形式。
+- **CI 顺序**：先恢复依赖和必要产物，再执行 `check` → `test` → `build`。
+- **任务归属**：脚本与 CLI 的分工按[装配与工具职责](design.md#装配与工具职责)执行。
 
 ## 工具版本
 
-项目采用以下版本，正式实现通过依赖清单与锁文件固定。
+项目统一维护以下版本，通过依赖清单与锁文件固定；业务模块声明自身依赖并共用根锁文件。
 
 | 依赖 | 版本 |
 | --- | --- |
@@ -97,5 +108,3 @@ ui 模块集中维护主题和公开组件入口，业务使用 TSX 组合界面
 | Oxlint / Oxfmt | 1.89.0 / 0.74.0 |
 | Vitest / Playwright Test | 5.0.5 / 1.64.1 |
 | vitest-browser-react | 2.3.0 |
-
-版本由项目统一维护，业务模块声明自身依赖并共用根锁文件。

@@ -5,20 +5,19 @@ description: Use when implementing or refactoring an agreed Red Berry change, in
 
 # 红莓编码
 
-输入为已明确需求、方案和实施安排。缺少关键行为或任务映射时分别交 `redberry-requirements`、`redberry-design` 或 `redberry-planning` 补齐；局部变更可直接引用已有约定。流程由 `using-redberry` 组织。
+按已明确需求、方案和实施安排编码。缺少关键行为或任务映射时分别交 `redberry-requirements`、`redberry-design` 或 `redberry-planning` 补齐；局部变更可直接引用已有约定。
 
 ## 执行
 
-1. 确认源码归属与生成边界，以目标项目规则为准，按范围读取[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)。
+1. 以目标项目规则为准，按[设计与架构](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/design.md)核对源码归属、公开入口、装配与校验边界；实现方法按[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)执行。
    - 命名按[命名判据](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#命名判据)自查；公开名称变更同步调用方、配置、生成来源与文档。
-   - 多个应用的路由、资源或交付按[独立应用边界](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#独立应用边界)装配。
-   - 选择或替换 UI 组件时，必须按所安装 ui 模块 `README.LLMS.md` 的全部前端使用规则落实适用专用组件；用通用组件须有可核验的不适配依据。
+   - 多个应用的路由、资源或交付按[独立应用边界](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/design.md#独立应用边界)装配。
+   - 前端新增或改造时，读取所安装 ui 模块 `README.LLMS.md` 的全部适用前端规则；按已确认的任务设计与选型实施，核对实际接入与决定一致。
    - 用户界面、用户可见 API 消息及语言格式按[国际化契约](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/i18n.md)落实前后端规范。
    - 邻近风格与语言惯例优先，跨模块只通过公开入口协作。
 2. 按依赖现有能力实现：
-   - 按[原生优先](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#依赖原生模式优先)查当前版本推荐用法、完整示例与已有机制，确认接入模式后再安排实现；原生方案缺口明确后才自行补充。
+   - 按[依赖现有能力优先](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#依赖现有能力优先)查当前版本推荐用法、完整示例与已有机制，确认接入模式后再安排实现；依赖提供的方案缺口明确后才自行补充。
    - 按[行为过程与生命周期](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#行为过程与生命周期)推演触发到收尾的行为链，再安排状态与更新顺序。
-   - 新增表单、调整布局或给已有页面加字段／操作时，先按 ui 模块 `README.LLMS.md` 的表单整体设计定任务与布局，再核对组件选型；复用依据与本次任务匹配后实施，缺失部分先补齐。
    - 按计划小步实现完整行为，保留验收对应；实施后核对接入与决定一致。
    - 故障修复先确认失败判据再改根因；新行为按风险建立可观察的回归验证。
    - 共享逻辑改动追踪调用方；超出既定接口或状态方案时返回设计。
@@ -28,7 +27,7 @@ description: Use when implementing or refactoring an agreed Red Berry change, in
    - 生成产物的问题改在源码、生成输入或官方配置，再从项目现有生成入口重跑并核对差异。
    - 同步验证副本按项目机制处理，只作查阅。
    - 接口、迁移、配置与版本变化同步所属模块说明、调用方及相关测试。
-4. 从实际脚本或工具帮助中选择命令，执行项目必需检查：
+4. 按[技术选型](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/stack.md)核对工具与版本，从实际脚本或工具帮助中选择命令，执行项目必需检查：
    - 格式、静态、编译与独立类型检查；构建和测试不能替代独立类型检查。
    - 本次行为与边界的相关测试。
    - 已有有效证据可复用。
@@ -38,6 +37,11 @@ description: Use when implementing or refactoring an agreed Red Berry change, in
 
 ## 出口与交接
 
-实现与生成产物一致、局部检查已有证据后，更新任务记录，按 `redberry-verification` 选择验收方式：小改动由当前 agent 完成针对性验证和复查；需要独立验收时交接源码与原始证据，再交审查，不替验收者预填结论。编码完成不等于整体任务完成。遇到失败进入 `redberry-debugging`，修复后回到原验收条件；来自验收或审查的问题按 `using-redberry` 闭环处理。必需检查受阻时明确阻断并继续独立工作。
+实现与生成产物一致、局部检查已有证据后：
+
+- 更新任务记录，按 `redberry-verification` 选择验收方式，验收与复查完成前仅标记编码完成。
+- 小改动由当前 agent 针对性验证和复查；需要独立验收时交接源码与原始证据，再交审查，不替验收者预填结论。
+- 遇到失败进入 `redberry-debugging`，修复后按原验收条件验证；验收或审查问题按 `using-redberry` 处理。
+- 必需检查受阻时明确阻断并继续独立工作。
 
 低风险文案或等价局部修改核对实际差异及适当现有检查，无需新增镜像实现的测试。只交付计划、代码草案或未执行的验证安排时，按实际状态说明交付范围。
