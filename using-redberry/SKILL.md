@@ -15,7 +15,7 @@ description: Use when starting or continuing requirements, research, design, imp
 | --- | --- |
 | 范围或验收不清 | `redberry-requirements` |
 | 事实未知 | `redberry-research` |
-| 编写或修订模块 `README.LLMS.md` | `redberry-writing-module-docs` |
+| 编写或修订模块 `README.LLMS.md` | `redberry-writing-readme-llms` |
 | 职责、接口或选型变化 | `redberry-design` |
 | 可行性待实测 | `redberry-proof-of-concept` |
 | 任务有依赖 | `redberry-planning` |
@@ -28,7 +28,7 @@ description: Use when starting or continuing requirements, research, design, imp
 
 ## 验证与修复
 
-验收方式以 `redberry-verification` 为准。默认当前 agent 验证；高风险或明确要求独立验收时再派发。实现者与验收者分工，避免双方重复执行同一套检查。
+验收方式与分流判据以 `redberry-verification` 为准。实现者与验收者分工，避免双方重复执行同一套检查。
 
 发现问题后：
 

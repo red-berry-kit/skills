@@ -5,7 +5,7 @@ description: Use when a Red Berry implementation needs acceptance testing, compl
 
 # 红莓实现验收
 
-验证当前实现是否满足约定行为。输入为验收条件、实施范围、当前源码与环境、原始检查证据。可独立用于已有实现；整体流程及修复闭环由 `using-redberry` 组织。代码审查检查实现与风险，验收检查可观察行为和证据，两者互相补充。
+验证当前实现是否满足约定行为。输入为验收条件、实施范围、当前源码与环境、原始检查证据。可独立用于已有实现；流程由 `using-redberry` 组织。代码审查检查实现与风险，验收检查可观察行为和证据，两者互相补充。
 
 ## 选择验收方式
 
@@ -28,9 +28,9 @@ description: Use when a Red Berry implementation needs acceptance testing, compl
 
 ## 执行
 
-1. 前端任务先按[选型闭环](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md#组件选型)分开建立“适配核对”和“行为实测”两类判据；两者各有结果和依据，任一必需项缺失不得用另一类通过覆盖。涉及表单时执行[表单整体设计](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md#表单整体设计)的设计验收，以任务组织、布局及状态的实际证据判断完成。建立对应表：**验收条件／实际入口与场景／验证方式／结果／证据**。结果区分通过、失败、未执行及有理由的不适用。涉及界面、用户可见的 API 消息或语言格式时，交接材料须包含项目 i18n 约定及语言范围，据此安排受影响前后端消息、格式和装配的实际验收；缺少约定时返回需求阶段明确。先核对范围完整性，再判断结果；缺少判据时返回需求阶段，不能按现有测试反向缩小需求。
+1. 前端任务先按所安装 ui 模块 `README.LLMS.md` 的全部前端使用规则，分开建立“适配核对”和“行为实测”两类判据；两者各有结果和依据，任一必需项缺失不得用另一类通过覆盖。涉及表单时把该文档表单整体设计的设计验收列为判据，以任务组织、布局及状态的实际证据判断完成。涉及参考界面时把该文档界面参考与用户文案的核对列为判据。建立对应表：**验收条件／实际入口与场景／验证方式／结果／证据**。结果区分通过、失败、未执行及有理由的不适用。涉及界面、用户可见的 API 消息或语言格式时，交接材料须包含项目 i18n 约定及语言范围，据此安排受影响前后端消息、格式和装配的实际验收；缺少约定时返回需求阶段明确。先核对范围完整性，再判断结果；缺少判据时返回需求阶段，不能按现有测试反向缩小需求。
 2. 按[原生优先](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#依赖原生模式优先)分别核对接入模式与行为证据。核对已有原始证据对应的源码、配置、依赖、环境和用例，由验收者决定哪些不受影响的检查可复用并写明理由。实现、配置或环境发生相关变化时，本轮实际执行受影响的关键验收场景；修复后必须重验原失败、受影响部分和必要回归。仅补选型依据且被测实现与环境未变时，实际核对补充依据，可复用仍有效的行为证据，不为补文档机械重跑页面。实现者的“全部通过”摘要不构成验收证据。构建、类型检查、局部测试、POC 和生产环境验证分别说明范围，不能相互替代。
-3. 从项目实际任务入口执行必需检查及风险相关测试。新增或改变可复用模块的默认装配与核心能力时，必须在干净应用通过真实 CLI 添加，只填必要配置即可运行核心能力；记录人工改动，API 映射、Provider 等模块专属接线不能算配置。已有 examples 不能替代安装验收；本地来源或隔离版本夹具注明覆盖范围。涉及 UI 组件时，按[Mantine 与统一主题](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md#ui-与样式)、[能力复用与 Hooks](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md#能力复用与-hooks)、[组件选型](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md#组件选型)、[按钮图标](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md#按钮图标)与[菜单图标](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/frontend.md#菜单图标)核对适用专用组件或不适配依据；按第2项判定需要重验时，实际操作关键能力，必需项缺失不能判通过。界面逐屏对照参考与需求，检查标题层级和排版、未经要求的提示／副标题及内部流程页面；窄屏结合截图与关键元素边界确认内容完整，不只看滚动宽度。按[行为过程与生命周期](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#行为过程与生命周期)验证用户操作到最终状态的真实调用链，观察适用的关键过渡与再次使用；涉及共享机制时，检查所有受影响入口是否有验收覆盖。按变化选择失败、恢复、并发或持久化场景，不机械要求每类任务都做全套测试。涉及操作、请求或后端执行时，按[错误反馈与诊断](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/diagnostics.md#验收)分别验证正常操作错误、程序／依赖故障和性能耗时；记录实际界面与日志结果。
+3. 从项目实际任务入口执行必需检查及风险相关测试。新增或改变可复用模块的默认装配与核心能力时，必须在干净应用通过真实 CLI 添加，只填必要配置即可运行核心能力；记录人工改动，API 映射、Provider 等模块专属接线不能算配置。已有 examples 不能替代安装验收；本地来源或隔离版本夹具注明覆盖范围。按第1项建立的判据与实际入口核对 UI 适配，按第2项判定需要重验时实际操作关键能力；必需项缺失不能判通过。界面逐屏对照参考与需求，检查标题层级和排版、未经要求的提示／副标题及内部流程页面；窄屏结合截图与关键元素边界确认内容完整，不只看滚动宽度。按[行为过程与生命周期](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#行为过程与生命周期)验证用户操作到最终状态的真实调用链，观察适用的关键过渡与再次使用；涉及共享机制时，检查所有受影响入口是否有验收覆盖。按变化选择失败、恢复、并发或持久化场景，不机械要求每类任务都做全套测试。涉及操作、请求或后端执行时，按[错误反馈与诊断](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/diagnostics.md#验收)分别验证正常操作错误、程序／依赖故障和性能耗时；记录实际界面与日志结果。
 4. 对失败、覆盖缺口或可疑结果记录编号、对应判据、预期与实际、复现条件和原始证据，交回主 agent 按 `using-redberry` 的修复闭环处理。验收者不边修边宣告通过；测试修订必须保持业务判据，不能删除失败用例或降低约定来获得绿色结果。
 5. 环境不足时先检查已有配置能否提供不干扰用户服务的独立验证方式。可用替代环境只证明其范围；记录仍缺的条件、受影响验收项与恢复步骤。只清理本次创建的资源。
 

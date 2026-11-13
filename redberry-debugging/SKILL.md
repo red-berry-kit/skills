@@ -5,7 +5,7 @@ description: Use when a Red Berry project has errors, unexpected behavior, faili
 
 # 红莓排障
 
-输入为预期与实际行为、问题证据和当前实现。定位根因并确定修复边界，再交编码、验收与审查闭环；整体流程由 `using-redberry` 组织，技术约束按需读取[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)。
+输入为预期与实际行为、问题证据和当前实现。定位根因并确定修复边界，再交编码、验收与审查闭环；流程由 `using-redberry` 组织，技术约束按需读取[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)。
 
 ## 执行
 

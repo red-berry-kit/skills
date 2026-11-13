@@ -5,7 +5,7 @@ description: Use when a Red Berry feature needs requirements clarified, its scop
 
 # 红莓需求澄清
 
-把用户目标转为可验收行为。输入为用户请求、现有实现、项目约束和已确认决定；已明确的内容直接复用。流程由 `using-redberry` 组织；单独调用时交付需求结果，不擅自进入实现。
+把用户目标转为可验收行为。输入为用户请求、现有实现、项目约束和已确认决定；已明确的内容直接复用。流程由 `using-redberry` 组织。单独调用时交付需求结果，不擅自进入实现。
 
 ## 执行
 

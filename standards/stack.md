@@ -1,6 +1,6 @@
 # 技术选型
 
-本文汇总技术栈、版本和检查工具；组件接入见[前端开发](frontend.md)。
+本文汇总技术栈、版本和检查工具；组件接入细则随 ui 模块的 `README.LLMS.md`。
 
 ## 后端
 
@@ -35,7 +35,7 @@ Bun 指 Go ORM。前端使用 Node 与 pnpm。
 | 日期控件格式与时间转换 | Day.js |
 | 内部样式 | CSS Modules |
 
-基础 UI 集中维护主题和有限组件入口，业务使用 TSX 组合界面。表单与表格使用各自统一的状态来源。 样式采用 Mantine 主题与 CSS Modules，不引入 Tailwind CSS。
+ui 模块集中维护主题和公开组件入口，业务使用 TSX 组合界面。表单与表格使用各自统一的状态来源。样式采用 Mantine 主题与 CSS Modules，不引入 Tailwind CSS。
 
 ## 项目任务
 
@@ -43,7 +43,17 @@ Bun 指 Go ORM。前端使用 Node 与 pnpm。
 
 ## TypeScript
 
-统一使用 TypeScript 7.0.2，由根 pnpm catalog 精确固定，工作区声明使用 `catalog:`。严格校验 peer 与真实依赖树的单版本状态；编译器 API 检查器采用 TypeScript 7 原生 `typescript/unstable/sync` 与 `typescript/unstable/ast`；语法树和类型查询来自同一原生项目快照，结束时关闭 API 进程。根 `pnpm-workspace.yaml` 通过 `overrides` 将整个依赖树统一到 7.0.2，包括生成器的传递依赖，不保留另一份 TypeScript。
+统一使用 TypeScript 7.0.2，由根 pnpm catalog 精确固定，工作区声明使用 `catalog:`。严格校验 peer 与真实依赖树的单版本状态。根 `pnpm-workspace.yaml` 通过 `overrides` 将整个依赖树统一到 7.0.2，包括生成器的传递依赖，不保留另一份 TypeScript。
+
+编译器 API 检查（生成器的类型查询等）必须使用该版本的原生同步与语法树接口，语法树和类型查询来自同一项目快照并在结束时关闭 API 进程；不并行维护第二份解析器或旧版兼容分支。
+
+## API 客户端
+
+前端通过生成的类型化客户端访问 API，使用原生 Fetch 与 TanStack Query，不手写请求层。
+
+业务基于操作标识与类型化参数调用，统一使用 `/api` 同源路径。生成代码直接引用的运行依赖由项目显式声明；生成文件不手工修改。
+
+强校验覆盖代码、类型、规范与模块边界；客户端请求和响应不增加重复的 schema 校验。服务端输入校验、表单业务校验和 HTTP 错误处理各自承担职责。
 
 ## 静态检查与格式
 

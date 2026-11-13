@@ -1,11 +1,22 @@
 ---
-name: redberry-writing-module-docs
-description: Use when creating or revising a Red Berry module's README.LLMS.md, or when its agent-facing usage document mixes conventions with introductions, implementation explanations, or API details.
+name: redberry-writing-readme-llms
+description: Use when creating or revising a Red Berry module's README.LLMS.md, or when its content mixes conventions with introductions, implementation explanations, API details, or other modules and application layers.
 ---
 
-# 模块使用规范编写
+# 模块 README.LLMS.md 编写
 
 `README.LLMS.md` 面向使用模块的 Agent，正文是**本模块的使用约定，配相关公共入口的短注与代码链接**。按使用能力组织，不按源码目录展开。
+
+## 只写本模块
+
+正文只回答“使用本模块必须遵守什么、调用哪些公共入口”。本模块之外的内容一律不写入：
+
+- 其他模块的职责、能力、行为与接法。调用方需要与它们配合时，写成对本模块使用者的要求，不描述对方如何实现或如何装配。
+- 应用层的职责：应用如何组织入口、路由、运行环境、偏好作用域与部署，由应用与其自身的 `AGENTS.md` 维护。
+- 框架通用流程、跨模块开发原则与技术选型，沿用其原有来源，不在此复述。
+- 实现原理、内部机制、未提供能力的清单，以及源码目录组织。
+
+出现其他模块或应用层名称而无法改写成调用方条件时，删除该内容；需要使用者知道的衔接事实，改用“调用方必须提供……”表述。
 
 ## 内容归属
 
@@ -14,7 +25,7 @@ description: Use when creating or revising a Red Berry module's README.LLMS.md, 
 - 代码声明及详细注释：类型签名、参数、字段、配置项、命令项、默认值、边界处理及具体示例。
 - `AGENTS.md`：源码维护与验证要求。
 
-使用规范只写本模块的约定。框架通用流程和已有开发原则沿用其原有来源；技术选型、实现原理、未提供能力的清单不进入使用正文。统一称呼使用模块的实际名称。
+统一称呼使用模块的实际名称。
 
 ## 统一格式
 
@@ -24,7 +35,7 @@ description: Use when creating or revising a Red Berry module's README.LLMS.md, 
 - `约定：`：独立一行，空一行后用 `- ` 列出具体规则。
 - `公共入口：`：独立一行，空一行后用 `- ` 列出入口，每条为名称链接、中文冒号和用途短注。
 
-标题、标记和列表之间留一个空行。统一使用这两个标记，不替换成过渡句、公共方法等变体；场景限定写入具体规则。没有独立规则或入口的内容并入相关能力，不添加空章节。入口指向实际声明文件，名称需要消歧时加包名。
+标题、标记和列表之间留一个空行。统一使用这两个标记，不替换成过渡句、公共方法等变体；场景限定写入具体规则。没有独立规则或入口的内容并入相关能力，不添加空章节；没有独立入口的节不补 `公共入口：`。入口指向实际声明文件，名称需要消歧时加包名。
 
 ## 编写
 
@@ -33,7 +44,7 @@ description: Use when creating or revising a Red Berry module's README.LLMS.md, 
 3. **就近列公共入口。** 每条只放方法或类型名称、用途短注、指向实际声明文件的相对链接。同一能力的相关入口可以合并；不抄签名、结构体、逐项参数值或示例代码。正文只命名使用者需要显式调用或声明的入口；自动执行的内部钩子留在代码中，不列名解释其执行过程。
 4. **把详细接法留给代码。** 注释足以指导使用时直接链接；注释缺失时在有授权的源码范围补齐，保留实现行为。不能用扩大使用文档来掩盖代码注释不足，也不能仅让正文跳转到 README。
 
-完成条件：读者能据正文判断应遵守的规则，再从就近链接找到具体接法，无需了解实现过程；每条规则有来源，每个入口有实际用途。
+完成条件：读者能据正文判断应遵守的规则，再从就近链接找到具体接法，无需了解实现过程；每条规则有来源，每个入口有实际用途；正文没有出现其他模块或应用层的做法。
 
 ## 写法示意
 
@@ -43,7 +54,8 @@ description: Use when creating or revising a Red Berry module's README.LLMS.md, 
 
 ## 验证
 
-- 逐节核对统一格式：能力标题、`约定：` 规则列表、`公共入口：` 链接列表的顺序与写法一致。
+- 逐节核对：全部内容是否都在回答“使用本模块必须遵守什么”，有无介绍、原理、未提供能力清单或其他模块与应用层的做法；发现即删除或改写为调用方条件。
+- 逐节核对统一格式：能力标题、`约定：` 规则列表、`公共入口：` 链接列表的顺序与写法一致；没有独立入口的节不补 `公共入口：`。
 - 逐节核对：是使用约定，还是技术介绍、内部机制或源码细节的复述？正文保留前者，细节归代码。
 - 约定具体且可检查，公共入口简短可达；文档既不是代码目录，也不是 API 参考手册。
 - 规则与实际行为一致，必要安全及失败约束仍在；不因精简把尚未保证的行为写成承诺。

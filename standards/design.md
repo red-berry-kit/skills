@@ -42,7 +42,7 @@ CLI 管理源码、版本、工作区和装配输入，依赖注入负责对象�
 
 API 以 Go 类型及接口注册为来源，经 Huma 生成 OpenAPI，再由 Orval 生成类型、Fetch 调用与 Query 接入。前端各部署形式统一使用 `/api` 相对路径，不手改生成代码。
 
-前端使用 React / TSX 与 Mantine 的有限公共入口。主题、布局语义和静态边界约束风格；Router、Query、Form、Table 分别承担自己的状态职责，日期与错误处理沿用现有组件能力，见[前端开发](frontend.md)。
+前端使用 React / TSX，通过 ui 模块的公开入口组合界面。主题、布局语义和静态边界约束风格；Router、Query、Form、Table 分别承担自己的状态职责，日期与错误处理沿用现有组件能力，细则随 ui 模块的 `README.LLMS.md`。
 
 强校验针对代码、类型、规范和模块边界，不要求客户端重复执行请求、响应 Schema 校验。服务端输入校验与表单业务校验保留各自职责。
 
@@ -50,11 +50,11 @@ API 以 Go 类型及接口注册为来源，经 Huma 生成 OpenAPI，再由 Orv
 
 ### Agent 文档入口
 
-`AGENTS.md` 维护源码修改约束与验证要求，`README.md` 介绍模块，`README.LLMS.md` 维护使用约定和公共入口简注；详细接法放在代码注释中。编写使用说明时使用 `redberry-writing-module-docs`。这些文档归所属源码维护。
+`AGENTS.md` 维护源码修改约束与验证要求，`README.md` 介绍模块，`README.LLMS.md` 维护使用约定和公共入口简注；详细接法放在代码注释中。编写使用说明时使用 `redberry-writing-readme-llms`。这些文档归所属源码维护。
 
-Skill 以 `SKILL.md` 描述任务流程，并按需配套脚本；通用开发原则集中在本仓库 `standards/`，由 `llms.txt` 提供索引。模块的公开类型、调用示例、配置和交付说明不在 Skills 中复制，也不另设逐项跳转文档。
+Skill 以 `SKILL.md` 描述任务流程，并按需配套脚本；通用开发原则集中在本仓库 `standards/`，以该目录本身为索引。模块的公开类型、调用示例、配置和交付说明不在 Skills 中复制，也不另设逐项跳转文档。
 
-`llms.txt` 遵循 llms.txt 格式：标题、摘要、规范与 Skills 分组链接，只提供索引，不实现自动加载。用户自行安装和更新 Skill 包；安装位置与自动发现行为取决于所用 Agent 客户端。
+规范以 `standards/` 下的专题页组织，Skills 目录以 `README.md` 与各 `SKILL.md` 为入口，不实现自动加载。用户自行安装和更新 Skill 包；安装位置与自动发现行为取决于所用 Agent 客户端。
 
 ### 开发工具入口
 
