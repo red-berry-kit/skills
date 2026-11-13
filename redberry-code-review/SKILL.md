@@ -16,13 +16,13 @@ description: Use when reviewing Red Berry code for requirement compliance, desig
    - 按[行为过程与生命周期](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#行为过程与生命周期)追踪输入、调用、过渡状态、收尾与结果；核对消费者所需数据的清理时机、完成条件与后续回调的一致性。
    - 检查受影响的模块职责、公开接口、依赖、不变量及失败行为。共享机制检查相关调用入口；复查覆盖修复新影响的行为。
    - 涉及失败处理或后端执行时，按[错误反馈与诊断](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/diagnostics.md)检查用户纠正／恢复、故障定位及耗时查询；错误漏报和正常拒绝产生诊断噪声均列为必修问题。
-3. 按[设计与架构](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/design.md)核对职责与生成边界，按[技术选型](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/stack.md)核对工具、版本及工程检查：
+3. 按[设计与架构](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/design.md)核对职责与生成边界，根据目标项目的依赖声明、锁文件和任务入口核对工具、版本及工程检查：
    - 按[依赖现有能力优先](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#依赖现有能力优先)检查实际状态流、组合方式与生命周期是否遵循适配的官方模式，复用工具已有结果。
-   - 前端变更按所安装 ui 模块 `README.LLMS.md` 的全部适用前端规则核对任务设计、能力选型与实际接入；涉及参考界面时按其参考与文案规则核对差异依据。选型与行为证据按第4项检查。
+   - 涉及模块能力时，读取实际安装版本的 `README.LLMS.md`，按全部适用使用契约核对设计、选型与接入；用户指定参考时核对差异依据。选型与行为证据按第4项检查。
    - 界面、用户可见 API 消息或语言格式对照[国际化契约](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/i18n.md)核查实现与验收覆盖，定位遗漏的消息、格式或资源装配。
    - 代码与配置名称及界面文案按[命名判据](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#命名判据)检查是否从使用场景表达目的、利用上下文省去重复限定、术语贯通调用链；语义错误与歧义列问题，个人词形偏好归可选建议，未查明的风险记待核实。
 4. 核对验收条件与证据：
-   - 从需求约束重新核对能力适配与行为证据，分别报告结果；复用结论须覆盖本次变化。缺少适用候选或排除依据时先补查，不以功能通过判定适配合格；遗漏适用能力且无充分不适配依据的列为必修问题。前端按 ui 模块规范的选型、整体设计及验收判据核对。
+   - 从需求约束重新核对能力适配与行为证据，分别报告结果；复用结论须覆盖本次变化。缺少适用候选或排除依据时先补查，不以功能通过判定适配合格；遗漏适用能力且无充分不适配依据的列为必修问题。按受影响模块的契约核对选型、整体设计及验收判据。
    - 可复用模块对照交付契约检查默认装配及干净消费应用的 CLI 安装证据；模块专属接线仅在 examples 中提供的列为交付缺陷。
    - 核对源码、环境与用例是否匹配，记录缺失场景及失败；必要时针对性复现。按实际覆盖范围报告结果，不以测试数量证明覆盖。
 5. 按影响排序报告问题，每项附**位置、触发条件、影响、证据、修复或复查方向**。复用原问题清单记录已修、仍存或待验，避免重复报同一根因。

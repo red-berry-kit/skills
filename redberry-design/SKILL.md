@@ -7,7 +7,7 @@ description: Use when a Red Berry change needs frontend component or hook select
 
 根据已明确需求、验收条件、现有架构和调研证据制定行为方案，项目规则优先：
 
-- 前端新增或改造时，读取所安装 ui 模块 `README.LLMS.md` 的全部适用前端规则；按其任务设计、选型及完成条件形成实施依据。涉及参考界面时，核对实际参考与需求，记录采用方式和有依据的差异。
+- 涉及模块能力时，读取实际安装版本的 `README.LLMS.md`；按全部适用使用契约、选型及完成条件形成实施依据。用户指定参考时，核对实际参考与需求，记录采用方式和有依据的差异。
 - 用户界面、用户可见 API 消息或语言格式读取[国际化契约](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/i18n.md)，明确前后端翻译分工、语言状态、资源归属及默认装配。
 
 涉及多个应用的资源、路由或交付时，按[独立应用边界](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/design.md#独立应用边界)核对声明驱动装配、应用命名、路径冲突与跨应用隔离。

@@ -12,7 +12,7 @@ description: Use when implementing or refactoring an agreed Red Berry change, in
 1. 以目标项目规则为准，按[设计与架构](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/design.md)核对源码归属、公开入口、装配与校验边界；实现方法按[开发约定](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md)执行。
    - 命名按[命名判据](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/conventions.md#命名判据)自查；公开名称变更同步调用方、配置、生成来源与文档。
    - 多个应用的路由、资源或交付按[独立应用边界](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/design.md#独立应用边界)装配。
-   - 前端新增或改造时，读取所安装 ui 模块 `README.LLMS.md` 的全部适用前端规则；按已确认的任务设计与选型实施，核对实际接入与决定一致。
+   - 使用或调整模块能力时，读取实际安装版本的 `README.LLMS.md`，执行全部适用使用契约；按已确认的设计与选型实施，核对实际接入与决定一致。
    - 用户界面、用户可见 API 消息及语言格式按[国际化契约](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/i18n.md)落实前后端规范。
    - 邻近风格与语言惯例优先，跨模块只通过公开入口协作。
 2. 按依赖现有能力实现：
@@ -27,7 +27,7 @@ description: Use when implementing or refactoring an agreed Red Berry change, in
    - 生成产物的问题改在源码、生成输入或官方配置，再从项目现有生成入口重跑并核对差异。
    - 同步验证副本按项目机制处理，只作查阅。
    - 接口、迁移、配置与版本变化同步所属模块说明、调用方及相关测试。
-4. 按[技术选型](https://raw.githubusercontent.com/red-berry-kit/skills/main/standards/stack.md)核对工具与版本，从实际脚本或工具帮助中选择命令，执行项目必需检查：
+4. 从目标项目的依赖声明、锁文件、实际脚本及工具帮助核对工具、版本和命令，执行项目必需检查：
    - 格式、静态、编译与独立类型检查；构建和测试不能替代独立类型检查。
    - 本次行为与边界的相关测试。
    - 已有有效证据可复用。
